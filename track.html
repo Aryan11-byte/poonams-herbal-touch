@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Track Order</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.progress{
+width:80%;
+margin:auto;
+margin-top:50px;
+}
+
+.step{
+padding:10px;
+margin:10px;
+background:#ddd;
+border-radius:5px;
+}
+
+.active{
+background:#4CAF50;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Track Your Order</h1>
+
+<input type="text" id="orderId" placeholder="Enter Order ID">
+
+<button onclick="trackOrder()">Track</button>
+
+<div class="progress">
+
+<div id="step1" class="step">Order Placed</div>
+<div id="step2" class="step">Packed</div>
+<div id="step3" class="step">Shipped</div>
+<div id="step4" class="step">Out for Delivery</div>
+<div id="step5" class="step">Delivered</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
