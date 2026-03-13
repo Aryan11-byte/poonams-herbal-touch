@@ -69,13 +69,27 @@ cartList.appendChild(li);
 
 function placeOrder(){
 
-let name = document.getElementById("name").value;
+let name=document.getElementById("name").value;
 
-let address = document.getElementById("address").value;
+let address=document.getElementById("address").value;
 
-let phone = document.getElementById("phone").value;
+let phone=document.getElementById("phone").value;
 
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
+let orderId="PHT"+Math.floor(Math.random()*100000);
+
+db.collection("orders").add({
+
+orderId:orderId,
+customerName:name,
+deliveryAddress:address,
+phoneNumber:phone,
+status:"Order Placed"
+
+});
+
+alert("Order placed successfully");
+
+}
 
 /* GENERATE ORDER ID */
 
@@ -227,3 +241,4 @@ container.appendChild(div);
 });
 
 }
+
