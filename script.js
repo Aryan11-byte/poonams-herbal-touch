@@ -190,4 +190,40 @@ localStorage.setItem("orders",JSON.stringify(orders));
 
 location.reload();
 
+
+}
+if(document.getElementById("orders")){
+
+db.collection("orders").onSnapshot((snapshot)=>{
+
+let container=document.getElementById("orders");
+
+container.innerHTML="";
+
+snapshot.forEach((doc)=>{
+
+let order=doc.data();
+
+let div=document.createElement("div");
+
+div.className="order-card";
+
+div.innerHTML=
+
+"<div class='order-title'>Order ID: "+order.orderId+"</div>"+
+
+"<b>Name:</b> "+order.customerName+"<br>"+
+
+"<b>Address:</b> "+order.deliveryAddress+"<br>"+
+
+"<b>Phone:</b> "+order.phoneNumber+"<br>"+
+
+"<b>Status:</b> "+order.status+"<br>";
+
+container.appendChild(div);
+
+});
+
+});
+
 }
