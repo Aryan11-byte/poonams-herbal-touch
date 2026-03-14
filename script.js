@@ -1,9 +1,13 @@
-/* CART SYSTEM */
+/* =========================
+   CART SYSTEM
+========================= */
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
-/* ADD TO CART */
+/* =========================
+   ADD TO CART
+========================= */
 
 function addToCart(product, price){
 
@@ -21,13 +25,20 @@ alert(product + " added to cart");
 }
 
 
-/* SHOW CART ITEMS */
+/* =========================
+   SHOW CART ITEMS
+========================= */
 
 document.addEventListener("DOMContentLoaded", function(){
 
 let cartList = document.getElementById("cartItems");
 
 if(cartList){
+
+if(cart.length === 0){
+cartList.innerHTML = "<p>Your cart is empty.</p>";
+return;
+}
 
 cart.forEach(item => {
 
@@ -44,7 +55,9 @@ cartList.appendChild(li);
 });
 
 
-/* PLACE ORDER */
+/* =========================
+   PLACE ORDER
+========================= */
 
 function placeOrder(){
 
@@ -69,12 +82,11 @@ items:cart,
 status:"Order Placed"
 
 })
-
 .then(()=>{
 
 localStorage.removeItem("cart");
 
-alert("Order placed! Your Order ID: " + orderId);
+alert("Order placed successfully!\nYour Order ID: " + orderId);
 
 window.location="track.html";
 
@@ -83,7 +95,9 @@ window.location="track.html";
 }
 
 
-/* TRACK ORDER */
+/* =========================
+   TRACK ORDER
+========================= */
 
 function trackOrder(){
 
@@ -114,7 +128,9 @@ document.getElementById("step"+(i+1)).classList.add("active");
 }
 
 
-/* ADMIN LOGIN */
+/* =========================
+   ADMIN LOGIN
+========================= */
 
 function adminLogin(){
 
@@ -130,7 +146,9 @@ alert("Wrong Password");
 }
 
 
-/* ADMIN DASHBOARD (SHOW ORDERS FROM FIREBASE) */
+/* =========================
+   ADMIN DASHBOARD
+========================= */
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -146,7 +164,17 @@ snapshot.forEach((doc)=>{
 
 let order=doc.data();
 
-let items = order.items.map(i=>i.name).join(", ");
+/* LIST ITEMS */
+
+let items = order.items.map(i=>i.name + " ₹" + i.price).join(", ");
+
+/* CALCULATE TOTAL */
+
+let total = 0;
+
+order.items.forEach(item=>{
+total += item.price;
+});
 
 let div=document.createElement("div");
 
@@ -159,6 +187,7 @@ div.innerHTML=
 "<b>Address:</b> "+order.deliveryAddress+"<br>"+
 "<b>Phone:</b> "+order.phoneNumber+"<br>"+
 "<b>Items:</b> "+items+"<br>"+
+"<b>Total Amount:</b> ₹"+total+"<br>"+
 "<b>Status:</b> "+order.status+"<br>";
 
 container.appendChild(div);
