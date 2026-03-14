@@ -1,1 +1,146 @@
-html <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Login - Poonams Herbal Touch</title> <link rel="stylesheet" href="style.css"> <style> body{ font-family:Arial; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; } .login-box{ background:white; padding:30px; width:320px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.2); text-align:center; } .login-box h2{ margin-bottom:15px; } .login-box input{ width:90%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:5px; } .btn{ width:95%; padding:10px; background:#7b3f00; color:white; border:none; border-radius:5px; cursor:pointer; margin-top:10px; } .btn:hover{ background:#5a2d00; } .divider{ margin:20px 0; border-top:1px solid #ddd; } </style> </head> <body> <div class="login-box"> <h2>Login</h2> <input type="text" id="loginUser" placeholder="Username"> <input type="password" id="loginPass" placeholder="Password"> <button class="btn" onclick="loginUser()">Login</button> <div class="divider"></div> <h3>Create Account</h3> <input type="text" id="signupUser" placeholder="Username"> <input type="password" id="signupPass" placeholder="Password"> <button class="btn" onclick="signupUser()">Sign Up</button> </div> <script> function signupUser(){ let user=document.getElementById("signupUser").value; let pass=document.getElementById("signupPass").value; if(user==="" || pass===""){ alert("Please fill all fields"); return; } let account={ username:user, password:pass }; localStorage.setItem("account",JSON.stringify(account)); alert("Account created successfully!"); window.location="index.html"; } function loginUser(){ let user=document.getElementById("loginUser").value; let pass=document.getElementById("loginPass").value; let account=JSON.parse(localStorage.getItem("account")); if(!account){ alert("No account found. Please sign up."); return; } if(user===account.username && pass===account.password){ alert("Login successful!"); window.location="index.html"; }else{ alert("Wrong username or password"); } } </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - Poonams Herbal Touch</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.login-box{
+background:white;
+padding:30px;
+width:300px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.login-box input{
+width:90%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+.btn{
+width:100%;
+padding:10px;
+background:#7b3f00;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#5a2d00;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>Login</h2>
+
+<input type="text" id="loginUser" placeholder="Username">
+
+<input type="password" id="loginPass" placeholder="Password">
+
+<button class="btn" onclick="login()">Login</button>
+
+<hr>
+
+<h3>Sign Up</h3>
+
+<input type="text" id="signupUser" placeholder="Username">
+
+<input type="password" id="signupPass" placeholder="Password">
+
+<button class="btn" onclick="signup()">Create Account</button>
+
+</div>
+
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script src="firebase.js"></script>
+<script src="script.js"></script>
+
+<script>
+
+/* SIGNUP */
+
+function signup(){
+
+let user=document.getElementById("signupUser").value;
+let pass=document.getElementById("signupPass").value;
+
+if(!user || !pass){
+alert("Enter username and password");
+return;
+}
+
+let users=JSON.parse(localStorage.getItem("users"))||[];
+
+users.push({username:user,password:pass});
+
+localStorage.setItem("users",JSON.stringify(users));
+
+alert("Account created! Please login.");
+
+}
+
+
+/* LOGIN */
+
+function login(){
+
+let user=document.getElementById("loginUser").value;
+let pass=document.getElementById("loginPass").value;
+
+let users=JSON.parse(localStorage.getItem("users"))||[];
+
+let valid=users.find(u=>u.username===user && u.password===pass);
+
+if(valid){
+
+alert("Login successful");
+
+window.location="index.html";  // redirect to home page
+
+}
+else{
+
+alert("Invalid username or password");
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
