@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Admin Dashboard - Poonams Herbal Touch</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard - Poonams Herbal Touch</title>
+
 <link rel="stylesheet" href="style.css">
 
 <style>
@@ -46,21 +49,18 @@ margin-bottom:10px;
 
 <h2>Customer Orders</h2>
 
-<div id="orders"></div>
+<div id="orders">Loading orders...</div>
 
 </div>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
 <script src="firebase.js"></script>
-
 <script src="script.js"></script>
 
 </body>
 
-
 </html>
-
-
-
