@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<title>Poonams Herbal Touch</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Poonams Herbal Touch</title>
+
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -15,7 +19,6 @@
 <h1 class="logo">Poonams Herbal Touch</h1>
 
 <nav>
-
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
 <a href="about.html">About</a>
@@ -23,7 +26,6 @@
 <a href="contact.html">Contact</a>
 <a href="cart.html">Cart</a>
 <a href="login.html">Login</a>
-
 </nav>
 
 </header>
@@ -51,38 +53,21 @@
 <div class="products">
 
 <div class="product">
-
 <h3>Herbal Soap</h3>
 <p>₹150</p>
-
-<button onclick="addToCart('Herbal Soap',150)">
-Add to Cart
-</button>
-
+<button onclick="addToCart('Herbal Soap',150)">Add to Cart</button>
 </div>
 
-
 <div class="product">
-
 <h3>Face Wash</h3>
 <p>₹220</p>
-
-<button onclick="addToCart('Face Wash',220)">
-Add to Cart
-</button>
-
+<button onclick="addToCart('Face Wash',220)">Add to Cart</button>
 </div>
 
-
 <div class="product">
-
 <h3>Body Wash</h3>
 <p>₹250</p>
-
-<button onclick="addToCart('Body Wash',250)">
-Add to Cart
-</button>
-
+<button onclick="addToCart('Body Wash',250)">Add to Cart</button>
 </div>
 
 </div>
@@ -91,22 +76,22 @@ Add to Cart
 
 
 <footer>
-
 <p>© 2026 Poonams Herbal Touch</p>
-
 </footer>
 
 
 <button class="admin-btn" onclick="adminLogin()">Admin</button>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 
+
+<!-- Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-   <script src="firebase.js"></script>
+
+<!-- Firebase Config -->
+<script src="firebase.js"></script>
+
+<!-- Website Script -->
 <script src="script.js"></script>
 
 </body>
-
-
 </html>
-
-
