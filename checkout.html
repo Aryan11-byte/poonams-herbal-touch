@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Checkout</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout - Poonams Herbal Touch</title>
+
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -13,28 +16,28 @@
 
 <h1>Checkout</h1>
 
-<form onsubmit="placeOrder(); return false;">
+<form id="checkoutForm" onsubmit="placeOrder(); return false;">
 
 <input type="text" id="name" placeholder="Full Name" required>
 
-<input type="text" id="address" placeholder="Address" required>
+<input type="text" id="address" placeholder="Delivery Address" required>
 
-<input type="text" id="phone" placeholder="Phone Number" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
 
 <button type="submit" class="btn">
 Place Order
 </button>
 
 </form>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-   <script src="firebase.js"></script>
+
+<script src="firebase.js"></script>
 <script src="script.js"></script>
 
 </body>
 
-
 </html>
-
-
