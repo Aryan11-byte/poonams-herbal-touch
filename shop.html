@@ -1,76 +1,607 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Shop</title>
+<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nandé | Shop</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<header class="header">
+<header>
 
-<h1>Shop Products</h1>
+<nav class="navbar">
 
-<nav>
+<div class="logo">
 
-<a href="index.html">Home</a>
-<a href="cart.html">Cart</a>
+<a href="index.html">Nandé</a>
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="shop.html" class="active">Shop</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="track.html">Track Order</a></li>
+
+</ul>
+
+<div class="nav-buttons">
+
+<a href="login.html" class="login-btn">Login</a>
+
+<a href="cart.html" class="cart-btn">🛒 Cart</a>
+
+</div>
 
 </nav>
 
 </header>
 
-<div class="products">
+<!-- SHOP HERO -->
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc" width="150">
-<h3>Herbal Soap</h3>
-<p>₹150</p>
-<button onclick="addToCart('Herbal Soap',150)">Add to Cart</button>
-</div>
+<section class="hero">
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908" width="150">
-<h3>Neem Soap</h3>
-<p>₹120</p>
-<button onclick="addToCart('Neem Soap',120)">Add to Cart</button>
-</div>
+<div class="hero-left">
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1612817288484-6f916006741a" width="150">
-<h3>Face Wash</h3>
-<p>₹220</p>
-<button onclick="addToCart('Face Wash',220)">Add to Cart</button>
-</div>
+<h1>Premium Collection</h1>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" width="150">
-<h3>Aloe Vera Gel</h3>
-<p>₹180</p>
-<button onclick="addToCart('Aloe Vera Gel',180)">Add to Cart</button>
-</div>
+<p>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19" width="150">
-<h3>Body Wash</h3>
-<p>₹250</p>
-<button onclick="addToCart('Body Wash',250)">Add to Cart</button>
-</div>
+Discover luxury fashion, oversized streetwear, hoodies, jackets and premium essentials.
+
+</p>
+
+<a href="#products" class="btn-primary">
+
+Start Shopping
+
+</a>
 
 </div>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
- <script src="firebase.js"></script>
+<div class="hero-right">
+
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80">
+
+</div>
+
+</section>
+
+<!-- SEARCH -->
+
+<section>
+
+<h2>Find Your Style</h2>
+
+<div style="max-width:900px;margin:auto;display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+
+<input
+
+type="text"
+
+id="search"
+
+placeholder="Search Products..."
+
+style="padding:15px;width:350px;border-radius:10px;border:1px solid #ccc;font-size:16px;">
+
+<select
+
+style="padding:15px;border-radius:10px;font-size:16px;">
+
+<option>All Categories</option>
+
+<option>Men</option>
+
+<option>Women</option>
+
+<option>Oversized</option>
+
+<option>Streetwear</option>
+
+<option>Hoodies</option>
+
+<option>T-Shirts</option>
+
+<option>Jackets</option>
+
+</select>
+
+<select
+
+style="padding:15px;border-radius:10px;font-size:16px;">
+
+<option>Sort By</option>
+
+<option>Newest</option>
+
+<option>Price Low to High</option>
+
+<option>Price High to Low</option>
+
+<option>Best Selling</option>
+
+</select>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+<h2>Our Collection</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=700&q=80">
+
+<h3>Oversized Hoodie</h3>
+
+<p>₹1999</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=700&q=80">
+
+<h3>Premium T-Shirt</h3>
+
+<p>₹999</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=700&q=80">
+
+<h3>Luxury Jacket</h3>
+
+<p>₹3499</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80">
+
+<h3>Women's Dress</h3>
+
+<p>₹2599</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80">
+
+<h3>Classic Shirt</h3>
+
+<p>₹1499</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1506629905607-d9d2fcb1f4c4?auto=format&fit=crop&w=700&q=80">
+
+<h3>Black Hoodie</h3>
+
+<p>₹2299</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80">
+
+<h3>Streetwear Sweatshirt</h3>
+
+<p>₹1899</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80">
+
+<h3>Premium Jeans</h3>
+
+<p>₹2499</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80">
+
+<h3>Winter Jacket</h3>
+
+<p>₹3999</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80">
+
+<h3>Casual Dress</h3>
+
+<p>₹2199</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=700&q=80">
+
+<h3>Formal Blazer</h3>
+
+<p>₹4599</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80">
+
+<h3>Oversized Shirt</h3>
+
+<p>₹1699</p>
+
+<button>Add To Cart</button>
+
+<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+
+AI Try-On
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SALE BANNER -->
+
+<section style="background:#111;color:white;text-align:center;padding:80px 20px;">
+
+<h2 style="color:white;font-size:42px;margin-bottom:20px;">
+
+Mid Season Sale
+
+</h2>
+
+<p style="font-size:20px;margin-bottom:30px;">
+
+Flat 40% OFF on selected collections.
+
+</p>
+
+<a href="#" class="btn-primary">
+
+Shop Sale
+
+</a>
+
+</section>
+
+<!-- WHY SHOP WITH US -->
+
+<section class="why-us">
+
+<h2>Why Shop at Nandé?</h2>
+
+<div class="features">
+
+<div class="feature-box">
+
+<h3>🤖 AI Try-On</h3>
+
+<p>Upload your face and body to preview clothes before buying.</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>📏 AI Size Recommendation</h3>
+
+<p>Find your perfect size using your height and body profile.</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>🚚 Fast Shipping</h3>
+
+<p>Quick delivery across India.</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>🔄 Easy Returns</h3>
+
+<p>Simple 7-day replacement policy.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CUSTOMER REVIEWS -->
+
+<section class="testimonials">
+
+<h2>Customer Reviews</h2>
+
+<div class="testimonial-grid">
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+Amazing quality! Loved the oversized hoodie.
+
+</p>
+
+<h4>Rahul</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+The fitting was perfect.
+
+</p>
+
+<h4>Priya</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+Waiting for the live AI Try-On feature.
+
+</p>
+
+<h4>Aman</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+<h2>Stay Updated</h2>
+
+<p>
+
+Subscribe for exclusive offers and new arrivals.
+
+</p>
+
+<form>
+
+<input type="email" placeholder="Enter your Email">
+
+<button>
+
+Subscribe
+
+</button>
+
+</form>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-container">
+
+<div>
+
+<h2>Nandé</h2>
+
+<p>
+
+Wear Confidence.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="shop.html">Shop</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Customer Care</h3>
+
+<ul>
+
+<li><a href="#">Shipping Policy</a></li>
+
+<li><a href="#">Return Policy</a></li>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms & Conditions</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Follow Us</h3>
+
+<p>Instagram</p>
+
+<p>Facebook</p>
+
+<p>X</p>
+
+<p>YouTube</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p style="text-align:center;padding:20px;">
+
+© 2026 Nandé. All Rights Reserved.
+
+</p>
+
+</footer>
+
 <script src="script.js"></script>
+
+<script src="firebase.js"></script>
 
 </body>
 
-
 </html>
-
-
