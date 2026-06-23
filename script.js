@@ -1,199 +1,300 @@
-/* =========================
-   CART SYSTEM
-========================= */
+/* ==========================================
+        NANDE - script.js
+========================================== */
+
+// Welcome Message
+console.log("Welcome to Nandé");
+
+/* ==========================================
+            STICKY NAVBAR
+========================================== */
+
+window.addEventListener("scroll", function () {
+
+    const navbar = document.querySelector("header");
+
+    if (window.scrollY > 50) {
+
+        navbar.style.background = "#ffffff";
+        navbar.style.boxShadow = "0 5px 15px rgba(0,0,0,.15)";
+
+    } else {
+
+        navbar.style.background = "#ffffff";
+        navbar.style.boxShadow = "none";
+
+    }
+
+});
+
+/* ==========================================
+        HERO BUTTON ANIMATION
+========================================== */
+
+const buttons = document.querySelectorAll("button,.btn-primary,.btn-secondary");
+
+buttons.forEach(button => {
+
+    button.addEventListener("mouseenter", () => {
+
+        button.style.transform = "scale(1.05)";
+
+    });
+
+    button.addEventListener("mouseleave", () => {
+
+        button.style.transform = "scale(1)";
+
+    });
+
+});
+
+/* ==========================================
+            SHOPPING CART
+========================================== */
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+function addToCart(name, price) {
 
-/* =========================
-   ADD TO CART
-========================= */
+    cart.push({
 
-function addToCart(product, price){
+        name: name,
 
-let item = {
-name: product,
-price: price
+        price: price,
+
+        quantity: 1
+
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(name + " added to cart!");
+
+    updateCartCount();
+
+}
+
+function updateCartCount() {
+
+    const cartBtn = document.querySelector(".cart-btn");
+
+    if (cartBtn) {
+
+        cartBtn.innerHTML = "🛒 Cart (" + cart.length + ")";
+
+    }
+
+}
+
+updateCartCount();
+
+/* ==========================================
+        ADD TO CART BUTTONS
+========================================== */
+
+const addButtons = document.querySelectorAll(".product-card button");
+
+addButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const card = this.parentElement;
+
+        const name = card.querySelector("h3").innerText;
+
+        const price = card.querySelector("p").innerText;
+
+        addToCart(name, price);
+
+    });
+
+});
+
+/* ==========================================
+            NEWSLETTER
+========================================== */
+
+const form = document.querySelector(".newsletter form");
+
+if (form) {
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const email = form.querySelector("input").value;
+
+if(email===""){
+
+alert("Please enter your email.");
+
+return;
+
+}
+
+alert("Thank you for subscribing!");
+
+form.reset();
+
+});
+
+}
+
+/* ==========================================
+        SCROLL ANIMATION
+========================================== */
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("fade-in");
+
+}
+
+});
+
+});
+
+document.querySelectorAll("section").forEach(section=>{
+
+observer.observe(section);
+
+});
+
+/* ==========================================
+        BACK TO TOP BUTTON
+========================================== */
+
+const topButton = document.createElement("button");
+
+topButton.innerHTML="↑";
+
+topButton.style.position="fixed";
+
+topButton.style.right="20px";
+
+topButton.style.bottom="20px";
+
+topButton.style.width="50px";
+
+topButton.style.height="50px";
+
+topButton.style.borderRadius="50%";
+
+topButton.style.border="none";
+
+topButton.style.background="#111";
+
+topButton.style.color="white";
+
+topButton.style.cursor="pointer";
+
+topButton.style.display="none";
+
+topButton.style.fontSize="22px";
+
+topButton.style.zIndex="999";
+
+document.body.appendChild(topButton);
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+topButton.style.display="block";
+
+}else{
+
+topButton.style.display="none";
+
+}
+
+});
+
+topButton.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
 };
 
-cart.push(item);
+/* ==========================================
+        IMAGE HOVER EFFECT
+========================================== */
 
-localStorage.setItem("cart", JSON.stringify(cart));
+document.querySelectorAll("img").forEach(img=>{
 
-alert(product + " added to cart");
+img.addEventListener("mouseover",()=>{
 
-}
+img.style.transition=".5s";
 
-
-/* =========================
-   SHOW CART ITEMS
-========================= */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-let cartList = document.getElementById("cartItems");
-
-if(cartList){
-
-if(cart.length === 0){
-cartList.innerHTML = "<p>Your cart is empty.</p>";
-return;
-}
-
-cart.forEach(item => {
-
-let li = document.createElement("li");
-
-li.textContent = item.name + " ₹" + item.price;
-
-cartList.appendChild(li);
+img.style.transform="scale(1.02)";
 
 });
 
-}
+img.addEventListener("mouseout",()=>{
 
-});
-
-
-/* =========================
-   PLACE ORDER
-========================= */
-
-function placeOrder(){
-
-let name=document.getElementById("name").value;
-let address=document.getElementById("address").value;
-let phone=document.getElementById("phone").value;
-
-if(cart.length === 0){
-alert("Cart is empty");
-return;
-}
-
-let orderId="PHT"+Math.floor(Math.random()*100000);
-
-db.collection("orders").add({
-
-orderId:orderId,
-customerName:name,
-deliveryAddress:address,
-phoneNumber:phone,
-items:cart,
-status:"Order Placed"
-
-})
-.then(()=>{
-
-localStorage.removeItem("cart");
-
-alert("Order placed successfully!\nYour Order ID: " + orderId);
-
-window.location="track.html";
-
-});
-
-}
-
-
-/* =========================
-   TRACK ORDER
-========================= */
-
-function trackOrder(){
-
-let id=document.getElementById("orderId").value;
-
-db.collection("orders")
-.where("orderId","==",id)
-.get()
-.then((snapshot)=>{
-
-if(snapshot.empty){
-alert("Order not found");
-return;
-}
-
-let order=snapshot.docs[0].data();
-
-let steps=["Order Placed","Packed","Shipped","Out for Delivery","Delivered"];
-
-let current=steps.indexOf(order.status);
-
-for(let i=0;i<=current;i++){
-document.getElementById("step"+(i+1)).classList.add("active");
-}
-
-});
-
-}
-
-
-/* =========================
-   ADMIN LOGIN
-========================= */
-
-function adminLogin(){
-
-let password = prompt("Enter Admin Password");
-
-if(password === "admin123"){
-window.location = "admin.html";
-}
-else{
-alert("Wrong Password");
-}
-
-}
-
-
-/* =========================
-   ADMIN DASHBOARD
-========================= */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-let container=document.getElementById("orders");
-
-if(!container) return;
-
-db.collection("orders").onSnapshot((snapshot)=>{
-
-container.innerHTML="";
-
-snapshot.forEach((doc)=>{
-
-let order=doc.data();
-
-/* LIST ITEMS */
-
-let items = order.items.map(i=>i.name + " ₹" + i.price).join(", ");
-
-/* CALCULATE TOTAL */
-
-let total = 0;
-
-order.items.forEach(item=>{
-total += item.price;
-});
-
-let div=document.createElement("div");
-
-div.className="order-card";
-
-div.innerHTML=
-
-"<div class='order-title'>Order ID: "+order.orderId+"</div>"+
-"<b>Name:</b> "+order.customerName+"<br>"+
-"<b>Address:</b> "+order.deliveryAddress+"<br>"+
-"<b>Phone:</b> "+order.phoneNumber+"<br>"+
-"<b>Items:</b> "+items+"<br>"+
-"<b>Total Amount:</b> ₹"+total+"<br>"+
-"<b>Status:</b> "+order.status+"<br>";
-
-container.appendChild(div);
+img.style.transform="scale(1)";
 
 });
 
 });
 
+/* ==========================================
+            LOADER
+========================================== */
+
+window.onload=function(){
+
+document.body.style.opacity="1";
+
+};
+
+/* ==========================================
+        DARK MODE (Future Ready)
+========================================== */
+
+function toggleDarkMode(){
+
+document.body.classList.toggle("dark-mode");
+
+}
+
+/* ==========================================
+        AI TRY ON BUTTON
+========================================== */
+
+const aiButtons=document.querySelectorAll(".btn-secondary");
+
+aiButtons.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+window.location.href="tryon.html";
+
 });
+
+});
+
+/* ==========================================
+            SEARCH PLACEHOLDER
+========================================== */
+
+function searchProduct(){
+
+alert("Search feature will be added in Shop Page.");
+
+}
+
+/* ==========================================
+            END
+========================================== */
