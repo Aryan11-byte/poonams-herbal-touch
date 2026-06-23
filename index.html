@@ -22,7 +22,7 @@
         <nav class="navbar">
 
             <div class="logo">
-                <a href="index.html">Nandé</a>
+                <a href="#" onclick="openAdmin()">Nandé</a>
             </div>
 
             <ul class="nav-links">
@@ -496,6 +496,23 @@
     <script src="firebase.js"></script>
 
     <script src="script.js"></script>
+    <script>
+function openAdmin() {
+
+    const password = prompt("Enter Admin Password");
+
+    if (password === "Nande@2026") {
+
+        window.location.href = "admin.html";
+
+    } else if (password !== null) {
+
+        alert("Incorrect Password");
+
+    }
+
+}
+</script>
 
 </body>
 
