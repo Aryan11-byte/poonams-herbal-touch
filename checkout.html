@@ -4,38 +4,533 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Checkout - Poonams Herbal Touch</title>
+<title>Nandé | Checkout</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<h1>Checkout</h1>
+<header>
 
-<form id="checkoutForm" onsubmit="placeOrder(); return false;">
+<nav class="navbar">
 
-<input type="text" id="name" placeholder="Full Name" required>
+<div class="logo">
 
-<input type="text" id="address" placeholder="Delivery Address" required>
+<a href="index.html">Nandé</a>
 
-<input type="tel" id="phone" placeholder="Phone Number" required>
+</div>
 
-<button type="submit" class="btn">
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="shop.html">Shop</a></li>
+
+<li><a href="tryon.html">AI Try-On</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+<div class="nav-buttons">
+
+<a href="login.html" class="login-btn">Login</a>
+
+<a href="cart.html" class="cart-btn">🛒 Cart</a>
+
+</div>
+
+</nav>
+
+</header>
+
+<section>
+
+<h2>Checkout</h2>
+
+<p>
+
+Complete your order securely.
+
+</p>
+
+</section>
+
+<section>
+
+<div style="max-width:1300px;margin:auto;display:grid;grid-template-columns:2fr 1fr;gap:40px;">
+
+<!-- CUSTOMER DETAILS -->
+
+<div>
+
+<div style="background:white;padding:35px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+
+<h2>Customer Details</h2>
+
+<br>
+
+<input
+type="text"
+id="name"
+placeholder="Full Name"
+style="width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;margin-bottom:20px;">
+
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+style="width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;margin-bottom:20px;">
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number"
+style="width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;margin-bottom:20px;">
+
+<textarea
+id="address"
+placeholder="Full Address"
+style="width:100%;height:120px;padding:15px;border-radius:10px;border:1px solid #ddd;margin-bottom:20px;"></textarea>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+<input
+type="text"
+id="city"
+placeholder="City"
+style="padding:15px;border-radius:10px;border:1px solid #ddd;">
+
+<input
+type="text"
+id="state"
+placeholder="State"
+style="padding:15px;border-radius:10px;border:1px solid #ddd;">
+
+</div>
+
+<br>
+
+<input
+type="text"
+id="pincode"
+placeholder="PIN Code"
+style="width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;">
+
+</div>
+
+<br>
+
+<div style="background:white;padding:35px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+
+<h2>Payment Method</h2>
+
+<br>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="Cash on Delivery"
+checked>
+
+Cash on Delivery
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="UPI">
+
+UPI
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="Credit / Debit Card">
+
+Credit / Debit Card
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="Net Banking">
+
+Net Banking
+
+</label>
+
+</div>
+
+</div>
+
+<!-- ORDER SUMMARY -->
+
+<div>
+
+<div style="background:white;padding:30px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);position:sticky;top:100px;">
+
+<h2>Order Summary</h2>
+
+<hr>
+
+<div id="orderItems"></div>
+
+<hr>
+
+<p>
+
+Subtotal
+
+<span style="float:right;" id="subtotal">
+
+₹0
+
+</span>
+
+</p>
+
+<p style="margin-top:15px;">
+
+GST (18%)
+
+<span style="float:right;" id="gst">
+
+₹0
+
+</span>
+
+</p>
+
+<p style="margin-top:15px;">
+
+Shipping
+
+<span style="float:right;">
+
+FREE
+
+</span>
+
+</p>
+
+<hr style="margin:20px 0;">
+
+<h2>
+
+Total
+
+<span style="float:right;" id="total">
+
+₹0
+
+</span>
+
+</h2>
+
+<br>
+
+<button
+
+id="placeOrder"
+
+class="btn-primary"
+
+style="width:100%;">
+
 Place Order
+
 </button>
 
-</form>
+<br><br>
 
+<a
 
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+href="cart.html"
 
-<script src="firebase.js"></script>
+class="btn-secondary"
+
+style="display:block;text-align:center;">
+
+Back to Cart
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let subtotal = 0;
+
+const orderItems = document.getElementById("orderItems");
+
+cart.forEach(item=>{
+
+let qty = item.quantity || 1;
+
+let price = parseInt(item.price.replace(/[₹,]/g,""));
+
+subtotal += price * qty;
+
+orderItems.innerHTML += `
+
+<p style="margin:10px 0;">
+
+${item.name} × ${qty}
+
+<span style="float:right;">
+
+₹${price*qty}
+
+</span>
+
+</p>
+
+`;
+
+});
+
+document.getElementById("subtotal").innerHTML = "₹"+subtotal;
+
+let gst = Math.round(subtotal*0.18);
+
+document.getElementById("gst").innerHTML = "₹"+gst;
+
+document.getElementById("total").innerHTML = "₹"+(subtotal+gst);
+
+</script>
+<script type="module">
+
+import {
+collection,
+addDoc,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import { db } from "./firebase.js";
+
+const placeOrderBtn = document.getElementById("placeOrder");
+
+placeOrderBtn.addEventListener("click", async ()=>{
+
+const name=document.getElementById("name").value.trim();
+const email=document.getElementById("email").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const address=document.getElementById("address").value.trim();
+const city=document.getElementById("city").value.trim();
+const state=document.getElementById("state").value.trim();
+const pincode=document.getElementById("pincode").value.trim();
+
+if(
+name===""||
+email===""||
+phone===""||
+address===""||
+city===""||
+state===""||
+pincode===""){
+
+alert("Please fill all required fields.");
+
+return;
+
+}
+
+const payment=document.querySelector("input[name='payment']:checked").value;
+
+const orderId="NANDE-"+Date.now();
+
+try{
+
+await addDoc(collection(db,"orders"),{
+
+orderId:orderId,
+
+customerName:name,
+
+email:email,
+
+phone:phone,
+
+address:address,
+
+city:city,
+
+state:state,
+
+pincode:pincode,
+
+paymentMethod:payment,
+
+items:cart,
+
+subtotal:subtotal,
+
+gst:gst,
+
+total:subtotal+gst,
+
+status:"Pending",
+
+createdAt:serverTimestamp()
+
+});
+
+localStorage.removeItem("cart");
+
+alert("Order Placed Successfully!");
+
+window.location.href="success.html";
+
+}
+
+catch(error){
+
+console.log(error);
+
+alert("Unable to place order.");
+
+}
+
+});
+
+</script>
+
+<!-- ========================= -->
+<!-- NEWSLETTER -->
+<!-- ========================= -->
+
+<section class="newsletter">
+
+<h2>Thank You for Shopping with Nandé</h2>
+
+<p>
+
+Luxury Fashion. AI Powered Shopping. Fast Delivery.
+
+</p>
+
+</section>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+
+<div class="footer-container">
+
+<div>
+
+<h2>Nandé</h2>
+
+<p>
+
+Wear Confidence.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="shop.html">Shop</a></li>
+
+<li><a href="tryon.html">AI Try-On</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Customer Care</h3>
+
+<ul>
+
+<li><a href="#">Shipping Policy</a></li>
+
+<li><a href="#">Refund Policy</a></li>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms & Conditions</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Follow Us</h3>
+
+<p>Instagram</p>
+
+<p>Facebook</p>
+
+<p>X (Twitter)</p>
+
+<p>YouTube</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p style="text-align:center;padding:20px;">
+
+© 2026 Nandé. All Rights Reserved.
+
+</p>
+
+</footer>
+
 <script src="script.js"></script>
 
 </body>
