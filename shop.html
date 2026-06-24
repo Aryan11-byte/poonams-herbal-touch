@@ -13,6 +13,215 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
+<style>
+
+.shop-header{
+
+text-align:center;
+
+padding:80px 20px;
+
+background:linear-gradient(to right,#111,#222);
+
+color:white;
+
+}
+
+.shop-header h1{
+
+font-size:60px;
+
+margin-bottom:15px;
+
+}
+
+.shop-header p{
+
+font-size:18px;
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+.filters{
+
+max-width:1200px;
+
+margin:50px auto;
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+justify-content:center;
+
+}
+
+.filters input,
+.filters select{
+
+padding:15px;
+
+border-radius:12px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+min-width:220px;
+
+}
+
+.product-grid{
+
+max-width:1400px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+padding:30px;
+
+}
+
+.product-card{
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.product-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.product-card img{
+
+width:100%;
+
+height:350px;
+
+object-fit:cover;
+
+}
+
+.product-card-content{
+
+padding:20px;
+
+}
+
+.product-card h3{
+
+margin-bottom:10px;
+
+}
+
+.product-card p{
+
+color:#666;
+
+}
+
+.price{
+
+font-size:24px;
+
+font-weight:bold;
+
+margin:15px 0;
+
+color:#111;
+
+}
+
+.product-buttons{
+
+display:flex;
+
+gap:10px;
+
+margin-top:20px;
+
+}
+
+.product-buttons button{
+
+flex:1;
+
+padding:12px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+.cart-btn{
+
+background:black;
+
+color:white;
+
+}
+
+.tryon-btn{
+
+background:#d4af37;
+
+color:black;
+
+text-decoration:none;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:10px;
+
+font-weight:bold;
+
+padding:12px;
+
+flex:1;
+
+}
+
+.loading{
+
+text-align:center;
+
+font-size:22px;
+
+padding:100px;
+
+}
+
+</style>
+
 </head>
 
 <body>
@@ -53,312 +262,174 @@
 
 </header>
 
-<!-- SHOP HERO -->
-
-<section class="hero">
-
-<div class="hero-left">
+<section class="shop-header">
 
 <h1>Premium Collection</h1>
 
 <p>
 
-Discover luxury fashion, oversized streetwear, hoodies, jackets and premium essentials.
+Luxury fashion powered by AI. Discover premium hoodies, oversized fits, jackets and modern streetwear.
 
 </p>
 
-<a href="#products" class="btn-primary">
-
-Start Shopping
-
-</a>
-
-</div>
-
-<div class="hero-right">
-
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80">
-
-</div>
-
 </section>
 
-<!-- SEARCH -->
+<section class="filters">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Products">
+
+<select id="categoryFilter">
+
+<option value="all">All Categories</option>
+
+<option value="Men">Men</option>
+
+<option value="Women">Women</option>
+
+<option value="Oversized">Oversized</option>
+
+<option value="Streetwear">Streetwear</option>
+
+</select>
+
+<select id="sortFilter">
+
+<option value="default">Sort By</option>
+
+<option value="low">Price Low to High</option>
+
+<option value="high">Price High to Low</option>
+
+</select>
+
+</section>
 
 <section>
 
-<h2>Find Your Style</h2>
+<div id="loading" class="loading">
 
-<div style="max-width:900px;margin:auto;display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+Loading Products...
 
-<input
+</div>
 
-type="text"
-
-id="search"
-
-placeholder="Search Products..."
-
-style="padding:15px;width:350px;border-radius:10px;border:1px solid #ccc;font-size:16px;">
-
-<select
-
-style="padding:15px;border-radius:10px;font-size:16px;">
-
-<option>All Categories</option>
-
-<option>Men</option>
-
-<option>Women</option>
-
-<option>Oversized</option>
-
-<option>Streetwear</option>
-
-<option>Hoodies</option>
-
-<option>T-Shirts</option>
-
-<option>Jackets</option>
-
-</select>
-
-<select
-
-style="padding:15px;border-radius:10px;font-size:16px;">
-
-<option>Sort By</option>
-
-<option>Newest</option>
-
-<option>Price Low to High</option>
-
-<option>Price High to Low</option>
-
-<option>Best Selling</option>
-
-</select>
+<div id="productGrid" class="product-grid">
 
 </div>
 
 </section>
+<script type="module">
 
-<!-- PRODUCTS -->
+import {
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-<section id="products">
+import { db } from "./firebase.js";
 
-<h2>Our Collection</h2>
+const productGrid = document.getElementById("productGrid");
+const loading = document.getElementById("loading");
 
-<div class="product-grid">
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const sortFilter = document.getElementById("sortFilter");
+
+let products = [];
+
+async function loadProducts(){
+
+try{
+
+const snapshot = await getDocs(
+collection(db,"products")
+);
+
+products = [];
+
+snapshot.forEach((doc)=>{
+
+products.push({
+
+id:doc.id,
+
+...doc.data()
+
+});
+
+});
+
+renderProducts(products);
+
+loading.style.display="none";
+
+}
+catch(error){
+
+console.error(error);
+
+loading.innerHTML="Failed To Load Products";
+
+}
+
+}
+
+function renderProducts(items){
+
+productGrid.innerHTML="";
+
+if(items.length===0){
+
+productGrid.innerHTML=`
+
+<h2 style="text-align:center;width:100%;">
+No Products Found
+</h2>
+
+`;
+
+return;
+
+}
+
+items.forEach(product=>{
+
+productGrid.innerHTML += `
 
 <div class="product-card">
 
-<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=700&q=80">
+<img src="${product.image}">
 
-<h3>Oversized Hoodie</h3>
+<div class="product-card-content">
 
-<p>₹1999</p>
+<h3>${product.name}</h3>
 
-<button>Add To Cart</button>
+<p>${product.category || "Fashion"}</p>
 
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+<div class="price">
 
-AI Try-On
-
-</a>
+₹${product.price}
 
 </div>
 
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=700&q=80">
-
-<h3>Premium T-Shirt</h3>
-
-<p>₹999</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=700&q=80">
-
-<h3>Luxury Jacket</h3>
-
-<p>₹3499</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80">
-
-<h3>Women's Dress</h3>
-
-<p>₹2599</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80">
-
-<h3>Classic Shirt</h3>
-
-<p>₹1499</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1506629905607-d9d2fcb1f4c4?auto=format&fit=crop&w=700&q=80">
-
-<h3>Black Hoodie</h3>
-
-<p>₹2299</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80">
-
-<h3>Streetwear Sweatshirt</h3>
-
-<p>₹1899</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80">
-
-<h3>Premium Jeans</h3>
-
-<p>₹2499</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80">
-
-<h3>Winter Jacket</h3>
-
-<p>₹3999</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80">
-
-<h3>Casual Dress</h3>
-
-<p>₹2199</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=700&q=80">
-
-<h3>Formal Blazer</h3>
-
-<p>₹4599</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
-
-AI Try-On
-
-</a>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80">
-
-<h3>Oversized Shirt</h3>
-
-<p>₹1699</p>
-
-<button>Add To Cart</button>
-
-<a href="tryon.html" class="btn-secondary" style="display:block;text-align:center;margin:15px;">
+<div class="product-buttons">
+
+<button
+class="cart-btn"
+onclick="addToCart(
+'${product.name}',
+'₹${product.price}',
+'${product.image}'
+)">
+
+Add To Cart
+
+</button>
+
+<a
+href="tryon.html"
+class="tryon-btn">
 
 AI Try-On
 
@@ -368,13 +439,108 @@ AI Try-On
 
 </div>
 
-</section>
+</div>
+
+`;
+
+});
+
+}
+
+window.addToCart = function(name,price,image){
+
+let cart =
+JSON.parse(
+localStorage.getItem("cart")
+) || [];
+
+cart.push({
+
+name:name,
+
+price:price,
+
+image:image,
+
+quantity:1
+
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert("Added To Cart");
+
+}
+
+searchInput.addEventListener("input",filterProducts);
+
+categoryFilter.addEventListener("change",filterProducts);
+
+sortFilter.addEventListener("change",filterProducts);
+
+function filterProducts(){
+
+let filtered=[...products];
+
+const search=
+searchInput.value.toLowerCase();
+
+const category=
+categoryFilter.value;
+
+const sort=
+sortFilter.value;
+
+filtered = filtered.filter(product=>{
+
+return product.name
+.toLowerCase()
+.includes(search);
+
+});
+
+if(category!=="all"){
+
+filtered = filtered.filter(product=>{
+
+return product.category===category;
+
+});
+
+}
+
+if(sort==="low"){
+
+filtered.sort((a,b)=>
+a.price-b.price
+);
+
+}
+
+if(sort==="high"){
+
+filtered.sort((a,b)=>
+b.price-a.price
+);
+
+}
+
+renderProducts(filtered);
+
+}
+
+loadProducts();
+
+</script>
 
 <!-- SALE BANNER -->
 
-<section style="background:#111;color:white;text-align:center;padding:80px 20px;">
+<section style="background:#111;color:white;text-align:center;padding:90px 20px;margin-top:80px;">
 
-<h2 style="color:white;font-size:42px;margin-bottom:20px;">
+<h2 style="font-size:50px;margin-bottom:20px;">
 
 Mid Season Sale
 
@@ -382,7 +548,7 @@ Mid Season Sale
 
 <p style="font-size:20px;margin-bottom:30px;">
 
-Flat 40% OFF on selected collections.
+Up To 40% OFF On Selected Collections
 
 </p>
 
@@ -394,11 +560,11 @@ Shop Sale
 
 </section>
 
-<!-- WHY SHOP WITH US -->
+<!-- FEATURES -->
 
 <section class="why-us">
 
-<h2>Why Shop at Nandé?</h2>
+<h2>Why Shop With Nandé?</h2>
 
 <div class="features">
 
@@ -406,23 +572,35 @@ Shop Sale
 
 <h3>🤖 AI Try-On</h3>
 
-<p>Upload your face and body to preview clothes before buying.</p>
+<p>
+
+Preview clothing before buying.
+
+</p>
 
 </div>
 
 <div class="feature-box">
 
-<h3>📏 AI Size Recommendation</h3>
+<h3>📏 Smart Size Finder</h3>
 
-<p>Find your perfect size using your height and body profile.</p>
+<p>
+
+Get perfect fit recommendations.
+
+</p>
 
 </div>
 
 <div class="feature-box">
 
-<h3>🚚 Fast Shipping</h3>
+<h3>🚚 Fast Delivery</h3>
 
-<p>Quick delivery across India.</p>
+<p>
+
+Quick shipping across India.
+
+</p>
 
 </div>
 
@@ -430,91 +608,15 @@ Shop Sale
 
 <h3>🔄 Easy Returns</h3>
 
-<p>Simple 7-day replacement policy.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CUSTOMER REVIEWS -->
-
-<section class="testimonials">
-
-<h2>Customer Reviews</h2>
-
-<div class="testimonial-grid">
-
-<div class="testimonial">
-
 <p>
 
-★★★★★
-
-Amazing quality! Loved the oversized hoodie.
+Simple return policy.
 
 </p>
 
-<h4>Rahul</h4>
-
-</div>
-
-<div class="testimonial">
-
-<p>
-
-★★★★★
-
-The fitting was perfect.
-
-</p>
-
-<h4>Priya</h4>
-
-</div>
-
-<div class="testimonial">
-
-<p>
-
-★★★★★
-
-Waiting for the live AI Try-On feature.
-
-</p>
-
-<h4>Aman</h4>
-
 </div>
 
 </div>
-
-</section>
-
-<!-- NEWSLETTER -->
-
-<section class="newsletter">
-
-<h2>Stay Updated</h2>
-
-<p>
-
-Subscribe for exclusive offers and new arrivals.
-
-</p>
-
-<form>
-
-<input type="email" placeholder="Enter your Email">
-
-<button>
-
-Subscribe
-
-</button>
-
-</form>
 
 </section>
 
@@ -566,23 +668,7 @@ Wear Confidence.
 
 <li><a href="#">Privacy Policy</a></li>
 
-<li><a href="#">Terms & Conditions</a></li>
-
 </ul>
-
-</div>
-
-<div>
-
-<h3>Follow Us</h3>
-
-<p>Instagram</p>
-
-<p>Facebook</p>
-
-<p>X</p>
-
-<p>YouTube</p>
 
 </div>
 
@@ -597,10 +683,6 @@ Wear Confidence.
 </p>
 
 </footer>
-
-<script src="script.js"></script>
-
-<script src="firebase.js"></script>
 
 </body>
 
