@@ -2,657 +2,145 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Nandé AI Try-On</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<title>3D Galaxy</title>
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
+html,body{
+    margin:0;
+    overflow:hidden;
+    background:#000;
 }
-
-body{
-background:#f5f5f5;
+canvas{
+    display:block;
 }
-
-header{
-background:black;
-padding:20px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+#text{
+    position:absolute;
+    top:20px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-family:Arial;
+    letter-spacing:4px;
+    pointer-events:none;
+    opacity:.8;
 }
-
-.logo{
-font-size:32px;
-font-weight:700;
-color:white;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:30px;
-}
-
-.hero{
-text-align:center;
-padding:50px;
-}
-
-.hero h1{
-font-size:52px;
-margin-bottom:10px;
-}
-
-.hero p{
-color:#666;
-font-size:18px;
-}
-
-.container{
-max-width:1500px;
-margin:auto;
-padding:30px;
-display:grid;
-grid-template-columns:300px 1fr 320px;
-gap:30px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-
-.card h2{
-margin-bottom:20px;
-}
-
-input,
-select{
-width:100%;
-padding:14px;
-margin-bottom:15px;
-border-radius:10px;
-border:1px solid #ddd;
-}
-
-button{
-width:100%;
-padding:15px;
-border:none;
-background:black;
-color:white;
-border-radius:10px;
-cursor:pointer;
-font-size:16px;
-}
-
-.preview{
-text-align:center;
-}
-
-.preview-box{
-position:relative;
-width:420px;
-margin:auto;
-}
-
-#mannequin{
-width:100%;
-border-radius:20px;
-}
-
-#cloth{
-position:absolute;
-top:110px;
-left:95px;
-width:230px;
-opacity:.95;
-}
-
-.product{
-display:flex;
-gap:15px;
-padding:10px;
-border:1px solid #eee;
-border-radius:15px;
-margin-bottom:15px;
-cursor:pointer;
-transition:.3s;
-}
-
-.product:hover{
-transform:scale(1.03);
-}
-
-.product img{
-width:70px;
-height:90px;
-object-fit:cover;
-border-radius:10px;
-}
-
-.result{
-margin-top:20px;
-background:#e8f6ea;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-#face{
-position:absolute;
-top:30px;
-left:160px;
-width:80px;
-height:80px;
-border-radius:50%;
-object-fit:cover;
-display:none;
-border:3px solid white;
-}
-
 </style>
 </head>
-
 <body>
 
-<header>
+<div id="text">Move Mouse • Scroll to Zoom</div>
 
-<div class="logo">
-Nandé
-</div>
+<script type="module">
+import * as THREE from 'https://unpkg.com/three@0.161.0/build/three.module.js';
 
-<nav>
-<a href="index.html">Home</a>
-<a href="shop.html">Shop</a>
-<a href="cart.html">Cart</a>
-<a href="contact.html">Contact</a>
-</nav>
+const scene = new THREE.Scene();
 
-</header>
+const camera = new THREE.PerspectiveCamera(
+60,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
 
-<div class="hero">
+camera.position.z = 18;
 
-<h1>AI Virtual Try-On</h1>
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+renderer.setPixelRatio(devicePixelRatio);
+document.body.appendChild(renderer.domElement);
 
-<p>
-Upload your face and preview outfits before buying.
-</p>
+const stars = 35000;
 
-</div>
+const geometry = new THREE.BufferGeometry();
 
-<div class="container">
+const positions = [];
+const colors = [];
 
-<!-- LEFT -->
+const color = new THREE.Color();
 
-<div class="card">
+for(let i=0;i<stars;i++){
 
-<h2>Your Details</h2>
+    const radius=Math.random()*10;
 
-<select id="gender">
-<option>Male</option>
-<option>Female</option>
-</select>
+    const angle=radius*5;
 
-<select id="body">
-<option>Slim</option>
-<option>Regular</option>
-<option>Athletic</option>
-<option>Plus Size</option>
-</select>
+    const branch=(i%5)*(Math.PI*2/5);
 
-<input
-type="number"
-id="height"
-placeholder="Height (cm)">
+    const spin=radius*0.6;
 
-<input
-type="number"
-id="weight"
-placeholder="Weight (kg)">
+    const random=Math.pow(Math.random(),2)*1.2;
 
-<input
-type="number"
-id="chest"
-placeholder="Chest Size">
+    const x=Math.cos(angle+branch+spin)*radius+(Math.random()-0.5)*random;
+    const y=(Math.random()-0.5)*0.6;
+    const z=Math.sin(angle+branch+spin)*radius+(Math.random()-0.5)*random;
 
-<input
-type="number"
-id="waist"
-placeholder="Waist Size">
+    positions.push(x,y,z);
 
-<input
-type="file"
-id="upload">
+    color.setHSL(0.55-radius/25,1,.65);
 
-<button onclick="generateTryOn()">
-Generate AI Preview
-</button>
-
-<div class="result" id="result">
-
-Recommended Size:
-<b>-</b>
-
-</div>
-
-</div>
-
-<!-- CENTER -->
-
-<div class="card preview">
-
-<h2>AI Preview</h2>
-
-<div class="preview-box">
-
-<img
-id="mannequin"
-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Mannequin.svg/512px-Mannequin.svg.png">
-
-<img
-id="cloth"
-src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=400&q=80">
-
-<img id="face">
-
-</div>
-
-</div>
-
-<!-- RIGHT -->
-
-<div class="card">
-
-<h2>Select Product</h2>
-
-<div
-class="product"
-onclick="changeCloth('https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=400&q=80')">
-
-<img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=400&q=80">
-
-<div>
-
-<h4>Premium Hoodie</h4>
-
-₹1999
-
-</div>
-
-</div>
-
-<div
-class="product"
-onclick="changeCloth('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80')">
-
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80">
-
-<div>
-
-<h4>Luxury T-Shirt</h4>
-
-₹999
-
-</div>
-
-</div>
-
-<div
-class="product"
-onclick="changeCloth('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80')">
-
-<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80">
-
-<div>
-
-<h4>Streetwear</h4>
-
-₹2299
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<script>
-
-function changeCloth(image){
-
-document.getElementById(
-"cloth"
-).src = image;
-
+    colors.push(color.r,color.g,color.b);
 }
 
-function generateTryOn(){
-
-const height =
-parseInt(
-document.getElementById(
-"height"
-).value
+geometry.setAttribute(
+'position',
+new THREE.Float32BufferAttribute(positions,3)
 );
 
-const weight =
-parseInt(
-document.getElementById(
-"weight"
-).value
+geometry.setAttribute(
+'color',
+new THREE.Float32BufferAttribute(colors,3)
 );
 
-let size = "M";
-
-if(height < 165)
-size = "S";
-
-if(height >= 165 && height < 175)
-size = "M";
-
-if(height >= 175 && height < 185)
-size = "L";
-
-if(height >= 185)
-size = "XL";
-
-if(weight > 90)
-size = "XXL";
-
-document.getElementById(
-"result"
-).innerHTML = `
-
-<h3>
-Recommended Size
-</h3>
-
-<br>
-
-<h1>
-${size}
-</h1>
-
-<br>
-
-<p>
-AI Confidence: 92%
-</p>
-
-`;
-
-alert(
-"AI Preview Generated Successfully!"
-);
-
-}
-
-/* FACE UPLOAD */
-
-document
-.getElementById("upload")
-.addEventListener(
-"change",
-function(e){
-
-const file =
-e.target.files[0];
-
-if(!file)
-return;
-
-const reader =
-new FileReader();
-
-reader.onload =
-function(event){
-
-const face =
-document.getElementById(
-"face"
-);
-
-face.src =
-event.target.result;
-
-face.style.display =
-"block";
-
-}
-
-reader.readAsDataURL(
-file
-);
-
+const material=new THREE.PointsMaterial({
+size:0.05,
+vertexColors:true,
+transparent:true,
+opacity:0.95,
+depthWrite:false
 });
 
+const galaxy=new THREE.Points(geometry,material);
+
+scene.add(galaxy);
+
+let mouseX=0;
+let mouseY=0;
+let zoom=18;
+
+window.addEventListener("mousemove",e=>{
+mouseX=(e.clientX/window.innerWidth-.5)*2;
+mouseY=(e.clientY/window.innerHeight-.5)*2;
+});
+
+window.addEventListener("wheel",e=>{
+zoom+=e.deltaY*0.01;
+zoom=Math.max(8,Math.min(40,zoom));
+});
+
+window.addEventListener("resize",()=>{
+camera.aspect=window.innerWidth/window.innerHeight;
+camera.updateProjectionMatrix();
+renderer.setSize(window.innerWidth,window.innerHeight);
+});
+
+function animate(){
+
+requestAnimationFrame(animate);
+
+galaxy.rotation.y+=0.0015;
+galaxy.rotation.x+=0.0004;
+
+galaxy.rotation.y+=mouseX*0.001;
+galaxy.rotation.x+=mouseY*0.001;
+
+camera.position.z+=(zoom-camera.position.z)*0.05;
+
+renderer.render(scene,camera);
+
+}
+
+animate();
+
 </script>
-
-<!-- FEATURES -->
-
-<section
-style="
-padding:80px 30px;
-background:white;
-margin-top:60px;
-">
-
-<h2
-style="
-text-align:center;
-font-size:42px;
-margin-bottom:50px;
-">
-
-Why Use Nandé AI Try-On?
-
-</h2>
-
-<div
-style="
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-max-width:1200px;
-margin:auto;
-">
-
-<div class="card">
-
-<h3>
-🤖 AI Size Prediction
-</h3>
-
-<br>
-
-<p>
-Get accurate size recommendations
-based on your body measurements.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-👤 Face Upload
-</h3>
-
-<br>
-
-<p>
-Upload your face and visualize
-your look instantly.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-📏 Body Analysis
-</h3>
-
-<br>
-
-<p>
-Height, chest and waist
-measurements improve fitting.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-🛍 Shop Confidently
-</h3>
-
-<br>
-
-<p>
-Reduce returns and buy
-with confidence.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer
-style="
-background:#111;
-color:white;
-padding:60px;
-margin-top:50px;
-">
-
-<div
-style="
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:40px;
-">
-
-<div>
-
-<h2>
-Nandé
-</h2>
-
-<br>
-
-<p>
-Wear Confidence.
-</p>
-
-</div>
-
-<div>
-
-<h3>
-Quick Links
-</h3>
-
-<br>
-
-<p>
-Home
-</p>
-
-<p>
-Shop
-</p>
-
-<p>
-About
-</p>
-
-<p>
-Contact
-</p>
-
-</div>
-
-<div>
-
-<h3>
-Customer Care
-</h3>
-
-<br>
-
-<p>
-Shipping Policy
-</p>
-
-<p>
-Returns
-</p>
-
-<p>
-Privacy Policy
-</p>
-
-</div>
-
-<div>
-
-<h3>
-Follow Us
-</h3>
-
-<br>
-
-<p>
-Instagram
-</p>
-
-<p>
-Facebook
-</p>
-
-<p>
-YouTube
-</p>
-
-</div>
-
-</div>
-
-<hr
-style="
-margin:40px 0;
-">
-
-<p
-style="
-text-align:center;
-">
-
-© 2026 Nandé.
-All Rights Reserved.
-
-</p>
-
-</footer>
 
 </body>
 </html>
