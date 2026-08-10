@@ -5,46 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nandé | Wear Confidence</title>
+    <title>NANDÉ | FIND YOURSELF</title>
+
+    <meta name="description"
+        content="NANDÉ ÉCLAT — Adaptive Skin Tint. One formula. Your skin. Discover NANDÉ.">
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
 
-    <header>
+    <header class="site-header">
 
         <nav class="navbar">
 
             <div class="logo">
-                <a href="#" onclick="openAdmin()">Nandé</a>
+                <a href="#" onclick="openAdmin(); return false;">NANDÉ</a>
             </div>
 
             <ul class="nav-links">
 
-                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="index.html" class="active">Home</a>
+                </li>
 
-                <li><a href="shop.html">Shop</a></li>
+                <li>
+                    <a href="shop.html">Shop</a>
+                </li>
 
-                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="about.html">Our Story</a>
+                </li>
 
-                <li><a href="contact.html">Contact</a></li>
-
-                <li><a href="track.html">Track Order</a></li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
 
             </ul>
 
             <div class="nav-buttons">
 
-                <a href="login.html" class="login-btn">Login</a>
+                <a href="login.html" class="login-btn">
+                    Account
+                </a>
 
                 <a href="cart.html" class="cart-btn">
-                    🛒 Cart
+                    Cart <span>0</span>
                 </a>
 
             </div>
@@ -54,465 +69,705 @@
     </header>
 
 
+    <!-- =====================================================
+         ANNOUNCEMENT BAR
+    ====================================================== -->
 
-    <!-- HERO -->
+    <div class="announcement-bar">
 
-    <section class="hero">
+        <span>
+            THE FIRST CHAPTER OF NANDÉ
+        </span>
 
-        <div class="hero-left">
+        <span class="announcement-dot">•</span>
 
-            <h1>Wear Confidence.</h1>
+        <span>
+            ÉCLAT IS HERE
+        </span>
 
-            <p>
+    </div>
 
-                Discover premium streetwear and luxury fashion crafted for modern lifestyles.
 
-            </p>
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-            <div class="hero-buttons">
+    <main>
 
-                <a href="shop.html" class="btn-primary">
-                    Shop Now
+        <section class="hero-luxury">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    NANDÉ BEAUTY — CHAPTER I
+                </p>
+
+                <h1>
+                    FIND<br>
+                    <em>YOURSELF.</em>
+                </h1>
+
+                <p class="hero-description">
+
+                    Meet ÉCLAT — an adaptive complexion cream
+                    designed to become one with your skin.
+
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="shop.html" class="btn-primary">
+                        Discover ÉCLAT
+                    </a>
+
+                    <a href="#the-concept" class="btn-text">
+                        Explore the formula
+                        <span>↓</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CSS PRODUCT DISPLAY -->
+
+            <div class="hero-product">
+
+                <div class="product-glow"></div>
+
+                <div class="product-stage">
+
+                    <div class="product-shadow"></div>
+
+                    <div class="cosmetic-bottle">
+
+                        <div class="bottle-pump">
+                            <div class="pump-top"></div>
+                            <div class="pump-neck"></div>
+                        </div>
+
+                        <div class="bottle-body">
+
+                            <div class="bottle-content">
+
+                                <div class="bottle-brand">
+                                    NANDÉ
+                                </div>
+
+                                <div class="bottle-line"></div>
+
+                                <div class="bottle-product">
+                                    ÉCLAT
+                                </div>
+
+                                <div class="bottle-type">
+                                    ADAPTIVE<br>
+                                    SKIN TINT
+                                </div>
+
+                                <div class="bottle-tagline">
+                                    FIND YOURSELF
+                                </div>
+
+                                <div class="bottle-size">
+                                    40 ML
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BRAND STATEMENT
+        ================================================== -->
+
+        <section class="brand-statement">
+
+            <div class="statement-inner">
+
+                <p class="small-label">
+                    NANDÉ
+                </p>
+
+                <h2>
+                    Beauty shouldn't hide<br>
+                    <em>who you are.</em>
+                </h2>
+
+                <p>
+                    NANDÉ was created around a simple idea:
+                    beauty should feel personal, effortless
+                    and entirely yours.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PRODUCT INTRODUCTION
+        ================================================== -->
+
+        <section class="product-introduction" id="the-concept">
+
+            <div class="section-number">
+                01
+            </div>
+
+            <div class="product-intro-content">
+
+                <p class="eyebrow">
+                    INTRODUCING
+                </p>
+
+                <h2>
+                    ÉCLAT
+                </h2>
+
+                <p class="product-subtitle">
+                    Adaptive Skin Tint
+                </p>
+
+                <div class="gold-line"></div>
+
+                <p class="product-description">
+
+                    A cream that begins white and transforms
+                    as you blend it, creating a natural-looking
+                    complexion finish designed to complement
+                    your skin.
+
+                </p>
+
+                <a href="shop.html" class="btn-primary dark">
+                    Shop ÉCLAT
                 </a>
 
-                <a href="tryon.html" class="btn-secondary">
-                    AI Try-On
+            </div>
+
+
+            <div class="product-minimal-display">
+
+                <div class="floating-label">
+                    40 ML
+                </div>
+
+                <div class="minimal-bottle">
+
+                    <div class="minimal-pump"></div>
+
+                    <div class="minimal-body">
+
+                        <div class="minimal-logo">
+                            NANDÉ
+                        </div>
+
+                        <div class="minimal-name">
+                            ÉCLAT
+                        </div>
+
+                        <div class="minimal-type">
+                            ADAPTIVE<br>
+                            SKIN TINT
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOW IT WORKS
+        ================================================== -->
+
+        <section class="how-section">
+
+            <div class="how-header">
+
+                <p class="eyebrow">
+                    THE EXPERIENCE
+                </p>
+
+                <h2>
+                    It starts white.<br>
+                    <em>It becomes yours.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <span class="step-number">
+                        01
+                    </span>
+
+                    <div class="step-visual cream-dot"></div>
+
+                    <h3>
+                        DISPENSE
+                    </h3>
+
+                    <p>
+                        Begin with a small amount
+                        of the cream.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span class="step-number">
+                        02
+                    </span>
+
+                    <div class="step-visual skin-dot"></div>
+
+                    <h3>
+                        APPLY
+                    </h3>
+
+                    <p>
+                        Apply evenly across
+                        your complexion.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span class="step-number">
+                        03
+                    </span>
+
+                    <div class="step-visual blend-dot"></div>
+
+                    <h3>
+                        BLEND
+                    </h3>
+
+                    <p>
+                        Blend gently and watch
+                        the colour develop.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span class="step-number">
+                        04
+                    </span>
+
+                    <div class="step-visual finish-dot"></div>
+
+                    <h3>
+                        FIND YOUR MATCH
+                    </h3>
+
+                    <p>
+                        Finish with a natural-looking
+                        complexion.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PRODUCT FEATURES
+        ================================================== -->
+
+        <section class="features-section">
+
+            <div class="features-heading">
+
+                <p class="eyebrow">
+                    ÉCLAT
+                </p>
+
+                <h2>
+                    Less makeup.<br>
+                    <em>More you.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="feature-list">
+
+                <div class="luxury-feature">
+
+                    <span>01</span>
+
+                    <div>
+
+                        <h3>
+                            Adaptive Colour
+                        </h3>
+
+                        <p>
+                            A colour-changing formula designed
+                            to develop as it is blended into
+                            the skin.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="luxury-feature">
+
+                    <span>02</span>
+
+                    <div>
+
+                        <h3>
+                            Natural-Looking Finish
+                        </h3>
+
+                        <p>
+                            Created for an effortless,
+                            skin-like appearance rather than
+                            a heavy-looking base.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="luxury-feature">
+
+                    <span>03</span>
+
+                    <div>
+
+                        <h3>
+                            One Simple Step
+                        </h3>
+
+                        <p>
+                            Dispense, apply and blend.
+                            No complicated shade selection.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="luxury-feature">
+
+                    <span>04</span>
+
+                    <div>
+
+                        <h3>
+                            40 ML
+                        </h3>
+
+                        <p>
+                            A refined everyday complexion
+                            essential designed to fit
+                            effortlessly into your routine.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PHILOSOPHY
+        ================================================== -->
+
+        <section class="philosophy">
+
+            <div class="philosophy-overlay"></div>
+
+            <div class="philosophy-content">
+
+                <p class="eyebrow">
+                    THE NANDÉ PHILOSOPHY
+                </p>
+
+                <h2>
+                    You don't need<br>
+                    to become someone else.
+                </h2>
+
+                <p>
+                    You only need to
+                    <em>find yourself.</em>
+                </p>
+
+                <div class="philosophy-logo">
+                    NANDÉ
+                </div>
+
+                <div class="philosophy-tagline">
+                    FIND YOURSELF
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             THE FIRST CHAPTER
+        ================================================== -->
+
+        <section class="chapter-section">
+
+            <div class="chapter-left">
+
+                <p class="eyebrow">
+                    CHAPTER I
+                </p>
+
+                <h2>
+                    ÉCLAT
+                </h2>
+
+                <p class="chapter-title">
+                    The beginning of NANDÉ.
+                </p>
+
+            </div>
+
+
+            <div class="chapter-right">
+
+                <p>
+                    ÉCLAT is the first expression of NANDÉ —
+                    a complexion essential built around
+                    individuality rather than perfection.
+                </p>
+
+                <a href="shop.html" class="btn-outline">
+                    Experience ÉCLAT
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WAITLIST / NEWSLETTER
+        ================================================== -->
+
+        <section class="newsletter-luxury">
+
+            <p class="eyebrow">
+                STAY CLOSE
+            </p>
+
+            <h2>
+                Be part of<br>
+                <em>what comes next.</em>
+            </h2>
+
+            <p>
+                Join the NANDÉ circle for product launches,
+                private releases and everything coming next.
+            </p>
+
+            <form class="newsletter-form">
+
+                <input
+                    type="email"
+                    placeholder="Your email address"
+                    required
+                >
+
+                <button type="submit">
+                    JOIN NANDÉ
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="luxury-footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <h2>
+                    NANDÉ
+                </h2>
+
+                <p>
+                    FIND YOURSELF
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="shop.html">
+                    ÉCLAT
+                </a>
+
+                <a href="about.html">
+                    Our Story
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Customer Care
+                </h3>
+
+                <a href="track.html">
+                    Track Order
+                </a>
+
+                <a href="#">
+                    Shipping
+                </a>
+
+                <a href="#">
+                    Returns
+                </a>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Connect
+                </h3>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    YouTube
+                </a>
+
+                <a href="#">
+                    Facebook
+                </a>
+
+                <a href="#">
+                    X
                 </a>
 
             </div>
 
         </div>
 
-        <div class="hero-right">
 
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80">
-
-        </div>
-
-    </section>
-
-
-
-    <!-- FEATURED -->
-
-    <section class="featured">
-
-        <h2>Featured Collection</h2>
-
-        <p>
-            Explore our most loved styles.
-        </p>
-
-        <div class="product-grid">
-
-            <div class="product-card">
-
-                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80">
-
-                <h3>Premium Hoodie</h3>
-
-                <p>₹1999</p>
-
-                <button>Add To Cart</button>
-
-            </div>
-
-            <div class="product-card">
-
-                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80">
-
-                <h3>Luxury Jacket</h3>
-
-                <p>₹3499</p>
-
-                <button>Add To Cart</button>
-
-            </div>
-
-            <div class="product-card">
-
-                <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80">
-
-                <h3>Oversized T-Shirt</h3>
-
-                <p>₹999</p>
-
-                <button>Add To Cart</button>
-
-            </div>
-
-            <div class="product-card">
-
-                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=600&q=80">
-
-                <h3>Women's Collection</h3>
-
-                <p>₹2499</p>
-
-                <button>Add To Cart</button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- AI TRY ON -->
-
-    <section class="ai-section">
-
-        <div class="ai-text">
-
-            <h2>AI Virtual Try-On</h2>
+        <div class="footer-bottom">
 
             <p>
-
-                Upload your face and body.
-
-                Enter your height.
-
-                Get an AI generated mannequin with the perfect size recommendation before buying.
-
+                © 2026 NANDÉ. All Rights Reserved.
             </p>
 
-            <a href="tryon.html" class="btn-primary">
-
-                Try It Now
-
-            </a>
+            <p>
+                FIND YOURSELF.
+            </p>
 
         </div>
-
-        <div class="ai-image">
-
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80">
-
-        </div>
-
-    </section>
-
-
-
-    <!-- CATEGORIES -->
-
-    <section class="categories">
-
-        <h2>Shop By Category</h2>
-
-        <div class="category-grid">
-
-            <div class="category-card">
-
-                <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=500&q=80">
-
-                <h3>Men</h3>
-
-            </div>
-
-            <div class="category-card">
-
-                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&q=80">
-
-                <h3>Women</h3>
-
-            </div>
-
-            <div class="category-card">
-
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=80">
-
-                <h3>Streetwear</h3>
-
-            </div>
-
-            <div class="category-card">
-
-                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=500&q=80">
-
-                <h3>Accessories</h3>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!-- WHY CHOOSE NANDE -->
-
-    <section class="why-us">
-
-        <h2>Why Choose Nandé?</h2>
-
-        <div class="features">
-
-            <div class="feature-box">
-                <h3>🚚 Fast Delivery</h3>
-                <p>Free shipping across India on selected orders.</p>
-            </div>
-
-            <div class="feature-box">
-                <h3>📦 Easy Returns</h3>
-                <p>7-Day hassle-free return policy.</p>
-            </div>
-
-            <div class="feature-box">
-                <h3>🤖 AI Size Recommendation</h3>
-                <p>Get the perfect fit using AI body measurements.</p>
-            </div>
-
-            <div class="feature-box">
-                <h3>⭐ Premium Quality</h3>
-                <p>Luxury fabrics crafted for everyday comfort.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- NEW ARRIVALS -->
-
-    <section class="featured">
-
-        <h2>New Arrivals</h2>
-
-        <div class="product-grid">
-
-            <div class="product-card">
-
-                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80">
-
-                <h3>Classic Shirt</h3>
-
-                <p>₹1499</p>
-
-                <button>Add To Cart</button>
-
-            </div>
-
-            <div class="product-card">
-
-                <img src="https://images.unsplash.com/photo-1506629905607-d9d2fcb1f4c4?auto=format&fit=crop&w=700&q=80">
-
-                <h3>Black Hoodie</h3>
-
-                <p>₹2299</p>
-
-                <button>Add To Cart</button>
-
-            </div>
-
-            <div class="product-card">
-
-                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80">
-
-                <h3>Women's Dress</h3>
-
-                <p>₹2799</p>
-
-                <button>Add To Cart</button>
-
-            </div>
-
-            <div class="product-card">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80">
-
-                <h3>Oversized Tee</h3>
-
-                <p>₹999</p>
-
-                <button>Add To Cart</button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- TESTIMONIALS -->
-
-    <section class="testimonials">
-
-        <h2>What Our Customers Say</h2>
-
-        <div class="testimonial-grid">
-
-            <div class="testimonial">
-
-                <p>
-
-                    "Amazing quality and perfect fitting. The AI size recommendation was surprisingly accurate."
-
-                </p>
-
-                <h4>- Rahul Sharma</h4>
-
-            </div>
-
-            <div class="testimonial">
-
-                <p>
-
-                    "Beautiful premium collection. Delivery was fast and packaging was excellent."
-
-                </p>
-
-                <h4>- Priya Verma</h4>
-
-            </div>
-
-            <div class="testimonial">
-
-                <p>
-
-                    "Waiting for the AI Try-On feature. Love the website design!"
-
-                </p>
-
-                <h4>- Aman Singh</h4>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- NEWSLETTER -->
-
-    <section class="newsletter">
-
-        <h2>Join The Nandé Community</h2>
-
-        <p>
-
-            Subscribe for exclusive launches, offers and premium fashion updates.
-
-        </p>
-
-        <form>
-
-            <input type="email" placeholder="Enter your Email">
-
-            <button>
-
-                Subscribe
-
-            </button>
-
-        </form>
-
-    </section>
-
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="footer-container">
-
-            <div>
-
-                <h2>Nandé</h2>
-
-                <p>
-
-                    Wear Confidence.
-
-                </p>
-
-            </div>
-
-            <div>
-
-                <h3>Quick Links</h3>
-
-                <ul>
-
-                    <li><a href="index.html">Home</a></li>
-
-                    <li><a href="shop.html">Shop</a></li>
-
-                    <li><a href="about.html">About</a></li>
-
-                    <li><a href="contact.html">Contact</a></li>
-
-                </ul>
-
-            </div>
-
-            <div>
-
-                <h3>Customer Care</h3>
-
-                <ul>
-
-                    <li><a href="#">Privacy Policy</a></li>
-
-                    <li><a href="#">Refund Policy</a></li>
-
-                    <li><a href="#">Shipping Policy</a></li>
-
-                    <li><a href="#">Terms & Conditions</a></li>
-
-                </ul>
-
-            </div>
-
-            <div>
-
-                <h3>Follow Us</h3>
-
-                <p>Instagram</p>
-
-                <p>Facebook</p>
-
-                <p>X (Twitter)</p>
-
-                <p>YouTube</p>
-
-            </div>
-
-        </div>
-
-        <hr>
-
-        <p style="text-align:center;padding:20px;">
-
-            © 2026 Nandé. All Rights Reserved.
-
-        </p>
 
     </footer>
 
 
+    <!-- =====================================================
+         EXISTING BACKEND
+    ====================================================== -->
 
     <script src="firebase.js"></script>
 
     <script src="script.js"></script>
+
+
+    <!-- =====================================================
+         ADMIN ACCESS
+    ====================================================== -->
+
     <script>
-function openAdmin() {
 
-    const password = prompt("Enter Admin Password");
+        function openAdmin() {
 
-    if (password === "Nande@2026") {
+            const password = prompt("Enter Admin Password");
 
-        window.location.href = "admin.html";
+            if (password === "Nande@2026") {
 
-    } else if (password !== null) {
+                window.location.href = "admin.html";
 
-        alert("Incorrect Password");
+            } else if (password !== null) {
 
-    }
+                alert("Incorrect Password");
 
-}
-</script>
+            }
+
+        }
+
+    </script>
+
 
 </body>
 
