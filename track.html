@@ -4,70 +4,1245 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Track Order - Poonams Herbal Touch</title>
+<title>NANDÉ | Track Order</title>
 
 <link rel="stylesheet" href="style.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+rel="stylesheet">
+
+
 <style>
 
-.progress{
-width:80%;
-margin:auto;
-margin-top:50px;
+/* =====================================================
+   NANDÉ — ORDER TRACKING
+===================================================== */
+
+:root {
+
+    --cream: #f6f2ea;
+    --cream-dark: #ebe4d7;
+    --black: #11100e;
+    --gold: #b9955b;
+    --gold-light: #d5bb8a;
+    --muted: #777169;
+    --border: rgba(17,16,14,.14);
+
 }
 
-.step{
-padding:10px;
-margin:10px;
-background:#ddd;
-border-radius:5px;
+
+* {
+    box-sizing: border-box;
 }
 
-.active{
-background:#4CAF50;
-color:white;
+
+body {
+
+    margin: 0;
+
+    background: var(--cream);
+
+    color: var(--black);
+
+    font-family: "Inter", sans-serif;
+
 }
 
-.track-box{
-text-align:center;
-margin-top:30px;
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.header {
+
+    height: 88px;
+
+    padding: 0 6vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(246,242,234,.97);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+
+.logo {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 27px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 32px;
+
+}
+
+
+.nav-links a {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.nav-links a:hover {
+
+    color: var(--gold);
+
+}
+
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.track-hero {
+
+    text-align: center;
+
+    padding: 105px 20px 70px;
+
+}
+
+
+.track-label {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.track-hero h1 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: clamp(55px, 8vw, 90px);
+
+    letter-spacing: -3px;
+
+    line-height: .95;
+
+    margin: 25px 0;
+
+}
+
+
+.track-hero p {
+
+    max-width: 520px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 2;
+
+}
+
+
+
+/* =====================================================
+   TRACKING BOX
+===================================================== */
+
+.tracking-container {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 30px 25px 120px;
+
+}
+
+
+.track-card {
+
+    background: white;
+
+    padding: 50px;
+
+    border: 1px solid var(--border);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.06);
+
+}
+
+
+.track-card h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    margin-top: 0;
+
+}
+
+
+.track-card p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+}
+
+
+.track-input {
+
+    display: flex;
+
+    margin-top: 30px;
+
+}
+
+
+.track-input input {
+
+    flex: 1;
+
+    padding: 17px;
+
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    background: #faf9f6;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11px;
+
+}
+
+
+.track-input input:focus {
+
+    border-color: var(--gold);
+
+}
+
+
+.track-button {
+
+    padding: 17px 35px;
+
+    border: none;
+
+    background: var(--black);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+}
+
+
+.track-button:hover {
+
+    background: var(--gold);
+
+}
+
+
+
+/* =====================================================
+   ORDER RESULT
+===================================================== */
+
+#orderResult {
+
+    margin-top: 40px;
+
+}
+
+
+.order-status {
+
+    border-top: 1px solid var(--border);
+
+    padding-top: 30px;
+
+}
+
+
+.order-status h3 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+}
+
+
+.order-status p {
+
+    margin: 8px 0;
+
+}
+
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress {
+
+    margin-top: 40px;
+
+}
+
+
+.step {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    color: #aaa59e;
+
+    transition: .3s;
+
+}
+
+
+.step-number {
+
+    width: 34px;
+
+    height: 34px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+}
+
+
+.step-name {
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+.step.active {
+
+    color: var(--black);
+
+}
+
+
+.step.active .step-number {
+
+    background: var(--black);
+
+    color: white;
+
+    border-color: var(--black);
+
+}
+
+
+.step.completed {
+
+    color: var(--gold);
+
+}
+
+
+.step.completed .step-number {
+
+    background: var(--gold);
+
+    color: white;
+
+    border-color: var(--gold);
+
+}
+
+
+
+/* =====================================================
+   BRAND MESSAGE
+===================================================== */
+
+.track-message {
+
+    background: var(--black);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 90px 25px;
+
+}
+
+
+.track-message span {
+
+    color: var(--gold-light);
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.track-message h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(40px, 6vw, 65px);
+
+    font-weight: 400;
+
+    margin: 25px 0;
+
+}
+
+
+.track-message p {
+
+    max-width: 500px;
+
+    margin: auto;
+
+    color: #aaa59e;
+
+    font-size: 10px;
+
+    line-height: 2;
+
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background: var(--black);
+
+    color: white;
+
+    padding: 60px 7vw 20px;
+
+}
+
+
+.footer-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+
+}
+
+
+.footer-container h2 {
+
+    font-family: "Playfair Display", serif;
+
+    letter-spacing: 5px;
+
+    font-weight: 400;
+
+}
+
+
+.footer-container h3 {
+
+    color: #99948c;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+}
+
+
+.footer-container p {
+
+    color: #aaa59e;
+
+    font-size: 9px;
+
+}
+
+
+.footer-container ul {
+
+    list-style: none;
+
+    padding: 0;
+
+}
+
+
+.footer-container li {
+
+    margin: 12px 0;
+
+}
+
+
+.footer-container a {
+
+    color: #ddd8d0;
+
+    font-size: 9px;
+
+}
+
+
+.footer-container a:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+footer hr {
+
+    border: none;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+
+    margin-top: 50px;
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px) {
+
+    .header {
+
+        padding: 0 20px;
+
+    }
+
+
+    .nav-links {
+
+        display: none;
+
+    }
+
+
+    .track-card {
+
+        padding: 30px;
+
+    }
+
+
+    .track-input {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .footer-container {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+@media(max-width:500px) {
+
+    .footer-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
 }
 
 </style>
 
 </head>
 
+
+
 <body>
 
-<h1 style="text-align:center;">Track Your Order</h1>
 
-<div class="track-box">
 
-<input type="text" id="orderId" placeholder="Enter Order ID">
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-<button onclick="trackOrder()">Track</button>
+<header class="header">
+
+
+    <a href="index.html" class="logo">
+        NANDÉ
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Éclat
+        </a>
+
+        <a href="about.html">
+            Our Story
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="track.html">
+            Track Order
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="track-hero">
+
+
+    <div class="track-label">
+        NANDÉ CLIENT CARE
+    </div>
+
+
+    <h1>
+        Track Your Order.
+    </h1>
+
+
+    <p>
+
+        Your NANDÉ experience doesn't end at checkout.
+        Enter your order ID below to see the latest
+        status of your delivery.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     TRACKING
+===================================================== -->
+
+<section class="tracking-container">
+
+
+    <div class="track-card">
+
+
+        <h2>
+            Where is your order?
+        </h2>
+
+
+        <p>
+
+            Enter the order ID provided after placing
+            your NANDÉ order.
+
+        </p>
+
+
+        <div class="track-input">
+
+            <input
+                type="text"
+                id="orderId"
+                placeholder="Example: NANDE-1723456789012">
+
+
+            <button
+                class="track-button"
+                onclick="trackOrder()">
+
+                Track Order
+
+            </button>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div id="orderResult"></div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     BRAND MESSAGE
+===================================================== -->
+
+<section class="track-message">
+
+
+    <span>
+        THE NANDÉ EXPERIENCE
+    </span>
+
+
+    <h2>
+        Find Yourself.
+    </h2>
+
+
+    <p>
+
+        From the moment your order leaves us to the
+        moment it reaches you, every detail matters.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+<div class="footer-container">
+
+
+    <div>
+
+        <h2>
+            NANDÉ
+        </h2>
+
+        <p>
+            FIND YOURSELF.
+        </p>
+
+    </div>
+
+
+
+    <div>
+
+        <h3>
+            Explore
+        </h3>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="shop.html">
+                    Product
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    Our Story
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <div>
+
+        <h3>
+            Client Care
+        </h3>
+
+
+        <ul>
+
+            <li>
+                <a href="#">
+                    Shipping Policy
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Returns
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Privacy Policy
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Terms & Conditions
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <div>
+
+        <h3>
+            Follow NANDÉ
+        </h3>
+
+
+        <p>
+            Instagram
+        </p>
+
+        <p>
+            YouTube
+        </p>
+
+        <p>
+            Facebook
+        </p>
+
+        <p>
+            X
+        </p>
+
+    </div>
+
 
 </div>
 
-<div class="progress">
-
-<div id="step1" class="step">Order Placed</div>
-<div id="step2" class="step">Packed</div>
-<div id="step3" class="step">Shipped</div>
-<div id="step4" class="step">Out for Delivery</div>
-<div id="step5" class="step">Delivered</div>
-
-</div>
 
 
-<!-- Firebase -->
+<hr>
+
+
+<p style="
+text-align:center;
+padding:20px;
+color:#777;
+font-size:8px;
+letter-spacing:2px;
+">
+
+© 2026 NANDÉ. ALL RIGHTS RESERVED.
+
+<br><br>
+
+FIND YOURSELF.
+
+</p>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
 <script src="firebase.js"></script>
-<script src="script.js"></script>
+
+
+
+<script>
+
+/* =====================================================
+   TRACK ORDER
+===================================================== */
+
+async function trackOrder() {
+
+
+    const orderId =
+        document
+        .getElementById("orderId")
+        .value
+        .trim();
+
+
+    const result =
+        document.getElementById("orderResult");
+
+
+    if (!orderId) {
+
+        result.innerHTML = `
+
+            <div class="order-status">
+
+                <p>
+                    Please enter your order ID.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    result.innerHTML = `
+
+        <div class="order-status">
+
+            <p>
+                Looking for your order...
+            </p>
+
+        </div>
+
+    `;
+
+
+    try {
+
+
+        const db =
+            firebase.firestore();
+
+
+        const snapshot =
+            await db
+            .collection("orders")
+            .where("orderId", "==", orderId)
+            .limit(1)
+            .get();
+
+
+        if (snapshot.empty) {
+
+
+            result.innerHTML = `
+
+                <div class="order-status">
+
+                    <h3>
+                        Order not found
+                    </h3>
+
+                    <p>
+
+                        We couldn't find an order with
+                        that ID. Please check the ID and
+                        try again.
+
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        const order =
+            snapshot.docs[0].data();
+
+
+        const status =
+            order.status || "Pending";
+
+
+        const statusMap = {
+
+            "Pending": 1,
+
+            "Order Placed": 1,
+
+            "Packed": 2,
+
+            "Shipped": 3,
+
+            "Out for Delivery": 4,
+
+            "Delivered": 5
+
+        };
+
+
+        const currentStep =
+            statusMap[status] || 1;
+
+
+        result.innerHTML = `
+
+            <div class="order-status">
+
+                <h3>
+                    Order ${order.orderId}
+                </h3>
+
+                <p>
+                    Current Status:
+                    <strong>${status}</strong>
+                </p>
+
+
+                <div class="progress">
+
+
+                    <div class="step ${currentStep >= 1 ? "completed" : ""}">
+
+                        <div class="step-number">
+                            01
+                        </div>
+
+                        <div class="step-name">
+                            Order Placed
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="step ${currentStep >= 2 ? "completed" : ""}">
+
+                        <div class="step-number">
+                            02
+                        </div>
+
+                        <div class="step-name">
+                            Packed
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="step ${currentStep >= 3 ? "completed" : ""}">
+
+                        <div class="step-number">
+                            03
+                        </div>
+
+                        <div class="step-name">
+                            Shipped
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="step ${currentStep >= 4 ? "completed" : ""}">
+
+                        <div class="step-number">
+                            04
+                        </div>
+
+                        <div class="step-name">
+                            Out for Delivery
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="step ${currentStep >= 5 ? "completed" : ""}">
+
+                        <div class="step-number">
+                            05
+                        </div>
+
+                        <div class="step-name">
+                            Delivered
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        `;
+
+
+    }
+
+    catch(error) {
+
+
+        console.error(error);
+
+
+        result.innerHTML = `
+
+            <div class="order-status">
+
+                <h3>
+                    Something went wrong.
+                </h3>
+
+                <p>
+                    Please try again later.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+</script>
+
+
 
 </body>
 
