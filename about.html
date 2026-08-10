@@ -4,466 +4,1861 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>About | Nandé</title>
+<title>Nandé | Our Story</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   NANDÉ — ABOUT PAGE
+===================================================== */
+
+:root {
+    --cream: #f6f2ea;
+    --cream-dark: #ebe4d7;
+    --black: #11100e;
+    --gold: #b9955b;
+    --gold-light: #d5bb8a;
+    --muted: #777169;
+    --border: rgba(17,16,14,.14);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--black);
+    font-family: "Inter", sans-serif;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    height: 88px;
+
+    padding: 0 6vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(246,242,234,.96);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+
+.logo a {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 34px;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.nav-links a {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.nav-links a:hover {
+
+    color: var(--gold);
+
+}
+
+
+.nav-buttons {
+
+    display: flex;
+
+    gap: 20px;
+
+    align-items: center;
+
+}
+
+
+.login-btn,
+.cart-btn {
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.about-hero {
+
+    min-height: 78vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 25px;
+
+    position: relative;
+
+}
+
+
+.about-hero-inner {
+
+    max-width: 900px;
+
+}
+
+
+.overline {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.about-hero h1 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: clamp(65px, 10vw, 140px);
+
+    line-height: .9;
+
+    letter-spacing: -4px;
+
+    margin: 30px 0;
+
+}
+
+
+.about-hero h1 span {
+
+    display: block;
+
+    font-style: italic;
+
+}
+
+
+.about-hero p {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+.hero-tagline {
+
+    margin-top: 35px;
+
+    color: var(--black);
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+}
+
+
+
+/* =====================================================
+   INTRODUCTION
+===================================================== */
+
+.story-section {
+
+    background: var(--black);
+
+    color: white;
+
+    padding: 130px 8vw;
+
+}
+
+
+.story-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: .7fr 1.3fr;
+
+    gap: 100px;
+
+}
+
+
+.story-label {
+
+    color: var(--gold-light);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.story-text h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(38px,5vw,65px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    margin: 0 0 35px;
+
+}
+
+
+.story-text p {
+
+    color: #a7a19a;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+    max-width: 700px;
+
+}
+
+
+
+/* =====================================================
+   MANIFESTO
+===================================================== */
+
+.manifesto {
+
+    padding: 130px 25px;
+
+    text-align: center;
+
+}
+
+
+.manifesto-inner {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+}
+
+
+.manifesto-small {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.manifesto h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: clamp(42px,6vw,75px);
+
+    line-height: 1.05;
+
+    margin: 25px 0;
+
+}
+
+
+.manifesto p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+
+/* =====================================================
+   VALUES
+===================================================== */
+
+.values {
+
+    background: var(--cream-dark);
+
+    padding: 110px 7vw;
+
+}
+
+
+.values-header {
+
+    text-align: center;
+
+    margin-bottom: 65px;
+
+}
+
+
+.values-header span {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.values-header h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: 48px;
+
+    margin: 18px 0;
+
+}
+
+
+.values-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 1px;
+
+    background: var(--border);
+
+}
+
+
+.value-card {
+
+    background: var(--cream-dark);
+
+    padding: 45px 35px;
+
+    min-height: 250px;
+
+}
+
+
+.value-number {
+
+    color: var(--gold);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 18px;
+
+}
+
+
+.value-card h3 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    margin: 25px 0 15px;
+
+}
+
+
+.value-card p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.9;
+
+}
+
+
+
+/* =====================================================
+   PRODUCT PHILOSOPHY
+===================================================== */
+
+.philosophy {
+
+    padding: 130px 7vw;
+
+}
+
+
+.philosophy-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+
+}
+
+
+.philosophy-label {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.philosophy h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 58px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin: 20px 0 30px;
+
+}
+
+
+.philosophy p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 2;
+
+}
+
+
+.philosophy-list {
+
+    border-top: 1px solid var(--border);
+
+}
+
+
+.philosophy-item {
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.philosophy-item span {
+
+    color: var(--gold);
+
+    font-family: "Playfair Display", serif;
+
+}
+
+
+.philosophy-item div strong {
+
+    display: block;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    margin-bottom: 8px;
+
+}
+
+
+.philosophy-item div p {
+
+    margin: 0;
+
+}
+
+
+
+/* =====================================================
+   FOUNDER
+===================================================== */
+
+.founder {
+
+    background: var(--black);
+
+    color: white;
+
+    padding: 120px 7vw;
+
+    text-align: center;
+
+}
+
+
+.founder-inner {
+
+    max-width: 800px;
+
+    margin: auto;
+
+}
+
+
+.founder-label {
+
+    color: var(--gold-light);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.founder h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: 50px;
+
+    margin: 20px 0 30px;
+
+}
+
+
+.founder p {
+
+    color: #aaa49c;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+.founder-name {
+
+    margin-top: 45px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 20px;
+
+}
+
+
+
+/* =====================================================
+   LAUNCH
+===================================================== */
+
+.launch-section {
+
+    padding: 130px 25px;
+
+    text-align: center;
+
+}
+
+
+.launch-label {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.launch-section h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(45px,6vw,75px);
+
+    font-weight: 400;
+
+    margin: 25px 0;
+
+}
+
+
+.launch-section p {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 2;
+
+}
+
+
+.launch-button {
+
+    display: inline-block;
+
+    margin-top: 40px;
+
+    padding: 18px 40px;
+
+    background: var(--black);
+
+    color: white;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    transition: .3s;
+
+}
+
+
+.launch-button:hover {
+
+    background: var(--gold);
+
+}
+
+
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+.newsletter {
+
+    background: var(--cream-dark);
+
+    padding: 100px 25px;
+
+    text-align: center;
+
+}
+
+
+.newsletter h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+}
+
+
+.newsletter p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+}
+
+
+.newsletter form {
+
+    max-width: 450px;
+
+    margin: 35px auto 0;
+
+    display: flex;
+
+    border-bottom: 1px solid var(--black);
+
+}
+
+
+.newsletter input {
+
+    flex: 1;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 15px 0;
+
+    outline: none;
+
+    font-size: 10px;
+
+}
+
+
+.newsletter button {
+
+    border: none;
+
+    background: none;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background: var(--black);
+
+    color: white;
+
+    padding: 70px 7vw 20px;
+
+}
+
+
+.footer-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 60px;
+
+}
+
+
+.footer-container h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+}
+
+
+.footer-container h3 {
+
+    color: #99948c;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+}
+
+
+.footer-container p {
+
+    color: #aaa59e;
+
+    font-size: 9px;
+
+}
+
+
+.footer-container ul {
+
+    list-style: none;
+
+    padding: 0;
+
+}
+
+
+.footer-container li {
+
+    margin: 13px 0;
+
+}
+
+
+.footer-container a {
+
+    color: #ddd8d0;
+
+    font-size: 9px;
+
+}
+
+
+.footer-container a:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+footer hr {
+
+    max-width: 1200px;
+
+    margin: 60px auto 0;
+
+    border: none;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:850px) {
+
+    .nav-links {
+
+        display: none;
+
+    }
+
+
+    .story-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+    }
+
+
+    .values-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .philosophy-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+
+    .footer-container {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+@media(max-width:550px) {
+
+    .navbar {
+
+        padding: 0 20px;
+
+    }
+
+
+    .nav-buttons {
+
+        gap: 10px;
+
+    }
+
+
+    .about-hero h1 {
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .footer-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
 
 </head>
 
+
+
 <body>
 
-<!-- ================= NAVBAR ================= -->
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <header>
 
 <nav class="navbar">
 
-<div class="logo">
 
-<a href="index.html">Nandé</a>
+    <div class="logo">
 
-</div>
+        <a href="index.html">
+            NANDÉ
+        </a>
 
-<ul class="nav-links">
+    </div>
 
-<li><a href="index.html">Home</a></li>
 
-<li><a href="shop.html">Shop</a></li>
+    <ul class="nav-links">
 
-<li><a href="about.html" class="active">About</a></li>
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
 
-<li><a href="contact.html">Contact</a></li>
+        <li>
+            <a href="shop.html">
+                Éclat
+            </a>
+        </li>
 
-<li><a href="track.html">Track Order</a></li>
+        <li>
+            <a href="about.html">
+                Our Story
+            </a>
+        </li>
 
-</ul>
+        <li>
+            <a href="contact.html">
+                Contact
+            </a>
+        </li>
 
-<div class="nav-buttons">
+        <li>
+            <a href="track.html">
+                Track Order
+            </a>
+        </li>
 
-<a href="login.html" class="login-btn">Login</a>
+    </ul>
 
-<a href="cart.html" class="cart-btn">🛒 Cart</a>
 
-</div>
+    <div class="nav-buttons">
+
+        <a href="login.html"
+           class="login-btn">
+            Login
+        </a>
+
+        <a href="cart.html"
+           class="cart-btn">
+            🛒 Cart
+        </a>
+
+    </div>
+
 
 </nav>
 
 </header>
 
-<!-- ================= HERO ================= -->
 
-<section class="hero">
 
-<div class="hero-left">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<h1>About Nandé</h1>
+<section class="about-hero">
 
-<p>
+<div class="about-hero-inner">
 
-Nandé is a modern premium clothing brand created for people who value confidence, comfort, and timeless fashion. Every collection is designed with quality fabrics and contemporary style.
 
-</p>
-
-<a href="shop.html" class="btn-primary">
-
-Explore Collection
-
-</a>
-
-</div>
-
-<div class="hero-right">
-
-<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="Nandé Fashion">
-
-</div>
-
-</section>
-
-<!-- ================= OUR STORY ================= -->
-
-<section>
-
-<h2>Our Story</h2>
-
-<p style="max-width:1000px;margin:30px auto;text-align:center;font-size:18px;line-height:1.9;">
-
-Nandé started with a simple vision — to create premium clothing that combines luxury, comfort, and innovation. We believe fashion should not only look beautiful but also fit perfectly. That's why we're building AI-powered virtual try-on and intelligent size recommendations, allowing every customer to shop with confidence.
-
-</p>
-
-</section>
-
-<!-- ================= MISSION & VISION ================= -->
-
-<section class="why-us">
-
-<h2>Our Mission & Vision</h2>
-
-<div class="features">
-
-<div class="feature-box">
-
-<h3>🎯 Our Mission</h3>
-
-<p>
-
-To deliver premium quality clothing that helps every customer express their confidence while making online shopping easier through technology.
-
-</p>
-
-</div>
-
-<div class="feature-box">
-
-<h3>🚀 Our Vision</h3>
-
-<p>
-
-To become one of India's leading AI-powered fashion brands by combining luxury fashion with smart shopping experiences.
-
-</p>
-
-</div>
-
-<div class="feature-box">
-
-<h3>💎 Premium Quality</h3>
-
-<p>
-
-We carefully select fabrics, finishes, and stitching to ensure every product feels luxurious and lasts longer.
-
-</p>
-
-</div>
-
-<div class="feature-box">
-
-<h3>🤖 Innovation</h3>
-
-<p>
-
-Our future-ready AI Virtual Try-On and intelligent size recommendation system are designed to make online shopping simple and accurate.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= BRAND VALUES ================= -->
-
-<section>
-
-<h2>Our Values</h2>
-
-<div class="product-grid">
-
-<div class="product-card">
-
-<h3>Quality First</h3>
-
-<p>
-
-Every piece is crafted using premium materials and strict quality standards.
-
-</p>
-
-</div>
-
-<div class="product-card">
-
-<h3>Customer Satisfaction</h3>
-
-<p>
-
-Your happiness is our highest priority, from shopping to delivery and support.
-
-</p>
-
-</div>
-
-<div class="product-card">
-
-<h3>Sustainability</h3>
-
-<p>
-
-We aim to reduce waste and encourage responsible fashion for a better future.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-<!-- ================= TEAM ================= -->
-
-<section class="testimonials">
-
-    <h2>Meet Our Team</h2>
-
-    <div class="testimonial-grid">
-
-        <div class="testimonial">
-
-            <img src="https://randomuser.me/api/portraits/men/32.jpg"
-                 style="width:100px;height:100px;border-radius:50%;margin-bottom:20px;">
-
-            <h3>Founder & CEO</h3>
-
-            <p>
-
-                Passionate about building a premium fashion brand that combines style with AI innovation.
-
-            </p>
-
-        </div>
-
-        <div class="testimonial">
-
-            <img src="https://randomuser.me/api/portraits/women/45.jpg"
-                 style="width:100px;height:100px;border-radius:50%;margin-bottom:20px;">
-
-            <h3>Creative Director</h3>
-
-            <p>
-
-                Designing timeless collections inspired by modern streetwear and luxury fashion.
-
-            </p>
-
-        </div>
-
-        <div class="testimonial">
-
-            <img src="https://randomuser.me/api/portraits/men/61.jpg"
-                 style="width:100px;height:100px;border-radius:50%;margin-bottom:20px;">
-
-            <h3>Technology Lead</h3>
-
-            <p>
-
-                Building AI-powered shopping experiences including Virtual Try-On and Smart Size Recommendation.
-
-            </p>
-
-        </div>
-
+    <div class="overline">
+        THE HOUSE OF NANDÉ
     </div>
 
-</section>
 
-<!-- ================= STATS ================= -->
+    <h1>
 
-<section class="why-us">
+        Beauty.
 
-    <h2>Our Journey</h2>
+        <span>
+            Reimagined.
+        </span>
 
-    <div class="features">
+    </h1>
 
-        <div class="feature-box">
-
-            <h1 style="font-size:50px;">5000+</h1>
-
-            <p>Happy Customers</p>
-
-        </div>
-
-        <div class="feature-box">
-
-            <h1 style="font-size:50px;">300+</h1>
-
-            <p>Premium Products</p>
-
-        </div>
-
-        <div class="feature-box">
-
-            <h1 style="font-size:50px;">25+</h1>
-
-            <p>Fashion Categories</p>
-
-        </div>
-
-        <div class="feature-box">
-
-            <h1 style="font-size:50px;">4.9★</h1>
-
-            <p>Average Customer Rating</p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= WHY CUSTOMERS LOVE US ================= -->
-
-<section>
-
-    <h2>Why Customers Love Nandé</h2>
-
-    <div class="product-grid">
-
-        <div class="product-card">
-
-            <h3>Luxury Quality</h3>
-
-            <p>
-
-                Every product is crafted with attention to detail and premium materials.
-
-            </p>
-
-        </div>
-
-        <div class="product-card">
-
-            <h3>Smart Shopping</h3>
-
-            <p>
-
-                AI-powered recommendations help customers find their perfect fit.
-
-            </p>
-
-        </div>
-
-        <div class="product-card">
-
-            <h3>Trusted Brand</h3>
-
-            <p>
-
-                Secure payments, fast delivery and dedicated customer support.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= NEWSLETTER ================= -->
-
-<section class="newsletter">
-
-    <h2>Become a Part of Nandé</h2>
 
     <p>
 
-        Subscribe to receive exclusive launches, discounts and fashion inspiration.
+        NANDÉ is a modern luxury beauty house
+        created around one simple belief —
+        true beauty begins when you find yourself.
 
     </p>
 
+
+    <div class="hero-tagline">
+
+        FIND YOURSELF.
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OUR STORY
+===================================================== -->
+
+<section class="story-section">
+
+<div class="story-container">
+
+
+    <div>
+
+        <div class="story-label">
+            OUR BEGINNING
+        </div>
+
+    </div>
+
+
+    <div class="story-text">
+
+        <h2>
+            One product.<br>
+            One identity.
+        </h2>
+
+
+        <p>
+
+            NANDÉ began with a simple idea:
+            create something that feels different
+            from everything else.
+
+        </p>
+
+
+        <p>
+
+            Instead of launching with endless
+            collections, NANDÉ begins with a single
+            hero product — carefully developed,
+            thoughtfully presented, and designed
+            to become the beginning of a new
+            beauty ritual.
+
+        </p>
+
+
+        <p>
+
+            We believe luxury isn't about having
+            more. It's about choosing better.
+
+        </p>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MANIFESTO
+===================================================== -->
+
+<section class="manifesto">
+
+<div class="manifesto-inner">
+
+
+    <div class="manifesto-small">
+        THE NANDÉ PHILOSOPHY
+    </div>
+
+
+    <h2>
+
+        You don't need to
+        become someone else.
+
+        <br>
+
+        <em>
+            Find yourself.
+        </em>
+
+    </h2>
+
+
+    <p>
+
+        NANDÉ is built around individuality.
+        Our products are created to complement
+        your identity — never hide it.
+
+    </p>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VALUES
+===================================================== -->
+
+<section class="values">
+
+
+<div class="values-header">
+
+    <span>
+        WHAT WE BELIEVE
+    </span>
+
+    <h2>
+        The NANDÉ Standard
+    </h2>
+
+</div>
+
+
+
+<div class="values-grid">
+
+
+    <div class="value-card">
+
+        <div class="value-number">
+            01
+        </div>
+
+        <h3>
+            Intentional
+        </h3>
+
+        <p>
+
+            Every detail matters — from the
+            product itself to the experience
+            surrounding it.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="value-card">
+
+        <div class="value-number">
+            02
+        </div>
+
+        <h3>
+            Refined
+        </h3>
+
+        <p>
+
+            We believe premium beauty should
+            feel sophisticated, effortless,
+            and timeless.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="value-card">
+
+        <div class="value-number">
+            03
+        </div>
+
+        <h3>
+            Individual
+        </h3>
+
+        <p>
+
+            NANDÉ isn't about fitting into
+            a standard. It's about discovering
+            your own.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="value-card">
+
+        <div class="value-number">
+            04
+        </div>
+
+        <h3>
+            Quality First
+        </h3>
+
+        <p>
+
+            We place careful attention on
+            product quality, presentation,
+            and the details our customers
+            experience.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="value-card">
+
+        <div class="value-number">
+            05
+        </div>
+
+        <h3>
+            Modern
+        </h3>
+
+        <p>
+
+            NANDÉ combines timeless luxury
+            with a modern approach to beauty
+            and commerce.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="value-card">
+
+        <div class="value-number">
+            06
+        </div>
+
+        <h3>
+            Personal
+        </h3>
+
+        <p>
+
+            From discovery to delivery,
+            every interaction should feel
+            considered and personal.
+
+        </p>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCT PHILOSOPHY
+===================================================== -->
+
+<section class="philosophy">
+
+<div class="philosophy-container">
+
+
+    <div>
+
+        <div class="philosophy-label">
+            OUR APPROACH
+        </div>
+
+
+        <h2>
+            Less.<br>
+            But better.
+        </h2>
+
+
+        <p>
+
+            NANDÉ is intentionally starting
+            with one signature product.
+
+        </p>
+
+
+        <p>
+
+            Rather than overwhelming you with
+            dozens of choices, we want to make
+            one product exceptionally memorable.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="philosophy-list">
+
+
+        <div class="philosophy-item">
+
+            <span>
+                01
+            </span>
+
+            <div>
+
+                <strong>
+                    The Hero Product
+                </strong>
+
+                <p>
+                    One signature creation
+                    introduces the world to NANDÉ.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="philosophy-item">
+
+            <span>
+                02
+            </span>
+
+            <div>
+
+                <strong>
+                    Thoughtful Design
+                </strong>
+
+                <p>
+                    From the bottle to the box,
+                    presentation is part of the experience.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="philosophy-item">
+
+            <span>
+                03
+            </span>
+
+            <div>
+
+                <strong>
+                    A New Ritual
+                </strong>
+
+                <p>
+                    We want NANDÉ to become
+                    something you look forward to using.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOUNDER
+===================================================== -->
+
+<section class="founder">
+
+<div class="founder-inner">
+
+
+    <div class="founder-label">
+        THE VISION
+    </div>
+
+
+    <h2>
+        Built with ambition.
+    </h2>
+
+
+    <p>
+
+        NANDÉ is being built with a long-term
+        vision: to create a modern Indian luxury
+        beauty house with a distinctive identity.
+
+    </p>
+
+
+    <p>
+
+        The journey begins with one product.
+        What comes next will be shaped by
+        the people who discover NANDÉ,
+        use it, and become part of the story.
+
+    </p>
+
+
+    <div class="founder-name">
+
+        NANDÉ
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GRAND LAUNCH
+===================================================== -->
+
+<section class="launch-section">
+
+
+    <div class="launch-label">
+        THE FIRST CREATION
+    </div>
+
+
+    <h2>
+        Meet NANDÉ.
+    </h2>
+
+
+    <p>
+
+        The first NANDÉ creation is coming.
+        Discover the beginning of the house
+        and experience beauty differently.
+
+    </p>
+
+
+    <a
+        href="shop.html"
+        class="launch-button">
+
+        Discover The Product
+
+    </a>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="newsletter">
+
+
+    <div class="overline">
+        JOIN THE HOUSE
+    </div>
+
+
+    <h2>
+        Be first.
+    </h2>
+
+
+    <p>
+
+        Receive first access to the NANDÉ launch,
+        private announcements, and future creations.
+
+    </p>
+
+
     <form>
 
-        <input type="email" placeholder="Enter your Email">
+        <input
+            type="email"
+            placeholder="Your email address"
+            required
+        >
 
-        <button>
 
-            Subscribe
+        <button type="submit">
+
+            Join NANDÉ
 
         </button>
 
     </form>
 
+
 </section>
 
-<!-- ================= FOOTER ================= -->
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    <div class="footer-container">
 
-        <div>
+<div class="footer-container">
 
-            <h2>Nandé</h2>
 
-            <p>
+    <div>
 
-                Wear Confidence.
+        <h2>
+            NANDÉ
+        </h2>
 
-            </p>
 
-        </div>
-
-        <div>
-
-            <h3>Quick Links</h3>
-
-            <ul>
-
-                <li><a href="index.html">Home</a></li>
-
-                <li><a href="shop.html">Shop</a></li>
-
-                <li><a href="about.html">About</a></li>
-
-                <li><a href="contact.html">Contact</a></li>
-
-            </ul>
-
-        </div>
-
-        <div>
-
-            <h3>Customer Care</h3>
-
-            <ul>
-
-                <li><a href="#">Shipping Policy</a></li>
-
-                <li><a href="#">Refund Policy</a></li>
-
-                <li><a href="#">Privacy Policy</a></li>
-
-                <li><a href="#">Terms & Conditions</a></li>
-
-            </ul>
-
-        </div>
-
-        <div>
-
-            <h3>Follow Us</h3>
-
-            <p>Instagram</p>
-
-            <p>Facebook</p>
-
-            <p>X (Twitter)</p>
-
-            <p>YouTube</p>
-
-        </div>
+        <p>
+            FIND YOURSELF.
+        </p>
 
     </div>
 
-    <hr>
 
-    <p style="text-align:center;padding:20px;">
 
-        © 2026 Nandé. All Rights Reserved.
+    <div>
 
-    </p>
+        <h3>
+            Explore
+        </h3>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="shop.html">
+                    Product
+                </a>
+            </li>
+
+
+            <li>
+                <a href="about.html">
+                    Our Story
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <div>
+
+        <h3>
+            Client Care
+        </h3>
+
+
+        <ul>
+
+            <li>
+                <a href="#">
+                    Shipping Policy
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    Returns
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    Privacy Policy
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    Terms & Conditions
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <div>
+
+        <h3>
+            Follow NANDÉ
+        </h3>
+
+
+        <p>
+            Instagram
+        </p>
+
+
+        <p>
+            Facebook
+        </p>
+
+
+        <p>
+            YouTube
+        </p>
+
+
+        <p>
+            X
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<hr>
+
+
+<p style="
+    text-align:center;
+    padding:20px;
+    color:#777;
+    font-size:8px;
+    letter-spacing:2px;
+">
+
+    © 2026 NANDÉ. ALL RIGHTS RESERVED.
+    <br><br>
+    FIND YOURSELF.
+
+</p>
+
 
 </footer>
 
-<script src="script.js"></script>
 
-<script src="firebase.js"></script>
 
 </body>
 
