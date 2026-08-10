@@ -3,686 +3,2162 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Nandé | Shop</title>
+    <title>Nandé | ÉCLAT — Adaptive Skin Tint</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+          rel="stylesheet">
 
-<style>
+    <style>
 
-.shop-header{
+        /* =====================================================
+           NANDÉ ÉCLAT PRODUCT PAGE
+        ===================================================== */
 
-text-align:center;
+        .product-page {
 
-padding:80px 20px;
+            background: #f7f3ec;
 
-background:linear-gradient(to right,#111,#222);
+        }
 
-color:white;
 
-}
+        /* =====================================================
+           PRODUCT HERO
+        ===================================================== */
 
-.shop-header h1{
+        .product-hero {
 
-font-size:60px;
+            min-height: calc(100vh - 116px);
 
-margin-bottom:15px;
+            display: grid;
 
-}
+            grid-template-columns: 1fr 1fr;
 
-.shop-header p{
+            align-items: center;
 
-font-size:18px;
+            gap: 80px;
 
-max-width:700px;
+            max-width: 1400px;
 
-margin:auto;
+            margin: auto;
 
-}
+            padding: 90px 7vw;
 
-.filters{
+        }
 
-max-width:1200px;
 
-margin:50px auto;
+        /* =====================================================
+           PRODUCT DISPLAY
+        ===================================================== */
 
-display:flex;
+        .product-display {
 
-flex-wrap:wrap;
+            min-height: 650px;
 
-gap:15px;
+            display: flex;
 
-justify-content:center;
+            align-items: center;
 
-}
+            justify-content: center;
 
-.filters input,
-.filters select{
+            position: relative;
 
-padding:15px;
+        }
 
-border-radius:12px;
+        .product-display::before {
 
-border:1px solid #ddd;
+            content: "";
 
-font-size:16px;
+            position: absolute;
 
-min-width:220px;
+            width: 480px;
 
-}
+            height: 480px;
 
-.product-grid{
+            border-radius: 50%;
 
-max-width:1400px;
+            background:
 
-margin:auto;
+                radial-gradient(
 
-display:grid;
+                    circle,
 
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+                    rgba(255,255,255,.95),
 
-gap:30px;
+                    rgba(220,207,188,.45),
 
-padding:30px;
+                    transparent 70%
 
-}
+                );
 
-.product-card{
+        }
 
-background:white;
 
-border-radius:20px;
+        /* =====================================================
+           CSS BOTTLE
+        ===================================================== */
 
-overflow:hidden;
+        .shop-bottle {
 
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+            width: 210px;
 
-transition:.3s;
+            height: 430px;
 
-}
+            position: relative;
 
-.product-card:hover{
+            z-index: 2;
 
-transform:translateY(-8px);
+            animation: shopBottleFloat 6s ease-in-out infinite;
 
-}
+        }
 
-.product-card img{
+        @keyframes shopBottleFloat {
 
-width:100%;
+            0%,
+            100% {
 
-height:350px;
+                transform: translateY(0);
 
-object-fit:cover;
+            }
 
-}
+            50% {
 
-.product-card-content{
+                transform: translateY(-12px);
 
-padding:20px;
+            }
 
-}
+        }
 
-.product-card h3{
 
-margin-bottom:10px;
+        .shop-bottle-pump {
 
-}
+            position: absolute;
 
-.product-card p{
+            top: -65px;
 
-color:#666;
+            left: 50%;
 
-}
+            transform: translateX(-50%);
 
-.price{
+            width: 112px;
 
-font-size:24px;
+            height: 82px;
 
-font-weight:bold;
+            z-index: 4;
 
-margin:15px 0;
+        }
 
-color:#111;
+        .shop-pump-top {
 
-}
+            position: absolute;
 
-.product-buttons{
+            top: 0;
 
-display:flex;
+            left: 0;
 
-gap:10px;
+            width: 112px;
 
-margin-top:20px;
+            height: 42px;
 
-}
+            border-radius: 10px 10px 4px 4px;
 
-.product-buttons button{
+            background:
 
-flex:1;
+                linear-gradient(
 
-padding:12px;
+                    180deg,
 
-border:none;
+                    #ffffff,
 
-border-radius:10px;
+                    #e9e5df
 
-cursor:pointer;
+                );
 
-font-weight:bold;
+            box-shadow:
 
-}
+                0 7px 18px rgba(0,0,0,.10);
 
-.cart-btn{
+        }
 
-background:black;
+        .shop-pump-neck {
 
-color:white;
+            position: absolute;
 
-}
+            bottom: 0;
 
-.tryon-btn{
+            left: 20px;
 
-background:#d4af37;
+            width: 72px;
 
-color:black;
+            height: 46px;
 
-text-decoration:none;
+            border-radius: 5px;
 
-display:flex;
+            background:
 
-justify-content:center;
+                linear-gradient(
 
-align-items:center;
+                    90deg,
 
-border-radius:10px;
+                    #8e5b2b,
 
-font-weight:bold;
+                    #dcb16c,
 
-padding:12px;
+                    #99612d
 
-flex:1;
+                );
 
-}
+            box-shadow:
 
-.loading{
+                inset 2px 0 rgba(255,255,255,.5),
 
-text-align:center;
+                inset -3px 0 rgba(0,0,0,.15);
 
-font-size:22px;
+        }
 
-padding:100px;
 
-}
+        .shop-bottle-body {
 
-</style>
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            width: 210px;
+
+            height: 405px;
+
+            border-radius: 9px 9px 18px 18px;
+
+            border: 1px solid rgba(255,255,255,.9);
+
+            background:
+
+                linear-gradient(
+
+                    90deg,
+
+                    rgba(255,255,255,.65),
+
+                    rgba(255,255,255,.18),
+
+                    rgba(255,255,255,.75),
+
+                    rgba(255,255,255,.15),
+
+                    rgba(255,255,255,.6)
+
+                );
+
+            box-shadow:
+
+                inset 6px 0 12px rgba(255,255,255,.6),
+
+                inset -5px 0 10px rgba(0,0,0,.04),
+
+                0 35px 65px rgba(0,0,0,.18);
+
+            backdrop-filter: blur(6px);
+
+        }
+
+
+        .shop-bottle-content {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding-bottom: 15px;
+
+        }
+
+        .shop-bottle-brand {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 27px;
+
+            letter-spacing: 5px;
+
+        }
+
+        .shop-bottle-divider {
+
+            width: 40px;
+
+            height: 1px;
+
+            background: #b99355;
+
+            margin: 20px 0;
+
+        }
+
+        .shop-bottle-name {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 31px;
+
+            letter-spacing: 6px;
+
+            color: #b99355;
+
+        }
+
+        .shop-bottle-type {
+
+            margin-top: 10px;
+
+            font-size: 7px;
+
+            letter-spacing: 2px;
+
+            line-height: 1.8;
+
+            text-transform: uppercase;
+
+        }
+
+        .shop-bottle-tagline {
+
+            margin-top: 50px;
+
+            font-size: 6px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+        .shop-bottle-size {
+
+            position: absolute;
+
+            bottom: 20px;
+
+            font-size: 7px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .bottle-shadow {
+
+            position: absolute;
+
+            bottom: 65px;
+
+            width: 260px;
+
+            height: 30px;
+
+            background: rgba(0,0,0,.18);
+
+            filter: blur(20px);
+
+            border-radius: 50%;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT INFORMATION
+        ===================================================== */
+
+        .product-information {
+
+            max-width: 570px;
+
+        }
+
+        .product-label {
+
+            color: #b99355;
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+        }
+
+        .product-information h1 {
+
+            margin-top: 20px;
+
+            font-family: "Playfair Display", serif;
+
+            font-weight: 400;
+
+            font-size: clamp(60px, 7vw, 105px);
+
+            line-height: .88;
+
+            letter-spacing: -3px;
+
+        }
+
+        .product-name-subtitle {
+
+            margin-top: 18px;
+
+            color: #806f5c;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+        .product-intro {
+
+            margin-top: 35px;
+
+            max-width: 480px;
+
+            color: #746f68;
+
+            font-size: 14px;
+
+            line-height: 2;
+
+            font-weight: 300;
+
+        }
+
+
+        /* =====================================================
+           PRICE
+        ===================================================== */
+
+        .product-price {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            align-items: baseline;
+
+            gap: 15px;
+
+        }
+
+        .price-main {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+
+        }
+
+        .price-note {
+
+            color: #8a847c;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* =====================================================
+           QUANTITY
+        ===================================================== */
+
+        .quantity-area {
+
+            margin-top: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+        }
+
+        .quantity-label {
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+        .quantity-control {
+
+            display: flex;
+
+            border: 1px solid #c9c1b5;
+
+        }
+
+        .quantity-control button {
+
+            width: 36px;
+
+            height: 38px;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+        }
+
+        .quantity-control span {
+
+            width: 40px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 11px;
+
+            border-left: 1px solid #c9c1b5;
+
+            border-right: 1px solid #c9c1b5;
+
+        }
+
+
+        /* =====================================================
+           ADD TO CART
+        ===================================================== */
+
+        .shop-add-cart {
+
+            margin-top: 25px;
+
+            width: 100%;
+
+            min-height: 58px;
+
+            background: #11100e;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            transition: .35s ease;
+
+        }
+
+        .shop-add-cart:hover {
+
+            background: #b99355;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .buy-now {
+
+            margin-top: 12px;
+
+            width: 100%;
+
+            min-height: 58px;
+
+            background: transparent;
+
+            border: 1px solid #11100e;
+
+            cursor: pointer;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            transition: .35s ease;
+
+        }
+
+        .buy-now:hover {
+
+            background: #11100e;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT TRUST
+        ===================================================== */
+
+        .product-trust {
+
+            margin-top: 35px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid rgba(20,19,17,.12);
+
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 15px;
+
+        }
+
+        .trust-item {
+
+            text-align: center;
+
+        }
+
+        .trust-item strong {
+
+            display: block;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+        }
+
+        .trust-item span {
+
+            display: block;
+
+            margin-top: 6px;
+
+            color: #807970;
+
+            font-size: 9px;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT STORY
+        ===================================================== */
+
+        .product-story {
+
+            background: #11100e;
+
+            color: white;
+
+            padding: 150px 8vw;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 120px;
+
+            align-items: center;
+
+        }
+
+        .story-label {
+
+            color: #d4b477;
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+        }
+
+        .product-story h2 {
+
+            margin-top: 25px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(48px, 5vw, 76px);
+
+            font-weight: 400;
+
+            line-height: 1;
+
+        }
+
+        .product-story h2 em {
+
+            color: #d4b477;
+
+        }
+
+        .story-text {
+
+            color: #aaa59d;
+
+            font-size: 14px;
+
+            line-height: 2;
+
+            max-width: 500px;
+
+        }
+
+
+        /* =====================================================
+           HOW IT WORKS
+        ===================================================== */
+
+        .product-how {
+
+            background: #f7f3ec;
+
+            padding: 140px 7vw;
+
+            text-align: center;
+
+        }
+
+        .product-how-label {
+
+            color: #b99355;
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+        }
+
+        .product-how h2 {
+
+            margin-top: 20px;
+
+            font-family: "Playfair Display", serif;
+
+            font-weight: 400;
+
+            font-size: clamp(45px, 5vw, 72px);
+
+        }
+
+        .how-grid {
+
+            max-width: 1200px;
+
+            margin: 90px auto 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(4,1fr);
+
+            gap: 35px;
+
+            text-align: left;
+
+        }
+
+        .how-card {
+
+            padding-top: 25px;
+
+            border-top: 1px solid #cfc6b8;
+
+        }
+
+        .how-number {
+
+            color: #b99355;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+        }
+
+        .how-card h3 {
+
+            margin-top: 45px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 24px;
+
+            font-weight: 400;
+
+        }
+
+        .how-card p {
+
+            margin-top: 12px;
+
+            color: #746f68;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           BENEFITS
+        ===================================================== */
+
+        .benefits {
+
+            padding: 120px 8vw;
+
+            background: #eee8dc;
+
+        }
+
+        .benefits-inner {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+        .benefits h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 60px;
+
+            font-weight: 400;
+
+            text-align: center;
+
+        }
+
+        .benefit-list {
+
+            margin-top: 70px;
+
+            border-top: 1px solid #cfc6b8;
+
+        }
+
+        .benefit {
+
+            display: grid;
+
+            grid-template-columns: 80px 1fr;
+
+            gap: 30px;
+
+            padding: 30px 0;
+
+            border-bottom: 1px solid #cfc6b8;
+
+        }
+
+        .benefit-number {
+
+            color: #b99355;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+        }
+
+        .benefit h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 24px;
+
+            font-weight: 400;
+
+        }
+
+        .benefit p {
+
+            margin-top: 6px;
+
+            color: #746f68;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =====================================================
+           FINAL CTA
+        ===================================================== */
+
+        .product-final {
+
+            background: #11100e;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 150px 25px;
+
+        }
+
+        .product-final h2 {
+
+            margin-top: 20px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(50px, 6vw, 85px);
+
+            font-weight: 400;
+
+        }
+
+        .product-final h2 em {
+
+            color: #d4b477;
+
+        }
+
+        .product-final p {
+
+            max-width: 450px;
+
+            margin: 30px auto;
+
+            color: #aaa59d;
+
+            font-size: 13px;
+
+            line-height: 1.9;
+
+        }
+
+        .final-buy {
+
+            display: inline-flex;
+
+            min-width: 220px;
+
+            min-height: 55px;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: white;
+
+            color: #11100e;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition: .35s ease;
+
+        }
+
+        .final-buy:hover {
+
+            background: #b99355;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .product-hero {
+
+                grid-template-columns: 1fr;
+
+                padding: 80px 25px;
+
+                text-align: center;
+
+            }
+
+            .product-information {
+
+                max-width: 600px;
+
+                margin: auto;
+
+            }
+
+            .product-intro {
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+            }
+
+            .product-display {
+
+                min-height: 550px;
+
+                order: 2;
+
+            }
+
+            .product-information {
+
+                order: 1;
+
+            }
+
+            .quantity-area {
+
+                justify-content: center;
+
+            }
+
+            .product-trust {
+
+                text-align: center;
+
+            }
+
+            .product-story {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+                padding: 110px 30px;
+
+                text-align: center;
+
+            }
+
+            .story-text {
+
+                margin: auto;
+
+            }
+
+            .how-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .product-hero {
+
+                padding: 60px 20px;
+
+            }
+
+            .product-information h1 {
+
+                font-size: 68px;
+
+            }
+
+            .product-display {
+
+                min-height: 480px;
+
+            }
+
+            .shop-bottle {
+
+                transform: scale(.82);
+
+            }
+
+            .product-trust {
+
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+
+            }
+
+            .product-story h2 {
+
+                font-size: 46px;
+
+            }
+
+            .product-how {
+
+                padding: 100px 22px;
+
+            }
+
+            .how-grid {
+
+                grid-template-columns: 1fr;
+
+                margin-top: 60px;
+
+            }
+
+            .how-card {
+
+                padding: 25px 10px;
+
+            }
+
+            .benefits {
+
+                padding: 90px 22px;
+
+            }
+
+            .benefits h2 {
+
+                font-size: 45px;
+
+            }
+
+            .benefit {
+
+                grid-template-columns: 40px 1fr;
+
+                gap: 15px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
-<body>
 
-<header>
+<body class="product-page">
 
-<nav class="navbar">
 
-<div class="logo">
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-<a href="index.html">Nandé</a>
+<header class="site-header">
 
-</div>
+    <nav class="navbar">
 
-<ul class="nav-links">
+        <div class="logo">
 
-<li><a href="index.html">Home</a></li>
+            <a href="index.html">
 
-<li><a href="shop.html" class="active">Shop</a></li>
+                Nandé
 
-<li><a href="about.html">About</a></li>
+            </a>
 
-<li><a href="contact.html">Contact</a></li>
+        </div>
 
-<li><a href="track.html">Track Order</a></li>
 
-</ul>
+        <ul class="nav-links">
 
-<div class="nav-buttons">
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
 
-<a href="login.html" class="login-btn">Login</a>
+            <li>
+                <a href="shop.html" class="active">
+                    Éclat
+                </a>
+            </li>
 
-<a href="cart.html" class="cart-btn">🛒 Cart</a>
+            <li>
+                <a href="about.html">
+                    Our Story
+                </a>
+            </li>
 
-</div>
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
 
-</nav>
+            <li>
+                <a href="track.html">
+                    Track Order
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-buttons">
+
+            <a href="login.html"
+               class="login-btn">
+
+                Login
+
+            </a>
+
+            <a href="cart.html"
+               class="cart-btn">
+
+                Cart
+
+                <span id="cartCount">
+                    0
+                </span>
+
+            </a>
+
+        </div>
+
+    </nav>
 
 </header>
 
-<section class="shop-header">
 
-<h1>Premium Collection</h1>
 
-<p>
+<!-- =====================================================
+     PRODUCT HERO
+===================================================== -->
 
-Luxury fashion powered by AI. Discover premium hoodies, oversized fits, jackets and modern streetwear.
+<main>
 
-</p>
+
+<section class="product-hero">
+
+
+    <!-- PRODUCT -->
+
+    <div class="product-display">
+
+
+        <div class="bottle-shadow"></div>
+
+
+        <div class="shop-bottle">
+
+
+            <div class="shop-bottle-pump">
+
+                <div class="shop-pump-top"></div>
+
+                <div class="shop-pump-neck"></div>
+
+            </div>
+
+
+            <div class="shop-bottle-body">
+
+
+                <div class="shop-bottle-content">
+
+
+                    <div class="shop-bottle-brand">
+
+                        NANDÉ
+
+                    </div>
+
+
+                    <div class="shop-bottle-divider"></div>
+
+
+                    <div class="shop-bottle-name">
+
+                        ÉCLAT
+
+                    </div>
+
+
+                    <div class="shop-bottle-type">
+
+                        ADAPTIVE<br>
+
+                        SKIN TINT
+
+                    </div>
+
+
+                    <div class="shop-bottle-tagline">
+
+                        FIND YOURSELF
+
+                    </div>
+
+
+                    <div class="shop-bottle-size">
+
+                        40 ML
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- INFORMATION -->
+
+    <div class="product-information">
+
+
+        <div class="product-label">
+
+            NANDÉ / CHAPTER I
+
+        </div>
+
+
+        <h1>
+
+            Éclat
+
+        </h1>
+
+
+        <div class="product-name-subtitle">
+
+            Adaptive Skin Tint
+
+        </div>
+
+
+        <p class="product-intro">
+
+            A new approach to complexion.
+
+            ÉCLAT begins as a light cream and blends into
+
+            a natural-looking skin finish designed to
+
+            complement your complexion.
+
+        </p>
+
+
+        <div class="product-price">
+
+            <span class="price-main">
+
+                ₹1,999
+
+            </span>
+
+            <span class="price-note">
+
+                40 ML · INCLUSIVE OF TAXES
+
+            </span>
+
+        </div>
+
+
+        <!-- QUANTITY -->
+
+        <div class="quantity-area">
+
+            <span class="quantity-label">
+
+                Quantity
+
+            </span>
+
+
+            <div class="quantity-control">
+
+                <button onclick="changeQuantity(-1)">
+
+                    −
+
+                </button>
+
+
+                <span id="quantity">
+
+                    1
+
+                </span>
+
+
+                <button onclick="changeQuantity(1)">
+
+                    +
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <button class="shop-add-cart"
+                onclick="addToCart()">
+
+            Add ÉCLAT to Cart
+
+        </button>
+
+
+        <button class="buy-now"
+                onclick="buyNow()">
+
+            Buy Now
+
+        </button>
+
+
+        <!-- TRUST -->
+
+        <div class="product-trust">
+
+
+            <div class="trust-item">
+
+                <strong>
+                    40 ML
+                </strong>
+
+                <span>
+                    Full Size
+                </span>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <strong>
+                    01
+                </strong>
+
+                <span>
+                    Signature Product
+                </span>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <strong>
+                    NANDÉ
+                </strong>
+
+                <span>
+                    Chapter I
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
 
 </section>
 
-<section class="filters">
 
-<input
-type="text"
-id="searchInput"
-placeholder="Search Products">
 
-<select id="categoryFilter">
+<!-- =====================================================
+     PRODUCT STORY
+===================================================== -->
 
-<option value="all">All Categories</option>
+<section class="product-story">
 
-<option value="Men">Men</option>
 
-<option value="Women">Women</option>
+    <div>
 
-<option value="Oversized">Oversized</option>
+        <div class="story-label">
 
-<option value="Streetwear">Streetwear</option>
+            THE IDEA
 
-</select>
+        </div>
 
-<select id="sortFilter">
 
-<option value="default">Sort By</option>
+        <h2>
 
-<option value="low">Price Low to High</option>
+            One cream.<br>
 
-<option value="high">Price High to Low</option>
+            <em>Your perfect match.</em>
 
-</select>
+        </h2>
+
+    </div>
+
+
+    <div class="story-text">
+
+        <p>
+
+            Most complexion products ask you to find
+
+            your shade before you even begin.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            ÉCLAT takes a different approach.
+
+            Its colour-changing formula begins as a
+
+            light cream and blends across the skin,
+
+            creating a natural-looking finish.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            No complicated shade wall.
+
+            No guessing where you belong.
+
+            Just you — beautifully yourself.
+
+        </p>
+
+    </div>
+
 
 </section>
 
-<section>
 
-<div id="loading" class="loading">
 
-Loading Products...
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
 
-</div>
+<section class="product-how">
 
-<div id="productGrid" class="product-grid">
 
-</div>
+    <div class="product-how-label">
+
+        THE RITUAL
+
+    </div>
+
+
+    <h2>
+
+        Four steps.<br>
+
+        <em>One finish.</em>
+
+    </h2>
+
+
+    <div class="how-grid">
+
+
+        <div class="how-card">
+
+            <div class="how-number">
+                01
+            </div>
+
+            <h3>
+                Dispense
+            </h3>
+
+            <p>
+
+                Pump a small amount of ÉCLAT
+
+                onto your fingertips.
+
+            </p>
+
+        </div>
+
+
+        <div class="how-card">
+
+            <div class="how-number">
+                02
+            </div>
+
+            <h3>
+                Apply
+            </h3>
+
+            <p>
+
+                Place small amounts across
+
+                the areas where you want coverage.
+
+            </p>
+
+        </div>
+
+
+        <div class="how-card">
+
+            <div class="how-number">
+                03
+            </div>
+
+            <h3>
+                Blend
+            </h3>
+
+            <p>
+
+                Gently blend the cream into
+
+                your skin using your fingertips.
+
+            </p>
+
+        </div>
+
+
+        <div class="how-card">
+
+            <div class="how-number">
+                04
+            </div>
+
+            <h3>
+                Find Yourself
+            </h3>
+
+            <p>
+
+                Watch the formula transform
+
+                into a natural-looking complexion finish.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
 
 </section>
-<script type="module">
 
-import {
-collection,
-getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import { db } from "./firebase.js";
 
-const productGrid = document.getElementById("productGrid");
-const loading = document.getElementById("loading");
+<!-- =====================================================
+     BENEFITS
+===================================================== -->
 
-const searchInput = document.getElementById("searchInput");
-const categoryFilter = document.getElementById("categoryFilter");
-const sortFilter = document.getElementById("sortFilter");
+<section class="benefits">
 
-let products = [];
 
-async function loadProducts(){
+    <div class="benefits-inner">
 
-try{
 
-const snapshot = await getDocs(
-collection(db,"products")
-);
+        <h2>
 
-products = [];
+            Why ÉCLAT?
 
-snapshot.forEach((doc)=>{
+        </h2>
 
-products.push({
 
-id:doc.id,
+        <div class="benefit-list">
 
-...doc.data()
 
-});
+            <div class="benefit">
 
-});
+                <div class="benefit-number">
+                    01
+                </div>
 
-renderProducts(products);
+                <div>
 
-loading.style.display="none";
+                    <h3>
+                        Adaptive Colour Technology
+                    </h3>
 
-}
-catch(error){
+                    <p>
 
-console.error(error);
+                        A colour-changing formula designed
 
-loading.innerHTML="Failed To Load Products";
+                        to blend into the appearance of your
 
-}
+                        complexion.
 
-}
+                    </p>
 
-function renderProducts(items){
+                </div>
 
-productGrid.innerHTML="";
+            </div>
 
-if(items.length===0){
 
-productGrid.innerHTML=`
+            <div class="benefit">
 
-<h2 style="text-align:center;width:100%;">
-No Products Found
-</h2>
+                <div class="benefit-number">
+                    02
+                </div>
 
-`;
+                <div>
 
-return;
+                    <h3>
+                        Natural-Looking Finish
+                    </h3>
 
-}
+                    <p>
 
-items.forEach(product=>{
+                        Designed for a fresh, lightweight
 
-productGrid.innerHTML += `
+                        complexion rather than a heavy
 
-<div class="product-card">
+                        makeup appearance.
 
-<img src="${product.image}">
+                    </p>
 
-<div class="product-card-content">
+                </div>
 
-<h3>${product.name}</h3>
+            </div>
 
-<p>${product.category || "Fashion"}</p>
 
-<div class="price">
+            <div class="benefit">
 
-₹${product.price}
+                <div class="benefit-number">
+                    03
+                </div>
 
-</div>
+                <div>
 
-<div class="product-buttons">
+                    <h3>
+                        Simple Application
+                    </h3>
 
-<button
-class="cart-btn"
-onclick="addToCart(
-'${product.name}',
-'₹${product.price}',
-'${product.image}'
-)">
+                    <p>
 
-Add To Cart
+                        Dispense. Apply. Blend.
 
-</button>
+                        No complicated routine required.
 
-<a
-href="tryon.html"
-class="tryon-btn">
+                    </p>
 
-AI Try-On
+                </div>
 
-</a>
+            </div>
 
-</div>
 
-</div>
+            <div class="benefit">
 
-</div>
+                <div class="benefit-number">
+                    04
+                </div>
 
-`;
+                <div>
 
-});
+                    <h3>
+                        Made for Your Everyday
+                    </h3>
 
-}
+                    <p>
 
-window.addToCart = function(name,price,image){
+                        A single complexion essential
 
-let cart =
-JSON.parse(
-localStorage.getItem("cart")
-) || [];
+                        designed to fit effortlessly into
 
-cart.push({
+                        your daily routine.
 
-name:name,
+                    </p>
 
-price:price,
+                </div>
 
-image:image,
+            </div>
 
-quantity:1
 
-});
+        </div>
 
-localStorage.setItem(
-"cart",
-JSON.stringify(cart)
-);
 
-alert("Added To Cart");
+    </div>
 
-}
 
-searchInput.addEventListener("input",filterProducts);
+</section>
 
-categoryFilter.addEventListener("change",filterProducts);
 
-sortFilter.addEventListener("change",filterProducts);
 
-function filterProducts(){
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
 
-let filtered=[...products];
+<section class="product-final">
 
-const search=
-searchInput.value.toLowerCase();
 
-const category=
-categoryFilter.value;
+    <div class="product-label">
 
-const sort=
-sortFilter.value;
+        NANDÉ
 
-filtered = filtered.filter(product=>{
+    </div>
 
-return product.name
-.toLowerCase()
-.includes(search);
 
-});
+    <h2>
 
-if(category!=="all"){
+        Find <em>Yourself.</em>
 
-filtered = filtered.filter(product=>{
+    </h2>
 
-return product.category===category;
 
-});
+    <p>
 
-}
+        ÉCLAT is the first chapter of NANDÉ.
 
-if(sort==="low"){
+        One signature product created around
 
-filtered.sort((a,b)=>
-a.price-b.price
-);
+        individuality, simplicity and confidence.
 
-}
+    </p>
 
-if(sort==="high"){
 
-filtered.sort((a,b)=>
-b.price-a.price
-);
+    <a href="#"
+       class="final-buy"
+       onclick="addToCart(); return false;">
 
-}
+        Discover ÉCLAT
 
-renderProducts(filtered);
+    </a>
 
-}
 
-loadProducts();
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="luxury-footer">
+
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <h2>
+                NANDÉ
+            </h2>
+
+            <p>
+                FIND YOURSELF.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Explore
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="shop.html">
+                ÉCLAT
+            </a>
+
+            <a href="about.html">
+                Our Story
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Customer Care
+            </h3>
+
+            <a href="#">
+                Shipping
+            </a>
+
+            <a href="#">
+                Returns
+            </a>
+
+            <a href="#">
+                Privacy
+            </a>
+
+            <a href="#">
+                Terms
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                NANDÉ
+            </h3>
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                YouTube
+            </a>
+
+            <a href="contact.html">
+                Support
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 NANDÉ. ALL RIGHTS RESERVED.
+        </p>
+
+        <p>
+            FIND YOURSELF.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    let quantity = 1;
+
+
+    function changeQuantity(amount) {
+
+        quantity += amount;
+
+
+        if (quantity < 1) {
+
+            quantity = 1;
+
+        }
+
+
+        if (quantity > 10) {
+
+            quantity = 10;
+
+        }
+
+
+        document.getElementById("quantity").textContent = quantity;
+
+    }
+
+
+
+    function addToCart() {
+
+
+        let cart = JSON.parse(
+
+            localStorage.getItem("cart")
+
+        ) || [];
+
+
+        /*
+         * Remove any old clothing product
+         * from the previous NANDÉ website.
+         */
+
+        cart = cart.filter(
+
+            item => item.productId === "eclat-adaptive-skin-tint"
+
+        );
+
+
+        const existingProduct = cart.find(
+
+            item => item.productId === "eclat-adaptive-skin-tint"
+
+        );
+
+
+        if (existingProduct) {
+
+            existingProduct.quantity += quantity;
+
+        } else {
+
+            cart.push({
+
+                productId: "eclat-adaptive-skin-tint",
+
+                name: "ÉCLAT — Adaptive Skin Tint",
+
+                price: 1999,
+
+                quantity: quantity,
+
+                image: null
+
+            });
+
+        }
+
+
+        localStorage.setItem(
+
+            "cart",
+
+            JSON.stringify(cart)
+
+        );
+
+
+        updateCartCount();
+
+
+        alert(
+
+            "ÉCLAT has been added to your NANDÉ collection."
+
+        );
+
+    }
+
+
+
+    function buyNow() {
+
+        addToCart();
+
+        window.location.href = "cart.html";
+
+    }
+
+
+
+    function updateCartCount() {
+
+
+        const cart = JSON.parse(
+
+            localStorage.getItem("cart")
+
+        ) || [];
+
+
+        let total = 0;
+
+
+        cart.forEach(item => {
+
+            total += item.quantity || 1;
+
+        });
+
+
+        const count = document.getElementById("cartCount");
+
+
+        if (count) {
+
+            count.textContent = total;
+
+        }
+
+    }
+
+
+    updateCartCount();
 
 </script>
 
-<!-- SALE BANNER -->
-
-<section style="background:#111;color:white;text-align:center;padding:90px 20px;margin-top:80px;">
-
-<h2 style="font-size:50px;margin-bottom:20px;">
-
-Mid Season Sale
-
-</h2>
-
-<p style="font-size:20px;margin-bottom:30px;">
-
-Up To 40% OFF On Selected Collections
-
-</p>
-
-<a href="#" class="btn-primary">
-
-Shop Sale
-
-</a>
-
-</section>
-
-<!-- FEATURES -->
-
-<section class="why-us">
-
-<h2>Why Shop With Nandé?</h2>
-
-<div class="features">
-
-<div class="feature-box">
-
-<h3>🤖 AI Try-On</h3>
-
-<p>
-
-Preview clothing before buying.
-
-</p>
-
-</div>
-
-<div class="feature-box">
-
-<h3>📏 Smart Size Finder</h3>
-
-<p>
-
-Get perfect fit recommendations.
-
-</p>
-
-</div>
-
-<div class="feature-box">
-
-<h3>🚚 Fast Delivery</h3>
-
-<p>
-
-Quick shipping across India.
-
-</p>
-
-</div>
-
-<div class="feature-box">
-
-<h3>🔄 Easy Returns</h3>
-
-<p>
-
-Simple return policy.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<div class="footer-container">
-
-<div>
-
-<h2>Nandé</h2>
-
-<p>
-
-Wear Confidence.
-
-</p>
-
-</div>
-
-<div>
-
-<h3>Quick Links</h3>
-
-<ul>
-
-<li><a href="index.html">Home</a></li>
-
-<li><a href="shop.html">Shop</a></li>
-
-<li><a href="about.html">About</a></li>
-
-<li><a href="contact.html">Contact</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h3>Customer Care</h3>
-
-<ul>
-
-<li><a href="#">Shipping Policy</a></li>
-
-<li><a href="#">Return Policy</a></li>
-
-<li><a href="#">Privacy Policy</a></li>
-
-</ul>
-
-</div>
-
-</div>
-
-<hr>
-
-<p style="text-align:center;padding:20px;">
-
-© 2026 Nandé. All Rights Reserved.
-
-</p>
-
-</footer>
 
 </body>
 
