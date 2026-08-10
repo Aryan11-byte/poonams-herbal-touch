@@ -4,534 +4,2043 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nandé | Checkout</title>
+<title>Nandé | Complete Your Order</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   NANDÉ CHECKOUT
+===================================================== */
+
+:root {
+    --cream: #f7f3ec;
+    --cream-dark: #eee8dc;
+    --black: #11100e;
+    --gold: #b99355;
+    --gold-light: #d4b477;
+    --text-soft: #756f67;
+    --border: rgba(17,16,14,.14);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--black);
+    font-family: "Inter", sans-serif;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.checkout-navbar {
+
+    height: 86px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 6vw;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(247,243,236,.96);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+
+.checkout-logo {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 27px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.checkout-nav {
+
+    display: flex;
+
+    gap: 30px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.checkout-nav a:hover {
+    color: var(--gold);
+}
+
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.checkout-intro {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 90px 30px 55px;
+
+}
+
+
+.checkout-overline {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.checkout-intro h1 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px,7vw,88px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    margin: 20px 0;
+
+    letter-spacing: -2px;
+
+}
+
+
+.checkout-intro p {
+
+    color: var(--text-soft);
+
+    max-width: 520px;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.checkout-main {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 0 30px 120px;
+
+    display: grid;
+
+    grid-template-columns: 1.45fr .8fr;
+
+    gap: 80px;
+
+    align-items: start;
+
+}
+
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.checkout-card {
+
+    border-top: 1px solid var(--border);
+
+    padding-top: 30px;
+
+    margin-bottom: 55px;
+
+}
+
+
+.checkout-card-title {
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+
+}
+
+
+.checkout-card-title h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: 28px;
+
+    margin: 0;
+
+}
+
+
+.checkout-step {
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+}
+
+
+.form-group {
+
+    margin-bottom: 18px;
+
+}
+
+
+.form-group.full {
+
+    grid-column: 1 / -1;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+}
+
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    border: 1px solid #cbc4b9;
+
+    background: rgba(255,255,255,.35);
+
+    padding: 16px;
+
+    outline: none;
+
+    font-size: 12px;
+
+    color: var(--black);
+
+}
+
+
+.form-group textarea {
+
+    height: 110px;
+
+    resize: vertical;
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: var(--gold);
+
+    background: white;
+
+}
+
+
+
+/* =====================================================
+   PAYMENT OPTIONS
+===================================================== */
+
+.payment-description {
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+
+}
+
+
+.payment-option {
+
+    border: 1px solid var(--border);
+
+    padding: 20px;
+
+    margin-bottom: 12px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    transition: .3s;
+
+}
+
+
+.payment-option:hover {
+
+    border-color: var(--gold);
+
+    background: rgba(255,255,255,.35);
+
+}
+
+
+.payment-option input {
+
+    margin-top: 3px;
+
+    accent-color: var(--gold);
+
+}
+
+
+.payment-option strong {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+}
+
+
+.payment-option span {
+
+    display: block;
+
+    color: var(--text-soft);
+
+    font-size: 9px;
+
+    margin-top: 5px;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* =====================================================
+   ORDER SUMMARY
+===================================================== */
+
+.checkout-summary {
+
+    background: var(--black);
+
+    color: white;
+
+    padding: 40px;
+
+    position: sticky;
+
+    top: 115px;
+
+}
+
+
+.summary-overline {
+
+    color: var(--gold-light);
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.checkout-summary h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 36px;
+
+    font-weight: 400;
+
+    margin: 15px 0 30px;
+
+}
+
+
+.order-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.12);
+
+}
+
+
+.order-item-name {
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+}
+
+
+.order-item-name small {
+
+    display: block;
+
+    color: #88837b;
+
+    margin-top: 4px;
+
+}
+
+
+.order-item-price {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+}
+
+
+.summary-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    font-size: 10px;
+
+    border-bottom: 1px solid rgba(255,255,255,.12);
+
+}
+
+
+.summary-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 25px 0;
+
+}
+
+
+.summary-total span:first-child {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.summary-total span:last-child {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+
+}
+
+
+.checkout-note {
+
+    color: #858078;
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+}
+
+
+.place-order {
+
+    width: 100%;
+
+    min-height: 58px;
+
+    border: none;
+
+    background: white;
+
+    color: var(--black);
+
+    cursor: pointer;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    transition: .35s;
+
+}
+
+
+.place-order:hover {
+
+    background: var(--gold);
+
+    color: white;
+
+}
+
+
+.place-order:disabled {
+
+    opacity: .4;
+
+    cursor: not-allowed;
+
+}
+
+
+.back-cart {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #8b867e;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+
+/* =====================================================
+   TRUST SECTION
+===================================================== */
+
+.security-strip {
+
+    background: var(--cream-dark);
+
+    padding: 65px 30px;
+
+    text-align: center;
+
+}
+
+
+.security-label {
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.security-strip h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 38px;
+
+    font-weight: 400;
+
+    margin: 18px 0 40px;
+
+}
+
+
+.security-grid {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 50px;
+
+}
+
+
+.security-item {
+
+    border-top: 1px solid #c8c0b3;
+
+    padding-top: 18px;
+
+}
+
+
+.security-item strong {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: 18px;
+
+}
+
+
+.security-item p {
+
+    color: var(--text-soft);
+
+    font-size: 9px;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.checkout-footer {
+
+    background: var(--black);
+
+    color: white;
+
+    padding: 70px 7vw 25px;
+
+}
+
+
+.footer-grid {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+
+}
+
+
+.footer-brand h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+}
+
+
+.footer-brand p {
+
+    color: var(--gold-light);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.footer-column h3 {
+
+    color: #9b968f;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+}
+
+
+.footer-column a {
+
+    display: block;
+
+    font-size: 10px;
+
+    margin: 12px 0;
+
+    color: #dedad4;
+
+}
+
+
+.footer-column a:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+.footer-bottom {
+
+    max-width: 1250px;
+
+    margin: 55px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #77736d;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:900px) {
+
+    .checkout-main {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+    .checkout-summary {
+
+        position: static;
+
+    }
+
+}
+
+
+@media(max-width:650px) {
+
+    .checkout-navbar {
+
+        padding: 0 20px;
+
+    }
+
+    .checkout-nav {
+
+        gap: 12px;
+
+    }
+
+    .checkout-nav a:nth-child(1),
+    .checkout-nav a:nth-child(3) {
+
+        display: none;
+
+    }
+
+    .checkout-intro {
+
+        padding: 65px 20px 40px;
+
+    }
+
+    .checkout-main {
+
+        padding: 0 20px 80px;
+
+    }
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-group.full {
+
+        grid-column: auto;
+
+    }
+
+    .checkout-summary {
+
+        padding: 30px 24px;
+
+    }
+
+    .security-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
+
+
 <body>
 
-<header>
 
-<nav class="navbar">
 
-<div class="logo">
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-<a href="index.html">Nandé</a>
+<header class="checkout-navbar">
 
-</div>
+    <a href="index.html" class="checkout-logo">
+        NANDÉ
+    </a>
 
-<ul class="nav-links">
 
-<li><a href="index.html">Home</a></li>
+    <nav class="checkout-nav">
 
-<li><a href="shop.html">Shop</a></li>
+        <a href="index.html">
+            Home
+        </a>
 
-<li><a href="tryon.html">AI Try-On</a></li>
+        <a href="shop.html">
+            Éclat
+        </a>
 
-<li><a href="about.html">About</a></li>
+        <a href="about.html">
+            Our Story
+        </a>
 
-<li><a href="contact.html">Contact</a></li>
+        <a href="contact.html">
+            Contact
+        </a>
 
-</ul>
+        <a href="cart.html">
+            Bag
+        </a>
 
-<div class="nav-buttons">
-
-<a href="login.html" class="login-btn">Login</a>
-
-<a href="cart.html" class="cart-btn">🛒 Cart</a>
-
-</div>
-
-</nav>
+    </nav>
 
 </header>
 
-<section>
 
-<h2>Checkout</h2>
 
-<p>
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
-Complete your order securely.
+<section class="checkout-intro">
 
-</p>
+    <div class="checkout-overline">
+        NANDÉ / FINAL STEP
+    </div>
+
+
+    <h1>
+        Complete<br>
+        your ritual.
+    </h1>
+
+
+    <p>
+        Enter your details below and our team will personally
+        confirm your NANDÉ order with you.
+    </p>
 
 </section>
 
-<section>
 
-<div style="max-width:1300px;margin:auto;display:grid;grid-template-columns:2fr 1fr;gap:40px;">
 
-<!-- CUSTOMER DETAILS -->
+<!-- =====================================================
+     CHECKOUT
+===================================================== -->
 
-<div>
+<main class="checkout-main">
 
-<div style="background:white;padding:35px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);">
 
-<h2>Customer Details</h2>
 
-<br>
-
-<input
-type="text"
-id="name"
-placeholder="Full Name"
-style="width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;margin-bottom:20px;">
-
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-style="width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;margin-bottom:20px;">
-
-<input
-type="tel"
-id="phone"
-placeholder="Phone Number"
-style="width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;margin-bottom:20px;">
-
-<textarea
-id="address"
-placeholder="Full Address"
-style="width:100%;height:120px;padding:15px;border-radius:10px;border:1px solid #ddd;margin-bottom:20px;"></textarea>
-
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-
-<input
-type="text"
-id="city"
-placeholder="City"
-style="padding:15px;border-radius:10px;border:1px solid #ddd;">
-
-<input
-type="text"
-id="state"
-placeholder="State"
-style="padding:15px;border-radius:10px;border:1px solid #ddd;">
-
-</div>
-
-<br>
-
-<input
-type="text"
-id="pincode"
-placeholder="PIN Code"
-style="width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;">
-
-</div>
-
-<br>
-
-<div style="background:white;padding:35px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);">
-
-<h2>Payment Method</h2>
-
-<br>
-
-<label>
-
-<input
-type="radio"
-name="payment"
-value="Cash on Delivery"
-checked>
-
-Cash on Delivery
-
-</label>
-
-<br><br>
-
-<label>
-
-<input
-type="radio"
-name="payment"
-value="UPI">
-
-UPI
-
-</label>
-
-<br><br>
-
-<label>
-
-<input
-type="radio"
-name="payment"
-value="Credit / Debit Card">
-
-Credit / Debit Card
-
-</label>
-
-<br><br>
-
-<label>
-
-<input
-type="radio"
-name="payment"
-value="Net Banking">
-
-Net Banking
-
-</label>
-
-</div>
-
-</div>
-
-<!-- ORDER SUMMARY -->
+<!-- =====================================================
+     LEFT
+===================================================== -->
 
 <div>
 
-<div style="background:white;padding:30px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);position:sticky;top:100px;">
 
-<h2>Order Summary</h2>
 
-<hr>
+<!-- DELIVERY DETAILS -->
 
-<div id="orderItems"></div>
+<section class="checkout-card">
 
-<hr>
+    <div class="checkout-card-title">
 
-<p>
+        <h2>
+            Delivery Details
+        </h2>
 
-Subtotal
+        <span class="checkout-step">
+            01 / 02
+        </span>
 
-<span style="float:right;" id="subtotal">
+    </div>
 
-₹0
 
-</span>
+    <div class="form-grid">
 
-</p>
 
-<p style="margin-top:15px;">
+        <div class="form-group full">
 
-GST (18%)
+            <label>
+                Full Name
+            </label>
 
-<span style="float:right;" id="gst">
+            <input
+                type="text"
+                id="name"
+                placeholder="Your full name"
+                autocomplete="name"
+            >
 
-₹0
+        </div>
 
-</span>
 
-</p>
+        <div class="form-group">
 
-<p style="margin-top:15px;">
+            <label>
+                Email Address
+            </label>
 
-Shipping
+            <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+            >
 
-<span style="float:right;">
+        </div>
 
-FREE
 
-</span>
+        <div class="form-group">
 
-</p>
+            <label>
+                Phone Number
+            </label>
 
-<hr style="margin:20px 0;">
+            <input
+                type="tel"
+                id="phone"
+                placeholder="+91 XXXXX XXXXX"
+                autocomplete="tel"
+            >
 
-<h2>
+        </div>
 
-Total
 
-<span style="float:right;" id="total">
+        <div class="form-group full">
 
-₹0
+            <label>
+                Delivery Address
+            </label>
 
-</span>
+            <textarea
+                id="address"
+                placeholder="House / Flat / Building / Street"
+                autocomplete="street-address"
+            ></textarea>
 
-</h2>
+        </div>
 
-<br>
 
-<button
+        <div class="form-group">
 
-id="placeOrder"
+            <label>
+                City
+            </label>
 
-class="btn-primary"
+            <input
+                type="text"
+                id="city"
+                placeholder="City"
+                autocomplete="address-level2"
+            >
 
-style="width:100%;">
+        </div>
 
-Place Order
 
-</button>
+        <div class="form-group">
 
-<br><br>
+            <label>
+                State
+            </label>
 
-<a
+            <input
+                type="text"
+                id="state"
+                placeholder="State"
+                autocomplete="address-level1"
+            >
 
-href="cart.html"
+        </div>
 
-class="btn-secondary"
 
-style="display:block;text-align:center;">
+        <div class="form-group">
 
-Back to Cart
+            <label>
+                PIN Code
+            </label>
 
-</a>
+            <input
+                type="text"
+                id="pincode"
+                placeholder="6-digit PIN"
+                maxlength="6"
+                autocomplete="postal-code"
+            >
 
-</div>
+        </div>
 
-</div>
 
-</div>
+    </div>
 
 </section>
 
-<script>
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-let subtotal = 0;
+<!-- PAYMENT -->
 
-const orderItems = document.getElementById("orderItems");
+<section class="checkout-card">
 
-cart.forEach(item=>{
+    <div class="checkout-card-title">
 
-let qty = item.quantity || 1;
+        <h2>
+            Payment
+        </h2>
 
-let price = parseInt(item.price.replace(/[₹,]/g,""));
+        <span class="checkout-step">
+            02 / 02
+        </span>
 
-subtotal += price * qty;
+    </div>
 
-orderItems.innerHTML += `
 
-<p style="margin:10px 0;">
+    <p class="payment-description">
 
-${item.name} × ${qty}
+        Select how you would like to complete your purchase.
+        Our team may contact you on the phone number provided
+        to confirm your order and payment.
 
-<span style="float:right;">
+    </p>
 
-₹${price*qty}
 
-</span>
+    <!-- COD -->
 
-</p>
+    <label class="payment-option">
 
-`;
+        <input
+            type="radio"
+            name="payment"
+            value="Cash on Delivery"
+            checked
+        >
 
-});
+        <div>
 
-document.getElementById("subtotal").innerHTML = "₹"+subtotal;
+            <strong>
+                Cash on Delivery
+            </strong>
 
-let gst = Math.round(subtotal*0.18);
+            <span>
+                Pay when your NANDÉ order arrives.
+            </span>
 
-document.getElementById("gst").innerHTML = "₹"+gst;
+        </div>
 
-document.getElementById("total").innerHTML = "₹"+(subtotal+gst);
+    </label>
 
-</script>
-<script type="module">
 
-import {
-collection,
-addDoc,
-serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    <!-- DIRECT CONTACT -->
 
-import { db } from "./firebase.js";
+    <label class="payment-option">
 
-const placeOrderBtn = document.getElementById("placeOrder");
+        <input
+            type="radio"
+            name="payment"
+            value="Contact Me for Payment"
+        >
 
-placeOrderBtn.addEventListener("click", async ()=>{
+        <div>
 
-const name=document.getElementById("name").value.trim();
-const email=document.getElementById("email").value.trim();
-const phone=document.getElementById("phone").value.trim();
-const address=document.getElementById("address").value.trim();
-const city=document.getElementById("city").value.trim();
-const state=document.getElementById("state").value.trim();
-const pincode=document.getElementById("pincode").value.trim();
+            <strong>
+                Contact Me for Payment
+            </strong>
 
-if(
-name===""||
-email===""||
-phone===""||
-address===""||
-city===""||
-state===""||
-pincode===""){
+            <span>
+                Our team will contact you on your
+                provided number to arrange payment.
+            </span>
 
-alert("Please fill all required fields.");
+        </div>
 
-return;
+    </label>
 
-}
-
-const payment=document.querySelector("input[name='payment']:checked").value;
-
-const orderId="NANDE-"+Date.now();
-
-try{
-
-await addDoc(collection(db,"orders"),{
-
-orderId:orderId,
-
-customerName:name,
-
-email:email,
-
-phone:phone,
-
-address:address,
-
-city:city,
-
-state:state,
-
-pincode:pincode,
-
-paymentMethod:payment,
-
-items:cart,
-
-subtotal:subtotal,
-
-gst:gst,
-
-total:subtotal+gst,
-
-status:"Pending",
-
-createdAt:serverTimestamp()
-
-});
-
-localStorage.removeItem("cart");
-
-alert("Order Placed Successfully!");
-
-window.location.href="success.html";
-
-}
-
-catch(error){
-
-console.log(error);
-
-alert("Unable to place order.");
-
-}
-
-});
-
-</script>
-
-<!-- ========================= -->
-<!-- NEWSLETTER -->
-<!-- ========================= -->
-
-<section class="newsletter">
-
-<h2>Thank You for Shopping with Nandé</h2>
-
-<p>
-
-Luxury Fashion. AI Powered Shopping. Fast Delivery.
-
-</p>
 
 </section>
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
 
-<footer>
-
-<div class="footer-container">
-
-<div>
-
-<h2>Nandé</h2>
-
-<p>
-
-Wear Confidence.
-
-</p>
 
 </div>
 
-<div>
 
-<h3>Quick Links</h3>
 
-<ul>
+<!-- =====================================================
+     RIGHT / SUMMARY
+===================================================== -->
 
-<li><a href="index.html">Home</a></li>
+<aside>
 
-<li><a href="shop.html">Shop</a></li>
+<div class="checkout-summary">
 
-<li><a href="tryon.html">AI Try-On</a></li>
 
-<li><a href="about.html">About</a></li>
+    <div class="summary-overline">
+        NANDÉ / YOUR ORDER
+    </div>
 
-<li><a href="contact.html">Contact</a></li>
 
-</ul>
+    <h2>
+        Éclat.
+    </h2>
+
+
+    <div id="orderItems"></div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Subtotal
+        </span>
+
+        <span id="subtotal">
+            ₹0
+        </span>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Delivery
+        </span>
+
+        <span>
+            Complimentary
+        </span>
+
+    </div>
+
+
+    <div class="summary-total">
+
+        <span>
+            Total
+        </span>
+
+        <span id="total">
+            ₹0
+        </span>
+
+    </div>
+
+
+    <p class="checkout-note">
+
+        By placing your order, you agree to NANDÉ's
+        Terms & Conditions and Privacy Policy.
+        A member of our team may contact you to
+        confirm your order.
+
+    </p>
+
+
+    <button
+        id="placeOrder"
+        class="place-order">
+
+        Place NANDÉ Order
+
+    </button>
+
+
+    <a
+        href="cart.html"
+        class="back-cart">
+
+        ← Return to your selection
+
+    </a>
+
 
 </div>
 
-<div>
+</aside>
 
-<h3>Customer Care</h3>
 
-<ul>
 
-<li><a href="#">Shipping Policy</a></li>
+</main>
 
-<li><a href="#">Refund Policy</a></li>
 
-<li><a href="#">Privacy Policy</a></li>
 
-<li><a href="#">Terms & Conditions</a></li>
+<!-- =====================================================
+     NANDÉ STANDARD
+===================================================== -->
 
-</ul>
+<section class="security-strip">
+
+
+    <div class="security-label">
+        THE NANDÉ STANDARD
+    </div>
+
+
+    <h2>
+        Your first experience<br>
+        should feel different.
+    </h2>
+
+
+    <div class="security-grid">
+
+
+        <div class="security-item">
+
+            <strong>
+                Carefully Prepared
+            </strong>
+
+            <p>
+                Every NANDÉ order is prepared
+                with attention to detail.
+            </p>
+
+        </div>
+
+
+        <div class="security-item">
+
+            <strong>
+                Complimentary Delivery
+            </strong>
+
+            <p>
+                Delivery across India is
+                complimentary on your order.
+            </p>
+
+        </div>
+
+
+        <div class="security-item">
+
+            <strong>
+                Personal Assistance
+            </strong>
+
+            <p>
+                Our team is available to help
+                confirm your order personally.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="checkout-footer">
+
+
+<div class="footer-grid">
+
+
+    <div class="footer-brand">
+
+        <h2>
+            NANDÉ
+        </h2>
+
+        <p>
+            FIND YOURSELF.
+        </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h3>
+            Explore
+        </h3>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Éclat
+        </a>
+
+        <a href="about.html">
+            Our Story
+        </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h3>
+            Client Care
+        </h3>
+
+        <a href="#">
+            Shipping
+        </a>
+
+        <a href="#">
+            Returns
+        </a>
+
+        <a href="#">
+            Privacy
+        </a>
+
+        <a href="#">
+            Terms
+        </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h3>
+            Connect
+        </h3>
+
+        <a href="#">
+            Instagram
+        </a>
+
+        <a href="#">
+            YouTube
+        </a>
+
+        <a href="contact.html">
+            Contact NANDÉ
+        </a>
+
+    </div>
+
 
 </div>
 
-<div>
 
-<h3>Follow Us</h3>
+<div class="footer-bottom">
 
-<p>Instagram</p>
+    <span>
+        © 2026 NANDÉ. ALL RIGHTS RESERVED.
+    </span>
 
-<p>Facebook</p>
-
-<p>X (Twitter)</p>
-
-<p>YouTube</p>
-
-</div>
+    <span>
+        FIND YOURSELF.
+    </span>
 
 </div>
 
-<hr>
-
-<p style="text-align:center;padding:20px;">
-
-© 2026 Nandé. All Rights Reserved.
-
-</p>
 
 </footer>
 
-<script src="script.js"></script>
+
+
+<!-- =====================================================
+     CART CALCULATION
+===================================================== -->
+
+<script>
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+
+const orderItems =
+    document.getElementById("orderItems");
+
+
+const placeOrderBtn =
+    document.getElementById("placeOrder");
+
+
+let subtotal = 0;
+
+
+
+/* =====================================================
+   EMPTY CART
+===================================================== */
+
+if (cart.length === 0) {
+
+    orderItems.innerHTML = `
+
+        <p style="
+            color:#999;
+            font-size:10px;
+            line-height:1.7;
+        ">
+
+            Your selection is empty.
+            Return to Éclat to begin your order.
+
+        </p>
+
+    `;
+
+    placeOrderBtn.disabled = true;
+
+}
+
+
+
+/* =====================================================
+   DISPLAY PRODUCTS
+===================================================== */
+
+cart.forEach(item => {
+
+
+    const quantity =
+        Number(item.quantity) || 1;
+
+
+    const price =
+        Number(
+            String(item.price)
+            .replace(/[₹,]/g, "")
+        ) || 0;
+
+
+    subtotal +=
+        price * quantity;
+
+
+    orderItems.innerHTML += `
+
+        <div class="order-item">
+
+            <div class="order-item-name">
+
+                ${item.name || "NANDÉ Éclat"}
+
+                <small>
+                    Quantity × ${quantity}
+                </small>
+
+            </div>
+
+
+            <div class="order-item-price">
+
+                ₹${(
+                    price * quantity
+                ).toLocaleString("en-IN")}
+
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+document.getElementById("subtotal")
+    .textContent =
+    "₹" +
+    subtotal.toLocaleString("en-IN");
+
+
+document.getElementById("total")
+    .textContent =
+    "₹" +
+    subtotal.toLocaleString("en-IN");
+
+</script>
+
+
+
+<!-- =====================================================
+     FIREBASE ORDER
+===================================================== -->
+
+<script type="module">
+
+import {
+
+    collection,
+    addDoc,
+    serverTimestamp
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+import {
+    db
+} from "./firebase.js";
+
+
+const placeOrderBtn =
+    document.getElementById("placeOrder");
+
+
+placeOrderBtn.addEventListener(
+    "click",
+    async () => {
+
+
+        /* -----------------------------------------
+           CHECK CART
+        ----------------------------------------- */
+
+        if (!cart.length) {
+
+            alert(
+                "Your cart is empty."
+            );
+
+            return;
+
+        }
+
+
+
+        /* -----------------------------------------
+           CUSTOMER DETAILS
+        ----------------------------------------- */
+
+        const name =
+            document
+            .getElementById("name")
+            .value
+            .trim();
+
+
+        const email =
+            document
+            .getElementById("email")
+            .value
+            .trim();
+
+
+        const phone =
+            document
+            .getElementById("phone")
+            .value
+            .trim();
+
+
+        const address =
+            document
+            .getElementById("address")
+            .value
+            .trim();
+
+
+        const city =
+            document
+            .getElementById("city")
+            .value
+            .trim();
+
+
+        const state =
+            document
+            .getElementById("state")
+            .value
+            .trim();
+
+
+        const pincode =
+            document
+            .getElementById("pincode")
+            .value
+            .trim();
+
+
+
+        /* -----------------------------------------
+           VALIDATION
+        ----------------------------------------- */
+
+        if (
+
+            name === "" ||
+            email === "" ||
+            phone === "" ||
+            address === "" ||
+            city === "" ||
+            state === "" ||
+            pincode === ""
+
+        ) {
+
+            alert(
+                "Please complete all delivery details."
+            );
+
+            return;
+
+        }
+
+
+
+        /* -----------------------------------------
+           PHONE VALIDATION
+        ----------------------------------------- */
+
+        const cleanPhone =
+            phone.replace(/\D/g, "");
+
+
+        if (
+            cleanPhone.length < 10
+        ) {
+
+            alert(
+                "Please enter a valid phone number."
+            );
+
+            return;
+
+        }
+
+
+
+        /* -----------------------------------------
+           PIN VALIDATION
+        ----------------------------------------- */
+
+        if (
+            !/^\d{6}$/.test(pincode)
+        ) {
+
+            alert(
+                "Please enter a valid 6-digit PIN code."
+            );
+
+            return;
+
+        }
+
+
+
+        /* -----------------------------------------
+           EMAIL VALIDATION
+        ----------------------------------------- */
+
+        if (
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            .test(email)
+        ) {
+
+            alert(
+                "Please enter a valid email address."
+            );
+
+            return;
+
+        }
+
+
+
+        /* -----------------------------------------
+           PAYMENT METHOD
+        ----------------------------------------- */
+
+        const paymentElement =
+            document.querySelector(
+                "input[name='payment']:checked"
+            );
+
+
+        const payment =
+            paymentElement
+            ? paymentElement.value
+            : "Cash on Delivery";
+
+
+
+        /* -----------------------------------------
+           ORDER ID
+        ----------------------------------------- */
+
+        const orderId =
+            "NANDE-" +
+            Date.now()
+            .toString()
+            .slice(-8);
+
+
+
+        /* -----------------------------------------
+           BUTTON
+        ----------------------------------------- */
+
+        placeOrderBtn.disabled = true;
+
+        placeOrderBtn.textContent =
+            "Submitting Order…";
+
+
+
+        try {
+
+
+            /* -----------------------------------------
+               SAVE ORDER TO FIREBASE
+            ----------------------------------------- */
+
+            await addDoc(
+
+                collection(
+                    db,
+                    "orders"
+                ),
+
+                {
+
+                    orderId: orderId,
+
+                    brand: "Nandé",
+
+                    product:
+                        "NANDÉ Éclat",
+
+                    customerName:
+                        name,
+
+                    email:
+                        email,
+
+                    phone:
+                        phone,
+
+                    address:
+                        address,
+
+                    city:
+                        city,
+
+                    state:
+                        state,
+
+                    pincode:
+                        pincode,
+
+                    paymentMethod:
+                        payment,
+
+                    items:
+                        cart,
+
+                    subtotal:
+                        subtotal,
+
+                    shipping:
+                        0,
+
+                    total:
+                        subtotal,
+
+                    status:
+                        "Pending Confirmation",
+
+                    createdAt:
+                        serverTimestamp()
+
+                }
+
+            );
+
+
+
+            /* -----------------------------------------
+               SAVE LAST ORDER
+            ----------------------------------------- */
+
+            localStorage.setItem(
+
+                "lastOrder",
+
+                JSON.stringify({
+
+                    orderId:
+                        orderId,
+
+                    customerName:
+                        name,
+
+                    email:
+                        email,
+
+                    phone:
+                        phone,
+
+                    address:
+                        address,
+
+                    city:
+                        city,
+
+                    state:
+                        state,
+
+                    pincode:
+                        pincode,
+
+                    paymentMethod:
+                        payment,
+
+                    items:
+                        cart,
+
+                    subtotal:
+                        subtotal,
+
+                    total:
+                        subtotal
+
+                })
+
+            );
+
+
+
+            /* -----------------------------------------
+               CLEAR CART
+            ----------------------------------------- */
+
+            localStorage.removeItem(
+                "cart"
+            );
+
+
+
+            /* -----------------------------------------
+               SUCCESS PAGE
+            ----------------------------------------- */
+
+            window.location.href =
+                "success.html";
+
+
+        }
+
+        catch(error) {
+
+
+            console.error(
+                "NANDÉ ORDER ERROR:",
+                error
+            );
+
+
+            alert(
+                "We couldn't submit your order. Please try again."
+            );
+
+
+            placeOrderBtn.disabled =
+                false;
+
+
+            placeOrderBtn.textContent =
+                "Place NANDÉ Order";
+
+        }
+
+    }
+
+);
+
+</script>
+
+
 
 </body>
 
