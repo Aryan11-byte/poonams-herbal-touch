@@ -2,771 +2,2109 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="NANDÉ — Find Yourself. A new expression of luxury beauty."
+    >
 
     <title>NANDÉ | FIND YOURSELF</title>
 
-    <meta name="description"
-        content="NANDÉ ÉCLAT — Adaptive Skin Tint. One formula. Your skin. Discover NANDÉ.">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- GOOGLE FONTS -->
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
 
-</head>
 
-<body>
+    <style>
 
-    <!-- =====================================================
-         NAVIGATION
-    ====================================================== -->
+        /* =========================================
+           GLOBAL
+        ========================================= */
 
-    <header class="site-header">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <nav class="navbar">
 
-            <div class="logo">
-                <a href="#" onclick="openAdmin(); return false;">NANDÉ</a>
-            </div>
+        html {
+            scroll-behavior: smooth;
+        }
 
-            <ul class="nav-links">
 
-                <li>
-                    <a href="index.html" class="active">Home</a>
-                </li>
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f8f6f1;
+            color: #171512;
+            line-height: 1.6;
+        }
 
-                <li>
-                    <a href="shop.html">Shop</a>
-                </li>
 
-                <li>
-                    <a href="about.html">Our Story</a>
-                </li>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
 
-            </ul>
+        button,
+        input {
+            font-family: inherit;
+        }
 
-            <div class="nav-buttons">
 
-                <a href="login.html" class="login-btn">
-                    Account
-                </a>
+        /* =========================================
+           NAVBAR
+        ========================================= */
 
-                <a href="cart.html" class="cart-btn">
-                    Cart <span>0</span>
-                </a>
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
 
-            </div>
 
-        </nav>
+        .navbar {
+            max-width: 1400px;
+            margin: auto;
 
-    </header>
+            padding: 28px 50px;
 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    <!-- =====================================================
-         ANNOUNCEMENT BAR
-    ====================================================== -->
 
-    <div class="announcement-bar">
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            letter-spacing: 4px;
+        }
 
-        <span>
-            THE FIRST CHAPTER OF NANDÉ
-        </span>
 
-        <span class="announcement-dot">•</span>
+        .nav-links {
+            display: flex;
+            gap: 38px;
+            list-style: none;
 
-        <span>
-            ÉCLAT IS HERE
-        </span>
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-    </div>
 
+        .nav-links a {
+            transition: opacity 0.3s;
+        }
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
 
-    <main>
+        .nav-links a:hover {
+            opacity: 0.5;
+        }
 
-        <section class="hero-luxury">
 
-            <div class="hero-content">
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
 
-                <p class="eyebrow">
-                    NANDÉ BEAUTY — CHAPTER I
-                </p>
 
-                <h1>
-                    FIND<br>
-                    <em>YOURSELF.</em>
-                </h1>
+        .login-btn,
+        .cart-btn {
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
 
-                <p class="hero-description">
 
-                    Meet ÉCLAT — an adaptive complexion cream
-                    designed to become one with your skin.
+        /* =========================================
+           HERO
+        ========================================= */
 
-                </p>
+        .hero {
+            min-height: 100vh;
 
-                <div class="hero-actions">
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-                    <a href="shop.html" class="btn-primary">
-                        Discover ÉCLAT
-                    </a>
+            text-align: center;
 
-                    <a href="#the-concept" class="btn-text">
-                        Explore the formula
-                        <span>↓</span>
-                    </a>
+            padding: 150px 25px 100px;
 
-                </div>
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    #ffffff 0%,
+                    #f8f6f1 50%,
+                    #eeeae2 100%
+                );
 
-            </div>
+            position: relative;
+            overflow: hidden;
+        }
 
 
-            <!-- CSS PRODUCT DISPLAY -->
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
 
-            <div class="hero-product">
 
-                <div class="product-glow"></div>
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
 
-                <div class="product-stage">
+            margin-bottom: 25px;
 
-                    <div class="product-shadow"></div>
+            color: #777066;
+        }
 
-                    <div class="cosmetic-bottle">
 
-                        <div class="bottle-pump">
-                            <div class="pump-top"></div>
-                            <div class="pump-neck"></div>
-                        </div>
+        .hero h1 {
+            font-family: "Playfair Display", serif;
 
-                        <div class="bottle-body">
+            font-size: clamp(70px, 11vw, 150px);
 
-                            <div class="bottle-content">
+            font-weight: 400;
 
-                                <div class="bottle-brand">
-                                    NANDÉ
-                                </div>
+            line-height: 0.9;
 
-                                <div class="bottle-line"></div>
+            letter-spacing: -4px;
 
-                                <div class="bottle-product">
-                                    ÉCLAT
-                                </div>
+            margin-bottom: 35px;
+        }
 
-                                <div class="bottle-type">
-                                    ADAPTIVE<br>
-                                    SKIN TINT
-                                </div>
 
-                                <div class="bottle-tagline">
-                                    FIND YOURSELF
-                                </div>
+        .hero-tagline {
+            font-size: 18px;
 
-                                <div class="bottle-size">
-                                    40 ML
-                                </div>
+            letter-spacing: 5px;
 
-                            </div>
+            text-transform: uppercase;
 
-                        </div>
+            margin-bottom: 25px;
+        }
 
-                    </div>
 
-                </div>
+        .hero-description {
+            max-width: 600px;
 
-            </div>
+            margin: auto;
 
-        </section>
+            color: #6f6a61;
 
+            font-size: 15px;
 
-        <!-- =================================================
-             BRAND STATEMENT
-        ================================================== -->
+            line-height: 1.9;
+        }
 
-        <section class="brand-statement">
 
-            <div class="statement-inner">
+        .hero-buttons {
+            margin-top: 40px;
 
-                <p class="small-label">
-                    NANDÉ
-                </p>
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
 
-                <h2>
-                    Beauty shouldn't hide<br>
-                    <em>who you are.</em>
-                </h2>
 
-                <p>
-                    NANDÉ was created around a simple idea:
-                    beauty should feel personal, effortless
-                    and entirely yours.
-                </p>
+        .btn-primary {
+            background: #171512;
+            color: white;
 
-            </div>
+            padding: 16px 32px;
 
-        </section>
+            border: none;
 
+            cursor: pointer;
 
-        <!-- =================================================
-             PRODUCT INTRODUCTION
-        ================================================== -->
+            letter-spacing: 2px;
 
-        <section class="product-introduction" id="the-concept">
+            font-size: 12px;
 
-            <div class="section-number">
-                01
-            </div>
+            text-transform: uppercase;
 
-            <div class="product-intro-content">
+            transition: 0.3s;
+        }
 
-                <p class="eyebrow">
-                    INTRODUCING
-                </p>
 
-                <h2>
-                    ÉCLAT
-                </h2>
+        .btn-primary:hover {
+            background: #3c3832;
+            transform: translateY(-2px);
+        }
 
-                <p class="product-subtitle">
-                    Adaptive Skin Tint
-                </p>
 
-                <div class="gold-line"></div>
+        .btn-secondary {
+            border: 1px solid #171512;
 
-                <p class="product-description">
+            padding: 15px 32px;
 
-                    A cream that begins white and transforms
-                    as you blend it, creating a natural-looking
-                    complexion finish designed to complement
-                    your skin.
+            font-size: 12px;
 
-                </p>
+            letter-spacing: 2px;
 
-                <a href="shop.html" class="btn-primary dark">
-                    Shop ÉCLAT
-                </a>
+            text-transform: uppercase;
 
-            </div>
+            transition: 0.3s;
+        }
 
 
-            <div class="product-minimal-display">
+        .btn-secondary:hover {
+            background: #171512;
+            color: white;
+        }
 
-                <div class="floating-label">
-                    40 ML
-                </div>
 
-                <div class="minimal-bottle">
+        /* =========================================
+           COUNTDOWN
+        ========================================= */
 
-                    <div class="minimal-pump"></div>
+        .launch-section {
+            padding: 100px 25px;
 
-                    <div class="minimal-body">
+            text-align: center;
 
-                        <div class="minimal-logo">
-                            NANDÉ
-                        </div>
+            background: #171512;
 
-                        <div class="minimal-name">
-                            ÉCLAT
-                        </div>
+            color: white;
+        }
 
-                        <div class="minimal-type">
-                            ADAPTIVE<br>
-                            SKIN TINT
-                        </div>
 
-                    </div>
+        .launch-label {
+            font-size: 11px;
 
-                </div>
+            letter-spacing: 5px;
 
-            </div>
+            text-transform: uppercase;
 
-        </section>
+            color: #bdb7ac;
 
+            margin-bottom: 20px;
+        }
 
-        <!-- =================================================
-             HOW IT WORKS
-        ================================================== -->
 
-        <section class="how-section">
+        .launch-section h2 {
+            font-family: "Playfair Display", serif;
 
-            <div class="how-header">
+            font-size: clamp(40px, 6vw, 70px);
 
-                <p class="eyebrow">
-                    THE EXPERIENCE
-                </p>
+            font-weight: 400;
 
-                <h2>
-                    It starts white.<br>
-                    <em>It becomes yours.</em>
-                </h2>
+            margin-bottom: 15px;
+        }
 
-            </div>
 
+        .launch-description {
+            color: #aaa49b;
 
-            <div class="steps">
+            max-width: 550px;
 
-                <div class="step">
+            margin: auto;
 
-                    <span class="step-number">
-                        01
-                    </span>
+            font-size: 14px;
+        }
 
-                    <div class="step-visual cream-dot"></div>
 
-                    <h3>
-                        DISPENSE
-                    </h3>
+        .countdown {
+            display: flex;
 
-                    <p>
-                        Begin with a small amount
-                        of the cream.
-                    </p>
+            justify-content: center;
 
-                </div>
+            gap: 15px;
 
+            margin: 55px auto 35px;
 
-                <div class="step">
+            flex-wrap: wrap;
+        }
 
-                    <span class="step-number">
-                        02
-                    </span>
 
-                    <div class="step-visual skin-dot"></div>
+        .countdown-box {
+            width: 120px;
 
-                    <h3>
-                        APPLY
-                    </h3>
+            padding: 25px 15px;
 
-                    <p>
-                        Apply evenly across
-                        your complexion.
-                    </p>
+            border: 1px solid rgba(255,255,255,0.2);
 
-                </div>
+            background: rgba(255,255,255,0.03);
+        }
 
 
-                <div class="step">
+        .countdown-number {
+            font-family: "Playfair Display", serif;
 
-                    <span class="step-number">
-                        03
-                    </span>
+            font-size: 45px;
 
-                    <div class="step-visual blend-dot"></div>
+            font-weight: 400;
 
-                    <h3>
-                        BLEND
-                    </h3>
+            line-height: 1;
+        }
 
-                    <p>
-                        Blend gently and watch
-                        the colour develop.
-                    </p>
 
-                </div>
+        .countdown-label {
+            margin-top: 10px;
 
+            font-size: 10px;
 
-                <div class="step">
+            letter-spacing: 3px;
 
-                    <span class="step-number">
-                        04
-                    </span>
+            text-transform: uppercase;
 
-                    <div class="step-visual finish-dot"></div>
+            color: #aaa49b;
+        }
 
-                    <h3>
-                        FIND YOUR MATCH
-                    </h3>
 
-                    <p>
-                        Finish with a natural-looking
-                        complexion.
-                    </p>
+        .launch-date {
+            font-size: 11px;
 
-                </div>
+            letter-spacing: 3px;
 
-            </div>
+            color: #bdb7ac;
+        }
 
-        </section>
 
+        /* =========================================
+           WAITING LIST
+        ========================================= */
 
-        <!-- =================================================
-             PRODUCT FEATURES
-        ================================================== -->
+        .waiting-section {
+            padding: 110px 25px;
 
-        <section class="features-section">
+            text-align: center;
 
-            <div class="features-heading">
+            background: #eeeae2;
+        }
 
-                <p class="eyebrow">
-                    ÉCLAT
-                </p>
 
-                <h2>
-                    Less makeup.<br>
-                    <em>More you.</em>
-                </h2>
+        .waiting-section h2 {
+            font-family: "Playfair Display", serif;
 
-            </div>
+            font-size: clamp(42px, 6vw, 68px);
 
+            font-weight: 400;
 
-            <div class="feature-list">
+            margin-bottom: 20px;
+        }
 
-                <div class="luxury-feature">
 
-                    <span>01</span>
+        .waiting-section p {
+            max-width: 550px;
 
-                    <div>
+            margin: auto;
 
-                        <h3>
-                            Adaptive Colour
-                        </h3>
+            color: #716b62;
 
-                        <p>
-                            A colour-changing formula designed
-                            to develop as it is blended into
-                            the skin.
-                        </p>
+            font-size: 14px;
+        }
 
-                    </div>
 
-                </div>
+        .waiting-form {
+            max-width: 520px;
 
+            margin: 35px auto 0;
 
-                <div class="luxury-feature">
+            display: flex;
 
-                    <span>02</span>
+            border-bottom: 1px solid #171512;
+        }
 
-                    <div>
 
-                        <h3>
-                            Natural-Looking Finish
-                        </h3>
+        .waiting-form input {
+            flex: 1;
 
-                        <p>
-                            Created for an effortless,
-                            skin-like appearance rather than
-                            a heavy-looking base.
-                        </p>
+            border: none;
 
-                    </div>
+            background: transparent;
 
-                </div>
+            padding: 16px 5px;
 
+            outline: none;
 
-                <div class="luxury-feature">
+            font-size: 14px;
+        }
 
-                    <span>03</span>
 
-                    <div>
+        .waiting-form button {
+            border: none;
 
-                        <h3>
-                            One Simple Step
-                        </h3>
+            background: transparent;
 
-                        <p>
-                            Dispense, apply and blend.
-                            No complicated shade selection.
-                        </p>
+            cursor: pointer;
 
-                    </div>
+            padding: 15px 5px;
 
-                </div>
+            font-size: 11px;
 
+            letter-spacing: 2px;
 
-                <div class="luxury-feature">
+            text-transform: uppercase;
 
-                    <span>04</span>
+            font-weight: 600;
+        }
 
-                    <div>
 
-                        <h3>
-                            40 ML
-                        </h3>
+        .form-message {
+            margin-top: 18px;
 
-                        <p>
-                            A refined everyday complexion
-                            essential designed to fit
-                            effortlessly into your routine.
-                        </p>
+            font-size: 12px;
 
-                    </div>
+            color: #5f5a52;
 
-                </div>
+            min-height: 20px;
+        }
 
-            </div>
 
-        </section>
+        /* =========================================
+           PRODUCT
+        ========================================= */
 
+        .product-section {
+            padding: 120px 25px;
 
-        <!-- =================================================
-             PHILOSOPHY
-        ================================================== -->
+            max-width: 1300px;
 
-        <section class="philosophy">
+            margin: auto;
+        }
 
-            <div class="philosophy-overlay"></div>
 
-            <div class="philosophy-content">
+        .section-heading {
+            text-align: center;
 
-                <p class="eyebrow">
-                    THE NANDÉ PHILOSOPHY
-                </p>
+            margin-bottom: 70px;
+        }
 
-                <h2>
-                    You don't need<br>
-                    to become someone else.
-                </h2>
 
-                <p>
-                    You only need to
-                    <em>find yourself.</em>
-                </p>
+        .section-heading span {
+            font-size: 10px;
 
-                <div class="philosophy-logo">
-                    NANDÉ
-                </div>
+            letter-spacing: 4px;
 
-                <div class="philosophy-tagline">
-                    FIND YOURSELF
-                </div>
+            text-transform: uppercase;
 
-            </div>
+            color: #817a70;
+        }
 
-        </section>
 
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
 
-        <!-- =================================================
-             THE FIRST CHAPTER
-        ================================================== -->
+            font-size: clamp(45px, 6vw, 70px);
 
-        <section class="chapter-section">
+            font-weight: 400;
 
-            <div class="chapter-left">
+            margin-top: 15px;
+        }
 
-                <p class="eyebrow">
-                    CHAPTER I
-                </p>
 
-                <h2>
-                    ÉCLAT
-                </h2>
+        .product-layout {
+            display: grid;
 
-                <p class="chapter-title">
-                    The beginning of NANDÉ.
-                </p>
+            grid-template-columns: 1fr 1fr;
 
-            </div>
+            gap: 80px;
 
+            align-items: center;
+        }
 
-            <div class="chapter-right">
 
-                <p>
-                    ÉCLAT is the first expression of NANDÉ —
-                    a complexion essential built around
-                    individuality rather than perfection.
-                </p>
+        .product-image {
+            min-height: 650px;
 
-                <a href="shop.html" class="btn-outline">
-                    Experience ÉCLAT
-                </a>
+            background:
+                linear-gradient(
+                    135deg,
+                    #e5e0d7,
+                    #f9f7f2
+                );
 
-            </div>
+            display: flex;
 
-        </section>
+            align-items: center;
 
+            justify-content: center;
 
-        <!-- =================================================
-             WAITLIST / NEWSLETTER
-        ================================================== -->
+            position: relative;
+        }
 
-        <section class="newsletter-luxury">
 
-            <p class="eyebrow">
-                STAY CLOSE
-            </p>
+        .product-placeholder {
+            width: 230px;
 
-            <h2>
-                Be part of<br>
-                <em>what comes next.</em>
-            </h2>
+            height: 430px;
 
-            <p>
-                Join the NANDÉ circle for product launches,
-                private releases and everything coming next.
-            </p>
+            border-radius: 15px;
 
-            <form class="newsletter-form">
+            background:
+                linear-gradient(
+                    90deg,
+                    #181715,
+                    #36332e,
+                    #151412
+                );
 
-                <input
-                    type="email"
-                    placeholder="Your email address"
-                    required
-                >
+            box-shadow:
+                20px 30px 60px rgba(0,0,0,0.25);
 
-                <button type="submit">
-                    JOIN NANDÉ
-                </button>
+            display: flex;
 
-            </form>
+            align-items: center;
 
-        </section>
+            justify-content: center;
 
-    </main>
+            color: white;
 
+            text-align: center;
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
+            padding: 30px;
+        }
 
-    <footer class="luxury-footer">
 
-        <div class="footer-main">
+        .product-placeholder-inner {
+            border: 1px solid rgba(255,255,255,0.5);
 
-            <div class="footer-brand">
+            width: 80%;
 
-                <h2>
-                    NANDÉ
-                </h2>
+            height: 85%;
 
-                <p>
-                    FIND YOURSELF
-                </p>
+            display: flex;
 
-            </div>
+            align-items: center;
 
+            justify-content: center;
 
-            <div class="footer-column">
+            flex-direction: column;
+        }
 
-                <h3>
-                    Explore
-                </h3>
 
-                <a href="index.html">
-                    Home
-                </a>
+        .product-placeholder-name {
+            font-family: "Playfair Display", serif;
 
-                <a href="shop.html">
-                    ÉCLAT
-                </a>
+            font-size: 30px;
 
-                <a href="about.html">
-                    Our Story
-                </a>
+            letter-spacing: 3px;
+        }
 
-                <a href="contact.html">
-                    Contact
-                </a>
 
-            </div>
+        .product-placeholder-sub {
+            margin-top: 15px;
 
+            font-size: 8px;
 
-            <div class="footer-column">
+            letter-spacing: 3px;
+        }
 
-                <h3>
-                    Customer Care
-                </h3>
 
-                <a href="track.html">
-                    Track Order
-                </a>
+        .product-info .eyebrow {
+            margin-bottom: 15px;
+        }
 
-                <a href="#">
-                    Shipping
-                </a>
 
-                <a href="#">
-                    Returns
-                </a>
+        .product-info h2 {
+            font-family: "Playfair Display", serif;
 
-                <a href="#">
-                    Privacy
-                </a>
+            font-size: 55px;
 
-            </div>
+            font-weight: 400;
 
+            line-height: 1.1;
 
-            <div class="footer-column">
+            margin-bottom: 20px;
+        }
 
-                <h3>
-                    Connect
-                </h3>
 
-                <a href="#">
-                    Instagram
-                </a>
+        .product-info p {
+            color: #706b62;
 
-                <a href="#">
-                    YouTube
-                </a>
+            font-size: 15px;
 
-                <a href="#">
-                    Facebook
-                </a>
+            line-height: 1.9;
 
-                <a href="#">
-                    X
-                </a>
+            margin-bottom: 25px;
+        }
 
-            </div>
 
-        </div>
+        .price {
+            font-family: "Playfair Display", serif;
 
+            font-size: 28px;
 
-        <div class="footer-bottom">
+            margin-bottom: 30px;
+        }
 
-            <p>
-                © 2026 NANDÉ. All Rights Reserved.
-            </p>
 
-            <p>
-                FIND YOURSELF.
-            </p>
+        .product-details {
+            border-top: 1px solid #d5d0c8;
 
-        </div>
+            border-bottom: 1px solid #d5d0c8;
 
-    </footer>
+            padding: 20px 0;
 
+            margin-bottom: 30px;
+        }
 
-    <!-- =====================================================
-         EXISTING BACKEND
-    ====================================================== -->
 
-    <script src="firebase.js"></script>
+        .product-detail {
+            display: flex;
 
-    <script src="script.js"></script>
+            justify-content: space-between;
 
+            padding: 7px 0;
 
-    <!-- =====================================================
-         ADMIN ACCESS
-    ====================================================== -->
+            font-size: 12px;
+        }
 
-    <script>
 
-        function openAdmin() {
+        .product-detail span:last-child {
+            color: #777066;
+        }
 
-            const password = prompt("Enter Admin Password");
 
-            if (password === "Nande@2026") {
+        /* =========================================
+           BRAND STORY
+        ========================================= */
 
-                window.location.href = "admin.html";
+        .story-section {
+            background: #171512;
 
-            } else if (password !== null) {
+            color: white;
 
-                alert("Incorrect Password");
+            padding: 130px 25px;
 
+            text-align: center;
+        }
+
+
+        .story-inner {
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+
+        .story-section span {
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            color: #aaa49b;
+        }
+
+
+        .story-section h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(45px, 7vw, 80px);
+
+            font-weight: 400;
+
+            margin: 25px 0;
+        }
+
+
+        .story-section p {
+            color: #aaa49b;
+
+            font-size: 16px;
+
+            line-height: 2;
+
+            margin-bottom: 20px;
+        }
+
+
+        .find-yourself {
+            margin-top: 50px;
+
+            font-size: 13px !important;
+
+            letter-spacing: 7px;
+
+            color: white !important;
+        }
+
+
+        /* =========================================
+           VALUES
+        ========================================= */
+
+        .values-section {
+            padding: 120px 25px;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        .values-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .value-card {
+            padding: 45px 30px;
+
+            border-top: 1px solid #cfc9bf;
+        }
+
+
+        .value-number {
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            color: #8a8379;
+        }
+
+
+        .value-card h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 27px;
+
+            font-weight: 400;
+
+            margin: 25px 0 15px;
+        }
+
+
+        .value-card p {
+            font-size: 13px;
+
+            color: #716b62;
+
+            line-height: 1.9;
+        }
+
+
+        /* =========================================
+           FINAL CTA
+        ========================================= */
+
+        .final-section {
+            padding: 140px 25px;
+
+            text-align: center;
+
+            background: #eeeae2;
+        }
+
+
+        .final-section h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(50px, 8vw, 100px);
+
+            font-weight: 400;
+
+            line-height: 1;
+        }
+
+
+        .final-section p {
+            margin: 25px auto 35px;
+
+            max-width: 500px;
+
+            color: #716b62;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #11100e;
+
+            color: white;
+
+            padding: 70px 50px 0;
+        }
+
+
+        .footer-container {
+            max-width: 1300px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 60px;
+        }
+
+
+        .footer-container h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            letter-spacing: 3px;
+        }
+
+
+        .footer-container h3 {
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+
+        .footer-container p,
+        .footer-container li {
+            color: #969087;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .footer-container ul {
+            list-style: none;
+        }
+
+
+        .footer-container a:hover {
+            color: white;
+        }
+
+
+        .footer-bottom {
+            border-top: 1px solid #292722;
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #777168;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .navbar {
+                padding: 22px 25px;
+            }
+
+
+            .product-layout {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+
+            .product-image {
+                min-height: 500px;
+            }
+
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
             }
 
         }
 
-    </script>
+
+        @media(max-width: 600px) {
+
+            .hero {
+                padding-top: 130px;
+            }
+
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+
+            .hero-buttons {
+                flex-direction: column;
+
+                max-width: 280px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .countdown-box {
+                width: 75px;
+
+                padding: 18px 8px;
+            }
+
+
+            .countdown-number {
+                font-size: 30px;
+            }
+
+
+            .countdown-label {
+                font-size: 8px;
+
+                letter-spacing: 1px;
+            }
+
+
+            .waiting-form {
+                display: block;
+
+                border-bottom: none;
+            }
+
+
+            .waiting-form input {
+                width: 100%;
+
+                border-bottom: 1px solid #171512;
+
+                margin-bottom: 15px;
+            }
+
+
+            .waiting-form button {
+                background: #171512;
+
+                color: white;
+
+                width: 100%;
+
+                padding: 16px;
+            }
+
+
+            .product-image {
+                min-height: 450px;
+            }
+
+
+            .product-placeholder {
+                width: 180px;
+
+                height: 340px;
+            }
+
+
+            .product-info h2 {
+                font-size: 43px;
+            }
+
+
+            .footer-container {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="index.html">NANDÉ</a>
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#product">The First Creation</a>
+            </li>
+
+            <li>
+                <a href="#story">Our Story</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-buttons">
+
+            <a
+                href="login.html"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-btn"
+            >
+                🛒 Cart
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            A New Expression Of Beauty
+        </div>
+
+
+        <h1>
+            NANDÉ
+        </h1>
+
+
+        <div class="hero-tagline">
+            FIND YOURSELF
+        </div>
+
+
+        <p class="hero-description">
+
+            A new chapter in luxury beauty is about to begin.
+
+            Meet the first creation from NANDÉ —
+            created for those who believe beauty is not
+            about becoming someone else.
+
+            It's about discovering yourself.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#launch"
+                class="btn-primary"
+            >
+                Discover The Launch
+            </a>
+
+
+            <a
+                href="#waiting"
+                class="btn-secondary"
+            >
+                Join The Waiting List
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     GRAND LAUNCH COUNTDOWN
+========================================= -->
+
+<section
+    class="launch-section"
+    id="launch"
+>
+
+    <div class="launch-label">
+        The Countdown Begins
+    </div>
+
+
+    <h2>
+        Something Beautiful Is Coming.
+    </h2>
+
+
+    <p class="launch-description">
+
+        Our first creation is almost ready.
+
+        Be among the first to experience NANDÉ.
+
+    </p>
+
+
+    <div class="countdown">
+
+        <div class="countdown-box">
+
+            <div
+                id="days"
+                class="countdown-number"
+            >
+                30
+            </div>
+
+            <div class="countdown-label">
+                Days
+            </div>
+
+        </div>
+
+
+        <div class="countdown-box">
+
+            <div
+                id="hours"
+                class="countdown-number"
+            >
+                00
+            </div>
+
+            <div class="countdown-label">
+                Hours
+            </div>
+
+        </div>
+
+
+        <div class="countdown-box">
+
+            <div
+                id="minutes"
+                class="countdown-number"
+            >
+                00
+            </div>
+
+            <div class="countdown-label">
+                Minutes
+            </div>
+
+        </div>
+
+
+        <div class="countdown-box">
+
+            <div
+                id="seconds"
+                class="countdown-number"
+            >
+                00
+            </div>
+
+            <div class="countdown-label">
+                Seconds
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="launchDate"
+        class="launch-date"
+    >
+        LAUNCHING SOON
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     WAITING LIST
+========================================= -->
+
+<section
+    class="waiting-section"
+    id="waiting"
+>
+
+    <div class="launch-label">
+        Early Access
+    </div>
+
+
+    <h2>
+        Be First.
+    </h2>
+
+
+    <p>
+
+        Join the NANDÉ waiting list and receive
+        early access to our first creation,
+        launch updates and exclusive surprises.
+
+    </p>
+
+
+    <form
+        class="waiting-form"
+        id="waitingForm"
+    >
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Your email address"
+            required
+        >
+
+
+        <button type="submit">
+
+            Join The List →
+
+        </button>
+
+    </form>
+
+
+    <div
+        id="formMessage"
+        class="form-message"
+    ></div>
+
+</section>
+
+
+
+<!-- =========================================
+     FIRST CREATION
+========================================= -->
+
+<section
+    class="product-section"
+    id="product"
+>
+
+    <div class="section-heading">
+
+        <span>
+            The First Creation
+        </span>
+
+
+        <h2>
+            One Product.<br>
+            One Beginning.
+        </h2>
+
+    </div>
+
+
+    <div class="product-layout">
+
+
+        <!-- PRODUCT VISUAL -->
+
+        <div class="product-image">
+
+            <div class="product-placeholder">
+
+                <div class="product-placeholder-inner">
+
+                    <div class="product-placeholder-name">
+                        NANDÉ
+                    </div>
+
+
+                    <div class="product-placeholder-sub">
+                        FIND YOURSELF
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="product-info">
+
+            <div class="eyebrow">
+                NANDÉ • 001
+            </div>
+
+
+            <h2>
+                The First Creation
+            </h2>
+
+
+            <p>
+
+                A signature beauty creation designed
+                to become the beginning of your
+                NANDÉ ritual.
+
+            </p>
+
+
+            <p>
+
+                Refined. Minimal. Intentional.
+
+                Created with the philosophy that
+                luxury doesn't need to shout.
+
+            </p>
+
+
+            <div class="price">
+                Launching Soon
+            </div>
+
+
+            <div class="product-details">
+
+                <div class="product-detail">
+
+                    <span>
+                        Collection
+                    </span>
+
+                    <span>
+                        NANDÉ 001
+                    </span>
+
+                </div>
+
+
+                <div class="product-detail">
+
+                    <span>
+                        Availability
+                    </span>
+
+                    <span>
+                        Limited Launch
+                    </span>
+
+                </div>
+
+
+                <div class="product-detail">
+
+                    <span>
+                        Launch
+                    </span>
+
+                    <span>
+                        September 2026
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#waiting"
+                class="btn-primary"
+            >
+                Get Early Access
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     BRAND STORY
+========================================= -->
+
+<section
+    class="story-section"
+    id="story"
+>
+
+    <div class="story-inner">
+
+        <span>
+            THE NANDÉ PHILOSOPHY
+        </span>
+
+
+        <h2>
+            FIND YOURSELF.
+        </h2>
+
+
+        <p>
+
+            NANDÉ was created around a simple idea:
+
+            luxury beauty should not tell you who
+            to become.
+
+        </p>
+
+
+        <p>
+
+            It should give you the confidence to
+            discover who you already are.
+
+        </p>
+
+
+        <p>
+
+            Every detail of NANDÉ is intentionally
+            designed — from the product experience
+            to the packaging, visual identity and
+            ritual of using it.
+
+        </p>
+
+
+        <p class="find-yourself">
+            FIND YOURSELF
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     BRAND VALUES
+========================================= -->
+
+<section class="values-section">
+
+    <div class="section-heading">
+
+        <span>
+            What We Believe
+        </span>
+
+
+        <h2>
+            Less. But Better.
+        </h2>
+
+    </div>
+
+
+    <div class="values-grid">
+
+
+        <div class="value-card">
+
+            <div class="value-number">
+                01
+            </div>
+
+
+            <h3>
+                Intentional Luxury
+            </h3>
+
+
+            <p>
+
+                We believe luxury is found in
+                thoughtful details, refined design
+                and experiences that feel effortless.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="value-card">
+
+            <div class="value-number">
+                02
+            </div>
+
+
+            <h3>
+                Modern Beauty
+            </h3>
+
+
+            <p>
+
+                NANDÉ is built for a new generation —
+                confident, expressive and unapologetically
+                themselves.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="value-card">
+
+            <div class="value-number">
+                03
+            </div>
+
+
+            <h3>
+                Made With Purpose
+            </h3>
+
+
+            <p>
+
+                Every product, package and experience
+                exists for a reason. Nothing unnecessary.
+                Nothing accidental.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FINAL CTA
+========================================= -->
+
+<section class="final-section">
+
+    <h2>
+        Find Yourself.
+    </h2>
+
+
+    <p>
+
+        The first NANDÉ creation is coming.
+
+        Be there from the beginning.
+
+    </p>
+
+
+    <a
+        href="#waiting"
+        class="btn-primary"
+    >
+        Join The Waiting List
+    </a>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer id="contact">
+
+    <div class="footer-container">
+
+
+        <div>
+
+            <h2>
+                NANDÉ
+            </h2>
+
+
+            <p style="margin-top:15px;">
+
+                FIND YOURSELF.
+
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Explore
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    <a href="#home">
+                        Home
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#product">
+                        The First Creation
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#story">
+                        Our Story
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#waiting">
+                        Waiting List
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Customer Care
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    <a href="#">
+                        Shipping Policy
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Returns
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Privacy Policy
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Terms & Conditions
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Follow NANDÉ
+            </h3>
+
+
+            <p>
+                Instagram
+            </p>
+
+
+            <p>
+                Facebook
+            </p>
+
+
+            <p>
+                YouTube
+            </p>
+
+
+            <p>
+                Contact Us
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 NANDÉ. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+/* =========================================
+   GRAND LAUNCH COUNTDOWN
+
+   CHANGE THIS DATE TO YOUR ACTUAL
+   LAUNCH DATE AND TIME.
+
+   CURRENT EXAMPLE:
+   10 SEPTEMBER 2026
+   8:00 PM IST
+========================================= */
+
+
+const launchDate =
+    new Date(
+        "2026-09-10T20:00:00+05:30"
+    ).getTime();
+
+
+
+function updateCountdown() {
+
+
+    const now =
+        new Date().getTime();
+
+
+    const distance =
+        launchDate - now;
+
+
+
+    /* ==============================
+       LAUNCH ARRIVED
+    ============================== */
+
+
+    if (distance <= 0) {
+
+
+        document.getElementById("days")
+            .innerText = "00";
+
+
+        document.getElementById("hours")
+            .innerText = "00";
+
+
+        document.getElementById("minutes")
+            .innerText = "00";
+
+
+        document.getElementById("seconds")
+            .innerText = "00";
+
+
+        document.getElementById("launchDate")
+            .innerText =
+            "THE FIRST CREATION HAS ARRIVED.";
+
+
+        return;
+
+    }
+
+
+
+    /* ==============================
+       CALCULATE DAYS
+    ============================== */
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+
+    /* ==============================
+       CALCULATE HOURS
+    ============================== */
+
+
+    const hours =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+
+    /* ==============================
+       CALCULATE MINUTES
+    ============================== */
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+
+    /* ==============================
+       CALCULATE SECONDS
+    ============================== */
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000 * 60)) /
+            1000
+        );
+
+
+
+    /* ==============================
+       DISPLAY
+    ============================== */
+
+
+    document.getElementById("days")
+        .innerText =
+        String(days).padStart(2, "0");
+
+
+    document.getElementById("hours")
+        .innerText =
+        String(hours).padStart(2, "0");
+
+
+    document.getElementById("minutes")
+        .innerText =
+        String(minutes).padStart(2, "0");
+
+
+    document.getElementById("seconds")
+        .innerText =
+        String(seconds).padStart(2, "0");
+
+
+    document.getElementById("launchDate")
+        .innerText =
+        "LAUNCHING 10 SEPTEMBER 2026 • 8:00 PM IST";
+
+}
+
+
+/* Start countdown */
+
+updateCountdown();
+
+
+/* Update every second */
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+
+/* =========================================
+   WAITING LIST FORM
+========================================= */
+
+const waitingForm =
+    document.getElementById(
+        "waitingForm"
+    );
+
+
+waitingForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim();
+
+
+        const message =
+            document.getElementById(
+                "formMessage"
+            );
+
+
+        if (!email) {
+
+            message.innerText =
+                "Please enter your email.";
+
+            return;
+
+        }
+
+
+        /*
+            TEMPORARY LOCAL STORAGE
+
+            This does NOT use an API.
+
+            Emails are stored only in the
+            visitor's own browser.
+
+            For a real launch waiting list,
+            connect this form to your database
+            later.
+        */
+
+
+        let waitingList =
+            JSON.parse(
+                localStorage.getItem(
+                    "nandeWaitingList"
+                )
+            ) || [];
+
+
+        if (
+            waitingList.includes(email)
+        ) {
+
+            message.innerText =
+                "You're already on the NANDÉ waiting list.";
+
+            return;
+
+        }
+
+
+        waitingList.push(email);
+
+
+        localStorage.setItem(
+            "nandeWaitingList",
+            JSON.stringify(
+                waitingList
+            )
+        );
+
+
+        message.innerText =
+            "You're on the list. Welcome to NANDÉ.";
+
+
+        document.getElementById(
+            "email"
+        ).value = "";
+
+    }
+);
+
+
+</script>
 
 
 </body>
